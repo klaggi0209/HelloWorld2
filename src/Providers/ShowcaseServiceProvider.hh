@@ -19,5 +19,12 @@ class ShowcaseServiceProvider extends RouteServiceProvider
 	public function map(Router $router):void
 	{
 		$router->get('showcase', 'Showcase\Controllers\ContentController@landingPage');
+
+		$router->get('showcase{spacer}a-{itemId}', 'Showcase\Controllers\ContentController@showItemView')
+			->where('spacer','(/.+?/)|(/)')
+			->where('itemId','[0-9]+');
+
+		// Last route to define!
+		$router->get('showcase/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ContentController@showCategory');
 	}
 }

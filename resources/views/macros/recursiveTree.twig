@@ -1,0 +1,24 @@
+{% macro output(category, baseurl) %}
+	{% for item in category %}
+		{% if item.plenty_category_level == 1 %}
+			     
+	            {% if item.children.0 != null %}
+	            	<li class="dropdown">
+		            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.plenty_category_details_name }}<span class="caret"></span></a>
+		            	<ul class="dropdown-menu">
+							{{ _self.output(item.children, (baseurl ~ item.plenty_category_details_name_url ~ '/') ) }}
+						</ul>
+				{% else %}
+					<li>
+		            	<a href="{{ baseurl ~ item.plenty_category_details_name_url }}">{{ item.plenty_category_details_name }}</a>
+	            {% endif %}
+
+	        </li>
+	    {% elseif item.plenty_category_level == 2 %}
+	    	<li><a href="{{ baseurl ~ item.plenty_category_details_name_url }}">{{ item.plenty_category_details_name }}</a></li>
+	    	{% for it in item.children %}
+	    		<li><a href="{{ baseurl ~ item.plenty_category_details_name_url }}/{{ it.plenty_category_details_name_url }}">&nbsp;-{{ it.plenty_category_details_name }}</a></li>
+	    	{% endfor %}
+		{% endif %}
+	{% endfor %}
+{% endmacro %}

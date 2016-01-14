@@ -1,0 +1,8 @@
+{% extends 'PlentyPluginShowcase::content.NavigationPage' %}
+
+{% block ViewFrame %}
+	<p>Itemausgabe:</p>
+    {% for item in items %}
+    	<p>- <a href="{{url('showcase')}}/{{item.itemDescription.urlContent}}/a-{{item.itemDescription.itemId}}">{{ item.itemDescription.name1 }}</a></p>
+    {% endfor %}
+{% endblock %}

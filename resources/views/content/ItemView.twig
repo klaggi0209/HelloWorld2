@@ -1,0 +1,11 @@
+{% extends 'PlentyPluginShowcase::content.NavigationPage' %}
+
+{% block ViewFrame %}
+	<div class="jumbotron row">
+		<p><h1>{{ item.itemDescription.name1 }}</h1></p>
+		{# if item.variationImageList.0 != null #}
+			<div class="col-lg-8">{{ item.itemDescription.description|raw }}</div>
+			<div class="col-lg-4"><img src="{{ url() }}/{{ item.variationImageList.0.path }}" width="100%"></div>
+		
+	</div>
+{% endblock %}
