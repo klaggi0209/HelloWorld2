@@ -10,6 +10,7 @@ use Plenty\Plugin\ConfigRepository;
 
 use Plenty\Modules\Item\DataLayer\Contracts\ItemDataLayerRepositoryContract;
 use Plenty\Modules\Category\Contracts\CategoryRepository;
+use Plenty\Modules\Category\Models\Category;
 
 /**
  * Class ContentController
@@ -25,12 +26,12 @@ class ContentController extends Controller
 	public function showItemView(Twig $twig, CategoryRepository $categoryRepo, ItemDataLayerRepositoryContract $itemRepo, string $spacer = "", string $itemId = ""):string
 	{
 		$categoryTree = $categoryRepo->getSitemapTree('de');
-		$item = $itemRepo->search(	Map{'itemDescription'=>['name1','itemId','lang','urlContent', 'description'], 'variationImageList'=>['path']}, 
-									Map{'itemBase.hasId'=>['itemId'=>$itemId], 'variationBase.isPrimary?' => []}, 
-									Map{'language'=>'de'}
+		$item = $itemRepo->search(	['itemDescription'=>['name1','itemId','lang','urlContent', 'description'], 'variationImageList'=>['path']],
+									['itemBase.hasId'=>['itemId'=>$itemId], 'variationBase.isPrimary?' => []],
+									['language'=>'de']
 								);
-		
-		$templateData = Map{'item' => $item->current(), 'categoryTree' => $categoryTree};
+
+		$templateData = ['item' => $item->current(), 'categoryTree' => $categoryTree];
 
 		return $twig->render('PlentyPluginShowcase::content.ItemView', $templateData);
 	}
@@ -39,19 +40,73 @@ class ContentController extends Controller
 	{
 		$categoryTree = $categoryRepo->getSitemapTree('de');
 		$category = $categoryRepo->findCategoryByUrl($level1, $level2, $level3, $level4, $level5, $level6);
+
+		$categoryFilter = $this->getCategoryFilter($categoryRepo, $category);
+
+		$columns = [
+			'itemDescription' => [
+				'name1',
+				'itemId',
+				'lang',
+				'urlContent'
+			],
+			'variationRetailPrice' => [
+				'price'
+			],
+			'variationImageList' => [
+				'path'
+			],
+		];
+
+		$filter = [
+			'variationCategory.hasCategoryBranch' => $categoryFilter,
+			'variationBase.isPrimary?' => []
+		];
+
+		$params = [
+			'language' => 'de'
+		];
+
+		$items = $itemRepo->search($columns, $filter, $params);
+
+		$templateData = ['categoryTree' => $categoryTree, 'items' => $items];
+
+		return $twig->render('PlentyPluginShowcase::content.CategoryView', $templateData);
+	}
+
+	private function getCategoryFilter(CategoryRepository $categoryRepo, ?Category $category):array<string,int>
+	{
 		$categoryId = 0;
+
+		$categoryFilter = [
+			'category1' => 0,
+			'category2' => 0,
+			'category3' => 0,
+			'category4' => 0,
+			'category5' => 0,
+			'category6' => 0,
+		];
+
 		if ($category != null)
 		{
 			$categoryId = $category->plenty_category_id;
+			$categoryLevel = $category->plenty_category_level;
+
+			$categoryFilter['category'.$categoryLevel] = $category->plenty_category_id;
+			$parentCategoryId = $category->plenty_category_parent_category_id;
+
+			for($level = $categoryLevel; $level > 1 && $category != null; $level--)
+			{
+				$category = $categoryRepo->get($parentCategoryId, 'de');
+
+				if ($category != null)
+				{
+					$categoryFilter['category'.$category->plenty_category_level] = $category->plenty_category_id;
+					$parentCategoryId = $category->plenty_category_parent_category_id;
+				}
+			}
 		}
 
-		$items = $itemRepo->search(	Map{'itemDescription'=>['name1','itemId','lang','urlContent']}, 
-									Map{'variationCategory.hasCategory'=>['categoryId'=>$categoryId], 'variationBase.isPrimary?' => []}, 
-									Map{'language'=>'de'}
-								);
-
-		$templateData = Map{'categoryTree' => $categoryTree, 'items' => $items};
-
-		return $twig->render('PlentyPluginShowcase::content.CategoryView', $templateData);
+		return $categoryFilter;
 	}
 }

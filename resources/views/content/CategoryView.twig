@@ -1,8 +1,49 @@
 {% extends 'PlentyPluginShowcase::content.NavigationPage' %}
 
 {% block ViewFrame %}
-	<p>Itemausgabe:</p>
-    {% for item in items %}
-    	<p>- <a href="{{url('showcase')}}/{{item.itemDescription.urlContent}}/a-{{item.itemDescription.itemId}}">{{ item.itemDescription.name1 }}</a></p>
-    {% endfor %}
+
+<div class="col-lg-12">
+	<div class="categoryView isGridView">
+		<ul class="row categoryDetails">
+
+			{% for item in items %}
+			<!-- item box -->
+			{% set itemLink = url('showcase') ~ '/' ~ item.itemDescription.urlContent ~ '/a-' ~ item.itemDescription.itemId %}
+			<li class="col-xs-12 col-sm-4 col-md-3 col-lg-2 margin-bottom-2 itemBox">
+
+				<div class="itemBoxInner">
+					<div class="h-lg-2 h-md-3 h-sm-2 h-xs-6" id="previewImages-{{item.itemDescription.itemId}}">
+
+						<div class="imageBox h-lg-2 h-md-3 h-sm-2 h-xs-6">
+							<img data-plenty="click:Redirect.to( '{{itemLink}}' ); UI.initLazyload(this, 'fadeIn')" alt="{{ item.itemDescription.name1 }}" data-original="{{ image_url(item.variationImageList.0.path) }}" src="{{ image_url_preview(item.variationImageList.0.path) }}" class="center img-responsive id-{{item.itemDescription.itemId}} js-link" style="display: inline-block;">
+						</div>
+
+					</div>
+
+					<!-- item info -->
+					<a data-plenty-href="item-{{item.itemDescription.itemId}}" href="{{itemLink}}" class="name block">{{ item.itemDescription.name1 }}</a>
+
+					<p data-plenty="click:Redirect.to( '{{itemLink}}' )" class="price bold">
+						<span class="large linkToItem">{{ number_format(item.variationRetailPrice.price) }}&thinsp;€</span>
+					</p>
+
+					<!-- ./item info -->
+					<div class="visible-hover">
+						<div>
+
+								<div class="buttonBox isViewItem">
+									<a href="{{itemLink}}" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> Artikel ansehen</a>
+								</div>
+
+						</div>
+					</div>
+
+				</div>
+			</li>
+			<!-- ./item box -->
+			{% endfor %}
+
+		</ul>
+	</div>
+</div>
 {% endblock %}

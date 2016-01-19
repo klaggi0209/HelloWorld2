@@ -1,30 +1,19 @@
 <?hh // strict
 namespace Showcase\Providers;
 
-use Plenty\Plugin\RouteServiceProvider;
-use Plenty\Plugin\Routing\Router;
+use Plenty\Plugin\ServiceProvider;
+use Plenty\Plugin\Templates\Twig;
+use Showcase\Extensions\TwigPluginStringUtils;
 
-class ShowcaseServiceProvider extends RouteServiceProvider
+class ShowcaseServiceProvider extends ServiceProvider
 {
-	/**
-	 * 
-	 */
 	public function register():void
 	{
+		$this->getApplication()->register(\Showcase\Providers\ShowcaseRouteServiceProvider::class);
 	}
 
-	/**
-	 * 
-	 */
-	public function map(Router $router):void
+	public function boot(Twig $twig):void
 	{
-		$router->get('showcase', 'Showcase\Controllers\ContentController@landingPage');
-
-		$router->get('showcase{spacer}a-{itemId}', 'Showcase\Controllers\ContentController@showItemView')
-			->where('spacer','(/.+?/)|(/)')
-			->where('itemId','[0-9]+');
-
-		// Last route to define!
-		$router->get('showcase/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ContentController@showCategory');
+		$twig->addExtension(TwigPluginStringUtils::class);
 	}
 }
