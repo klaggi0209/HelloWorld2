@@ -3,7 +3,6 @@ namespace Showcase\Providers;
 
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Templates\Twig;
-use Showcase\Extensions\TwigPluginStringUtils;
 
 class ShowcaseServiceProvider extends ServiceProvider
 {
@@ -14,6 +13,6 @@ class ShowcaseServiceProvider extends ServiceProvider
 
 	public function boot(Twig $twig):void
 	{
-		$twig->addExtension(TwigPluginStringUtils::class);
+		$twig->addExtension('Twig_Extensions_Extension_Intl');
 	}
 }

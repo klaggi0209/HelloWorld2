@@ -26,10 +26,38 @@ class ContentController extends Controller
 	public function showItemView(Twig $twig, CategoryRepository $categoryRepo, ItemDataLayerRepositoryContract $itemRepo, string $spacer = "", string $itemId = ""):string
 	{
 		$categoryTree = $categoryRepo->getSitemapTree('de');
-		$item = $itemRepo->search(	['itemDescription'=>['name1','itemId','lang','urlContent', 'description'], 'variationImageList'=>['path']],
-									['itemBase.hasId'=>['itemId'=>$itemId], 'variationBase.isPrimary?' => []],
-									['language'=>'de']
-								);
+
+		$columns = [
+			'itemDescription' => [
+				'name1',
+				'itemId',
+				'lang',
+				'urlContent',
+				'description'
+			],
+			'variationRetailPrice' => [
+				'price'
+			],
+			'variationImageList' => [
+				'path'
+			],
+			'variationBase' => [
+				'customNumber',
+			]
+		];
+
+		$filter = [
+			'itemBase.hasId' => [
+				'itemId' => $itemId
+			],
+			'variationBase.isPrimary?' => []
+		];
+
+		$params = [
+			'language' => 'de'
+		];
+
+		$item = $itemRepo->search($columns, $filter, $params);
 
 		$templateData = ['item' => $item->current(), 'categoryTree' => $categoryTree];
 
