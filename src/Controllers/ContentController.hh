@@ -87,9 +87,13 @@ class ContentController extends Controller
 		];
 
 		$filter = [
-			'variationCategory.hasCategoryBranch' => $categoryFilter,
 			'variationBase.isPrimary?' => []
 		];
+
+		if(count($categoryFilter))
+		{
+			$filter['variationCategory.hasCategoryBranch'] = $categoryFilter;
+		}
 
 		$params = [
 			'language' => 'de'
@@ -106,20 +110,22 @@ class ContentController extends Controller
 	{
 		$categoryId = 0;
 
-		$categoryFilter = [
-			'category1' => 0,
-			'category2' => 0,
-			'category3' => 0,
-			'category4' => 0,
-			'category5' => 0,
-			'category6' => 0,
-		];
+		$categoryFilter = [];
 
 		if ($category != null)
 		{
 			$categoryId = $category->plenty_category_id;
 			$categoryLevel = $category->plenty_category_level;
 
+			$categoryFilter = [
+				'category1' => 0,
+				'category2' => 0,
+				'category3' => 0,
+				'category4' => 0,
+				'category5' => 0,
+				'category6' => 0,
+			];
+			
 			$categoryFilter['category'.$categoryLevel] = $category->plenty_category_id;
 			$parentCategoryId = $category->plenty_category_parent_category_id;
 
