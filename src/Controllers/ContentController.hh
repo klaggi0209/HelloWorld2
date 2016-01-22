@@ -103,6 +103,11 @@ class ContentController extends Controller
 
 		$templateData = ['categoryTree' => $categoryTree, 'items' => $items];
 
+		if ($level1 == null)
+		{
+			$templateData['navigationHome'] = 'true';
+		}
+
 		return $twig->render('PlentyPluginShowcase::content.CategoryView', $templateData);
 	}
 

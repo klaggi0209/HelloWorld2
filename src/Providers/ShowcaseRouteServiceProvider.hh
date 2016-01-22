@@ -26,6 +26,8 @@ class ShowcaseRouteServiceProvider extends RouteServiceProvider
 			->where('spacer','(/.+?/)|(/)')
 			->where('itemId','[0-9]+');
 
+		$router->get('showcase/navigation', 'Showcase\Controllers\ContentController@showCategory');
+
 		// Last route to define!
 		$router->get('showcase/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ContentController@showCategory');
 	}
