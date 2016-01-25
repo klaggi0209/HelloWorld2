@@ -20,7 +20,17 @@
 			<div id="description" class="tab-pane fade">
 		{% endif %}
 		    <h3>Description</h3>
-		    <p>Eine Erklärung zur Navigation</p>
+		    <p>Ablauf:</p>
+		    <ul>
+		    	<li>Wenn die Route '/showcase' ist -> rufe Controller auf (landingPage) -> LandingPage.twig</li>
+		    	<li>Wenn die Route mit '/a-123' oder anderen Zahlen statt der 123 endet -> rufe Controller auf (showItemView)</li>
+		    	<li>Wenn die Route '/showcase/navigation/' ist -> rufe Controller auf (showCategory)</li>
+		    	<li>Wenn keine andere Route gefunden wurde -> rufe Controller auf (showCategory)</li>
+		    	<li>Checke ob eine Kategorie existiert, die der Adresse nach "/showcase/" entspricht</li>
+		    	<li>Wenn ja -> Zeige alle Artikel der aktiven Kategorie (CategoryView.twig) | Wenn nein -> Weiterleitung zu 404 (in Demo auf Navigationsstartseite)</li>
+		    	<li>Bei Klick auf Artikel -> rufe Controller auf (showItemView)</li>
+		    	<li>Zeige Artikeldetailansicht (ItemView.twig)</li>
+		    </ul>
 		</div>
 		{% if navigationHome %}
 			<div id="demo" class="tab-pane fade">

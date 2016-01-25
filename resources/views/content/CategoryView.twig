@@ -15,7 +15,9 @@
 					<div class="h-lg-2 h-md-3 h-sm-2 h-xs-6">
 
 						<div class="imageBox h-lg-2 h-md-3 h-sm-2 h-xs-6">
-							<img alt="{{ item.itemDescription.name1 }}" src="{{ image_url_preview(item.variationImageList.0.path) }}" class="center img-responsive" style="display: inline-block;">
+							<a data-plenty-href="item-{{item.itemDescription.itemId}}" href="{{itemLink}}">
+								<img alt="{{ item.itemDescription.name1 }}" src="{{ image_url_preview(item.variationImageList.0.path) }}" class="center img-responsive" style="display: inline-block;">
+							</a>
 						</div>
 
 					</div>
