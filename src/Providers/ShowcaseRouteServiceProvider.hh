@@ -28,6 +28,8 @@ class ShowcaseRouteServiceProvider extends RouteServiceProvider
 
 		$router->get('showcase/navigation', 'Showcase\Controllers\ContentController@showCategory');
 
+		$router->get('showcase/{caption}', 'Showcase\Controllers\ContentController@showCaption');
+
 		// Last route to define!
 		$router->get('showcase/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ContentController@showCategory');
 	}

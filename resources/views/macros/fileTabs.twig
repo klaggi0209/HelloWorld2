@@ -1,0 +1,21 @@
+{% macro output( id, tabs ) %}
+
+    <ul class="nav nav-tabs" role="tablist">
+        {% for label in tabs|keys %}
+            <li role="presentation"{% if loop.first %} class="active"{% endif %}>
+                <a href="#{{ id | cssSelector }}_{{ loop.index }}" role="tab" data-toggle="tab">
+                	{{ label }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="tab-content">
+        {% for label, file in tabs %}
+            <div id="{{ id | cssSelector }}_{{ loop.index }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
+                {{ include( file ) | escape }}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endmacro %}

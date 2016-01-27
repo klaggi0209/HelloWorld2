@@ -4,6 +4,7 @@ namespace Showcase\Extensions;
 
 use Plenty\Plugin\Templates\Extensions\Twig_Extension;
 use Plenty\Plugin\Templates\Extensions\Twig_SimpleFunction;
+use Plenty\Plugin\Templates\Extensions\Twig_SimpleFilter;
 use Plenty\Plugin\Templates\Factories\TwigFactory;
 use Plenty\Plugin\Application;
 
@@ -26,17 +27,27 @@ class TwigPluginStringUtils extends Twig_Extension
 		return 'Showcase_Extension_Plugin_StringUtils';
 	}
 
-  /**
-   *
+	/**
+	 *
 	 * @return array
-   */
-  public function getFunctions():array<Twig_SimpleFunction>
-  {
+	 */
+	public function getFunctions():array<Twig_SimpleFunction>
+	{
 		return [
 			$this->factory->createSimpleFunction('number_format', [$this, 'numberFormat']),
 		];
-  }
+	}
 
+	/**
+	 * @return array
+	 */
+	public function getFilters():array<Twig_SimpleFilter>
+	{
+		return [
+			$this->factory->createSimpleFilter('cssSelector', [$this, 'formatCssSelector']),
+		];
+	}
+	
 
 	/**
 	 * Format the given number with comma as decimal delimiter.
@@ -56,4 +67,33 @@ class TwigPluginStringUtils extends Twig_Extension
 		
 		return number_format($n, $m, ',', '');
 	}
+
+	/**
+     * Convert the given string to a valid CSS selector.
+     * @param string $in 	The unformatted input
+     * @ return string 		a lower case css selector
+     */
+    public function formatCssSelector( string $in ):string
+    {
+    	// remove HTML-tags
+    	$in = strip_tags( $in );
+
+    	// transform to lower case string
+		$in = strtolower( $in );
+
+		// replace special characters
+		$in = str_replace( 
+			array( "ä", "ö", "ü", "Ä", "Ö", "Ü", "ß"), 
+			array( "ae", "oe", "ue", "ae", "oe", "ue", "ss"),
+			$in
+		);
+
+		// replace whitespaces
+		$in = preg_replace( "/[\s]+/", "-", $in );
+
+		// remove invalid characters
+		$in = preg_replace( "/[^a-zA-Z0-9\-]/", "", $in );
+
+		return $in;
+    }
 }

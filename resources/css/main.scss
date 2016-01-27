@@ -29,3 +29,42 @@ ul.categoryDetails
 {
   display: block;
 }
+
+.fixed-right
+{
+  position: fixed;
+  top: 92px;
+  right: 0;
+  width: 25%;
+  font-size: .9em;
+}
+
+.fixed-right a:hover
+{
+  text-decoration: none;
+}
+
+.nav.nav-list
+{
+  margin-bottom: 24px;
+}
+
+.nav.nav-list > li
+{
+  padding: 4px 0;
+}
+
+.nav.nav-list > li > a
+{
+  padding: 2px 12px;
+  border-left: 2px solid transparent;
+}
+
+.nav.nav-list > li > a:hover {
+  background-color: transparent;
+}
+
+.nav.nav-list > li.active > a
+{
+  border-color: #777;
+}

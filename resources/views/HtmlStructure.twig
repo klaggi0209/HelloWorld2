@@ -17,7 +17,9 @@
         <![endif]-->
 
     </head>
+    {% block BodyStart %}
     <body>
+    {% endblock %}
 
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -32,27 +34,30 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grundlegendes <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ url('showcase') }}/basics">Grundlagen</a>
+                            <!--ul class="dropdown-menu">
                                 <li><a href="#">Einleitung</a></li>
                                 <li><a href="#">Entwicklungsumgebung</a></li>
                                 <li><a href="#">Das Plugin</a></li>
                                 <li><a href="#">Coding</a></li>
                                 <li><a href="#">Veröffentlichung</a></li>
                                 <li><a href="#">Wartung &amp; Testing</a></li>
-                            </ul>
+                            </ul -->
                         </li>
-                        <li class="dropdown">
+                        <li>
+                            <a href="{{ url('showcase') }}/categories">Kategorie-Templates</a>
+                        </li>
+                        <!--li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Front-End <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ url('showcase') }}/navigation">Navigation Beispiel</a></li>
                                 <li><a href="#">ProducerRepository</a></li>
                                 <li><a href="#">DataLayerRepository</a></li>
                             </ul>
-                        </li>
+                        </li -->
                     </ul>
-                </div><!--/.nav-collapse -->
+                </div>
             </div>
         </nav>
 
@@ -66,6 +71,7 @@
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{ plugin_path('PlentyPluginShowcase') }}/js/bootstrap.min.js"></script>
+        <script src="{{ plugin_path('PlentyPluginShowcase') }}/js/scripts.js"></script>
 
     </body>
 </html>
