@@ -13,7 +13,8 @@
     <div class="tab-content">
         {% for label, file in tabs %}
             <div id="{{ id | cssSelector }}_{{ loop.index }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
-                {{ include( file ) | escape }}
+                {% set fileName = label | split('.') %}
+                <div class="editor-container" ace-mode="{{ fileName | last }}">{{ include( file ) | escape }}</div>
             </div>
         {% endfor %}
     </div>

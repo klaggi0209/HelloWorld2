@@ -1,0 +1,20 @@
+{% extends 'PlentyPluginShowcase::templates.Example' %}
+
+{% block Description %}
+<h1>Kategorie-Daten verarbeiten</h1>
+
+<p>
+    Daten von Kategorien können mithilfe des <code>CategoryRepository</code> geladen werden.
+</p>
+{% endblock %}
+
+{% block ExampleOutput %}
+    {{ categories.0.plenty_category_details_name }}
+{% endblock %}
+
+{% set exampleId = "category-repository" %}
+{% set exampleFiles = {
+    "ItemList.twig": "PlentyPluginShowcase::examples.categories.ItemList.twig",
+    "ListController.hh": "PlentyPluginShowcase::examples.categories.ListController.twig",
+    "RouteProvider.hh": "PlentyPluginShowcase::examples.categories.RouteProvider.twig"
+} %}

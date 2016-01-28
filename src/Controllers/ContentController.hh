@@ -148,11 +148,5 @@ class ContentController extends Controller
 
 		return $categoryFilter;
 	}
-
-	public function showCaption(Twig $twig, string $caption):string
-	{
-		
-		return $twig->render('PlentyPluginShowcase::content.' . $caption );
-	}
 	 
 }

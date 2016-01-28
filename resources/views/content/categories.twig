@@ -1,9 +1,5 @@
-{% extends 'PlentyPluginShowcase::HtmlStructure' %}
-{% import 'PlentyPluginShowcase::macros.tableOfContents' as contents %}
+{% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
-{%  block MainFrame %}
-
-    {{ contents.output({
-        "Artikel-Listen"        : "PlentyPluginShowcase::content.categories.categoryList.twig"
-    }) }}
-{% endblock %}
+{% set sections = {
+    "Category Repository"        : "PlentyPluginShowcase::content.categories.CategoryRepo.twig"
+} %}

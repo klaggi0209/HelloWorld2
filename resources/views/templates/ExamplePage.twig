@@ -1,0 +1,53 @@
+{% extends 'PlentyPluginShowcase::HtmlStructure' %}
+
+{%  block MainFrame %}
+<div class="row">
+    <div class="col-lg-9 col-md-9">
+
+        {% block Introduction %}{% endblock %}
+
+        {% for label, section in sections %}
+            <div id="{{ label | cssSelector }}">
+                {{ include( section ) }}
+            </div>
+        {%  endfor %}
+    </div>
+
+    <div class="col-lg-3 col-md-3 fixed-right" id="{{ navId | default('sidebar-nav') }}">
+        <ul class="nav nav-list">
+            {% for label in sections | keys %}
+                <li>
+                    <a href="#{{ label | cssSelector }}" data-scrollTo="#{{ label | cssSelector }}" data-scrollOffset="70">{{ label }}</a>
+                </li>
+            {%  endfor %}
+            </li>
+        </ul>
+        <a href="#" data-scrollTo="0">Zurück nach oben</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block AdditionalScripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ext-static_highlight.js"></script>
+
+    <script>
+        var highlight = ace.require("ace/ext/static_highlight");
+        var dom = ace.require("ace/lib/dom");
+
+        function qsa(sel) {
+            return Array.apply(null, document.querySelectorAll(sel));
+        }
+        qsa("[ace-mode]").forEach(function (codeEl) {
+            var mode = codeEl.getAttribute("ace-mode");
+            if( mode == "hh" ) mode = "php";
+            highlight(codeEl, {
+                mode: "ace/mode/" + mode,
+                showGutter: true,
+                trim: true
+            }, function (highlighted) {
+
+            });
+        });
+    </script>
+{% endblock %}
