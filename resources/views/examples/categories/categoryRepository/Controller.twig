@@ -1,0 +1,27 @@
+<?hh //strict
+
+namespace Showcase\Controllers;
+
+use Plenty\Plugin\Controller;
+use Plenty\Plugin\Templates\Twig;
+
+use Plenty\Modules\Category\Contracts\CategoryRepository;
+
+class CategoryController extends Controller
+{
+    public function showCategoryLists( Twig $twig, CategoryRepository $categoryRepository ):string
+    {
+        // request categories with type 'content' as list
+        $categoryList = $categoryRepository->getSitemapList( 'content' );
+
+        // request categories with type 'item' as tree
+        $categoryTree = $categoryRepository->getSitemapTree( 'item' );
+
+        $templateData = array(
+            'categoryList' => $categoryList,
+            'categoryTree' => $categoryTree
+        );
+
+        return $twig->render('PlentyPluginShowcase::Category', $templateData);
+    }
+}

@@ -1,3 +1,15 @@
+{#
+    Provided blocks:
+     - Introduction
+     - AdditionalScripts
+
+    Required variables:
+     - sections: Object containing sections to include into page ( label => file )
+     - navId (optional): an id referencing the generated fixed navigation
+
+    Provided variables:
+     - sectionId: The id referencing the container element of the current section
+#}
 {% extends 'PlentyPluginShowcase::HtmlStructure' %}
 
 {%  block MainFrame %}
@@ -7,8 +19,9 @@
         {% block Introduction %}{% endblock %}
 
         {% for label, section in sections %}
-            <div id="{{ label | cssSelector }}">
-                {{ include( section ) }}
+            {% set sectionId = label | cssSelector %}
+            <div id="{{ sectionId }}" class="example-container">
+                {{ include( section, {sectionId: sectionId} ) }}
             </div>
         {%  endfor %}
     </div>
@@ -46,8 +59,17 @@
                 showGutter: true,
                 trim: true
             }, function (highlighted) {
-
             });
         });
+    </script>
+
+    <script>
+        (function($) {
+            $(document).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip({
+                    trigger: 'hover click focus'
+                });
+            });
+        } (jQuery));
     </script>
 {% endblock %}

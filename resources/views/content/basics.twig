@@ -1,16 +1,15 @@
-{% extends 'PlentyPluginShowcase::HtmlStructure' %}
-{% import 'PlentyPluginShowcase::macros.tableOfContents' as contents %}
+{% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
+
+{% set navId = "sidebar-nav" %}
 
 {% block BodyStart %}
-    <body data-spy="scroll" data-target="#sidebar-nav">
+    <body data-spy="scroll" data-target="#{{ navId }}">
 {% endblock %}
 
-{%  block MainFrame %}
 
-    {{ contents.output({
-        "Einleitung"        : "PlentyPluginShowcase::content.basics.introduction.twig",
-        "Werkzeuge & IDEs"  : "PlentyPluginShowcase::content.basics.ide.twig",
-        "Installation"      : "PlentyPluginShowcase::content.basics.installation.twig",
-        "Veröffentlichung"  : "PlentyPluginShowcase::content.basics.deployment.twig"
-    }) }}
-{% endblock %}
+{% set sections = {
+"Einleitung"        : "PlentyPluginShowcase::content.basics.introduction.twig",
+"Werkzeuge & IDEs"  : "PlentyPluginShowcase::content.basics.ide.twig",
+"Installation"      : "PlentyPluginShowcase::content.basics.installation.twig",
+"Veröffentlichung"  : "PlentyPluginShowcase::content.basics.deployment.twig"
+} %}

@@ -1,10 +1,20 @@
+{#
+    Provided blocks:
+     - Description
+     - ExampleOutput
+
+    Required variables:
+     - exampleId: used for referencing generated file tabs
+     - exampleFiles: files to display beneath the examples output
+
+#}
 {% import 'PlentyPluginShowcase::macros.fileTabs' as tabs %}
 
 {% block Description %}
 
 {% endblock %}
 
-<div class="panel panel-default">
+<div class="panel panel-default panel-example">
     <div class="panel-body">
         <p class="text-muted bold text-uppercase">Beispiel</p>
         {% block ExampleOutput %}

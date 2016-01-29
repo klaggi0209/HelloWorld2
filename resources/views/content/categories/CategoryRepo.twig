@@ -1,20 +1,37 @@
 {% extends 'PlentyPluginShowcase::templates.Example' %}
+{% import 'PlentyPluginShowcase::examples.categories.categoryRepository.CategoryListMacro' as list %}
+{% import 'PlentyPluginShowcase::examples.categories.categoryRepository.CategoryTreeMacro' as tree %}
 
 {% block Description %}
-<h1>Kategorie-Daten verarbeiten</h1>
+<h1 class="has-hover">
+    Kategorie-Listen
+    <a href="#{{ sectionId }}" class="text-muted hover-visible text-small"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
 
 <p>
-    Daten von Kategorien können mithilfe des <code>CategoryRepository</code> geladen werden.
+    Das <code>CategoryRepository</code> stellt verschiedene Funktionen zum Abfragen von Kategorie-Daten zur Verfügung.
+    Kategorien können sowohl als einfache Liste als auch als Baum-Struktur angefordert werden und nach <b>Typen</b> und
+    gefiltert werden. Mögliche Typen sind <code>'item'</code>, <code>'content'</code>, <code>'blog'</code>,
+    <code>'container'</code> und <code>'all'</code> (Standard).
 </p>
 {% endblock %}
 
 {% block ExampleOutput %}
-    {{ categories.0.plenty_category_details_name }}
+    <div class="col-lg-6 col-md-6">
+        <p><code>getSitemapList('content')</code></p>
+        {{ list.output( categoryList ) }}
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+        <p><code>getSitemapTree('item')</code></p>
+        {{ tree.output( categoryTree ) }}
+    </div>
 {% endblock %}
 
 {% set exampleId = "category-repository" %}
 {% set exampleFiles = {
-    "ItemList.twig": "PlentyPluginShowcase::examples.categories.ItemList.twig",
-    "ListController.hh": "PlentyPluginShowcase::examples.categories.ListController.twig",
-    "RouteProvider.hh": "PlentyPluginShowcase::examples.categories.RouteProvider.twig"
+    "Controller.hh"             : "PlentyPluginShowcase::examples.categories.categoryRepository.Controller.twig",
+    "Category.twig"             : "PlentyPluginShowcase::examples.categories.categoryRepository.Category.twig",
+    "CategoryListMacro.twig"    : "PlentyPluginShowcase::examples.categories.categoryRepository.CategoryListMacro.twig",
+    "CategoryTreeMacro.twig"    : "PlentyPluginShowcase::examples.categories.categoryRepository.CategoryTreeMacro.twig",
 } %}

@@ -29,6 +29,10 @@ class ShowcaseRouteServiceProvider extends RouteServiceProvider
 		$router->get('showcase/navigation', 'Showcase\Controllers\ContentController@showCategory');
 
 		// Showcase examples
+		/*
+		 * referred pages should extend 'templates.ExamplePage'.
+		 * Each section should extend 'templates.Example'.
+		 */
 		$router->get('showcase/basics', 'Showcase\Controllers\ExampleController@showBasicExamples');
 		$router->get('showcase/categories', 'Showcase\Controllers\ExampleController@showCategoryExamples');
 

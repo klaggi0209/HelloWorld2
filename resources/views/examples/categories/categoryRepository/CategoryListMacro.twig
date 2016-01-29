@@ -1,0 +1,9 @@
+{% macro output(categories) %}
+    <ul class="list-group">
+    {% for category in categories %}
+        <li class="list-group-item">
+            {{ category.plenty_category_details_name }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endmacro %}
