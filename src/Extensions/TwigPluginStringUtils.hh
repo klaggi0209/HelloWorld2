@@ -96,4 +96,10 @@ class TwigPluginStringUtils extends Twig_Extension
 
 		return $in;
     }
+
+	public function escapeTwig( string $in ):string
+	{
+		echo $in;
+		return $in;
+	}
 }

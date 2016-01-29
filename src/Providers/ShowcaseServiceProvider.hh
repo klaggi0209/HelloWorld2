@@ -4,6 +4,7 @@ namespace Showcase\Providers;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Templates\Twig;
 use Showcase\Extensions\TwigPluginStringUtils;
+use Showcase\Extensions\TwigPluginTwigEscaper;
 
 class ShowcaseServiceProvider extends ServiceProvider
 {

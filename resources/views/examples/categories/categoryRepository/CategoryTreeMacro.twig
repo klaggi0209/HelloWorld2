@@ -1,0 +1,13 @@
+{% macro output(categories) %}
+    <ul class="list-group tree-list">
+    {% for category in categories %}
+        <li class="list-group-item">
+            {{ category.plenty_category_details_name }}
+
+            {% if category.children is not empty %}
+                {{ _self.output( category.children ) }}
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% endmacro %}

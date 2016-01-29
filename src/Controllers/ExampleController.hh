@@ -17,10 +17,12 @@ class ExampleController extends Controller
 
     public function showCategoryExamples( Twig $twig, CategoryRepository $categoryRepository ):string
     {
-        $categoryTree = $categoryRepository->getSitemapTree( 'de' );
+        $categoryList = $categoryRepository->getSitemapList();
+        $categoryTree = $categoryRepository->getSitemapTree();
 
         $templateData = array(
-            'categories' => $categoryTree
+            'categoryList' => $categoryList,
+            'categoryTree' => $categoryTree
         );
 
         return $twig->render('PlentyPluginShowcase::content.Categories', $templateData);
