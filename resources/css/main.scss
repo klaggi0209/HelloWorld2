@@ -88,6 +88,21 @@ body {
   overflow: auto;
 }
 
+.item-box img {
+  height: 100px
+}
+
+.item-box h4 {
+  height: 20px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.item-box .item-description {
+  height: 40px;
+  overflow: hidden;
+}
 
 
 /*

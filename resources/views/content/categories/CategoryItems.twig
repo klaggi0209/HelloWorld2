@@ -1,0 +1,24 @@
+{% extends 'PlentyPluginShowcase::templates.Example' %}
+
+{% block Description %}
+    <h1 class="has-hover">
+        Kategorie-Artikel
+        <a href="#{{ sectionId }}" class="text-muted hover-visible text-small"><span class="glyphicon glyphicon-link"></span></a>
+    </h1>
+
+    <p>
+        Um Artikel eine Kategorie aufzulisten, müssen diese separat im <code>Controller</code> geladen werden. Das
+        <code>ItemDataLayerRepositoryContract</code> stellt entsprechende Methoden zur Verfügung, um Artikeldaten zu laden und zu filtern.
+    </p>
+{% endblock %}
+
+{% block ExampleOutput %}
+    {% include 'PlentyPluginShowcase::examples.categories.categoryItems.Category' %}
+{% endblock %}
+
+{% set exampleId = "category-items" %}
+{% set exampleFiles = {
+    "Controller.hh"             : "PlentyPluginShowcase::examples.categories.categoryItems.Controller.twig",
+    "Category.twig"             : "PlentyPluginShowcase::examples.categories.categoryItems.Category.twig",
+    "CategoryNavMacro.twig"     : "PlentyPluginShowcase::examples.categories.categoryItems.CategoryNavMacro.twig",
+} %}

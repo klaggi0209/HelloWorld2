@@ -11,14 +11,16 @@
 				{% else %}
 					<li>
 		            	<a href="{{ baseurl ~ item.plenty_category_details_name_url }}">{{ item.plenty_category_details_name }}</a>
+					</li>
 	            {% endif %}
 
-	        </li>
 	    {% elseif item.plenty_category_level == 2 %}
+
 	    	<li><a href="{{ baseurl ~ item.plenty_category_details_name_url }}">{{ item.plenty_category_details_name }}</a></li>
 	    	{% for it in item.children %}
 	    		<li><a href="{{ baseurl ~ item.plenty_category_details_name_url }}/{{ it.plenty_category_details_name_url }}">&nbsp;-{{ it.plenty_category_details_name }}</a></li>
 	    	{% endfor %}
+
 		{% endif %}
 	{% endfor %}
 {% endmacro %}

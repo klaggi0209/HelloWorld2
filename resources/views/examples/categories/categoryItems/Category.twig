@@ -1,0 +1,52 @@
+{% import 'PlentyPluginShowcase::examples.categories.categoryItems.CategoryNavMacro' as nav %}
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#showcase-categories-example-nav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{{ url('showcase/categories') }}" class="navbar-brand">
+                <span class="glyphicon glyphicon-home"></span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="showcase-categories-example-nav">
+            <ul class="nav navbar-nav">
+                {{ nav.output( categoryTree, url('showcase/categories')~'/', 2) }}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    {% if currentCategory is null %}
+        <div class="col-lg-12 col-md-12">
+            <h3 class="text-muted text-center">Keine Kategorie gewählt</h3>
+        </div>
+    {% else %}
+        {% for item in categoryItems %}
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="thumbnail item-box">
+                    <img src="{{ image_url_preview( item.variationImageList.0.path ) }}" alt="{{ item.itemDescription.name1 }}">
+                    <div class="caption">
+                        <h4>{{ item.itemDescription.name1 }}</h4>
+                        <p class="item-description">
+                            {{ item.itemDescription.shortDescription }}
+                        </p>
+                        <p class="text-right bold">
+                            {{ item.variationRetailPrice.price|localizedcurrency('EUR') }}
+                        </p>
+                        <p>
+                            <a class="btn btn-primary block" href="#">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Artikel ansehen
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
