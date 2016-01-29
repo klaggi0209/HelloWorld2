@@ -18,14 +18,18 @@ use Plenty\Modules\Category\Models\Category;
  */
 class ContentController extends Controller
 {
-	public function landingPage(Twig $twig):string
+	public function landingPage(Twig $twig, CategoryRepository $categoryRepo):string
 	{
-		return $twig->render('PlentyPluginShowcase::content.LandingPage');
+		$contentpages = $categoryRepo->getByType('content');
+
+		$templateData = ['contentpages' => $contentpages];
+
+		return $twig->render('PlentyPluginShowcase::content.LandingPage', $templateData);
 	}
 
 	public function showItemView(Twig $twig, CategoryRepository $categoryRepo, ItemDataLayerRepositoryContract $itemRepo, string $spacer = "", string $itemId = ""):string
 	{
-		$categoryTree = $categoryRepo->getSitemapTree('de');
+		$categoryTree = $categoryRepo->getSitemapTree('item', 'de');
 
 		$columns = [
 			'itemDescription' => [
@@ -66,7 +70,7 @@ class ContentController extends Controller
 
 	public function showCategory(Twig $twig, CategoryRepository $categoryRepo, ItemDataLayerRepositoryContract $itemRepo, string $level1, ?string $level2 = null, ?string $level3 = null, ?string $level4 = null, ?string $level5 = null, ?string $level6 = null):string
 	{
-		$categoryTree = $categoryRepo->getSitemapTree('de');
+		$categoryTree = $categoryRepo->getSitemapTree('item', 'de');
 		$category = $categoryRepo->findCategoryByUrl($level1, $level2, $level3, $level4, $level5, $level6);
 
 		$categoryFilter = $this->getCategoryFilter($categoryRepo, $category);
