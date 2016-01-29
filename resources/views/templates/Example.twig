@@ -14,6 +14,7 @@
 
 {% endblock %}
 
+{% if exampleFiles is defined %}
 <div class="panel panel-default panel-example">
     <div class="panel-body">
         <p class="text-muted bold text-uppercase">Beispiel</p>
@@ -24,3 +25,4 @@
         {{ tabs.output(exampleId, exampleFiles) }}
     </div>
 </div>
+{% endif %}

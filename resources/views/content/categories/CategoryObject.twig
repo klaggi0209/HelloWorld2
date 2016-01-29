@@ -1,0 +1,160 @@
+{% extends 'PlentyPluginShowcase::templates.Example' %}
+
+{% block Description %}
+    <h1 class="has-hover">
+        Die Klasse <code>Category</code>
+        <a href="#{{ sectionId }}" class="text-muted hover-visible text-small"><span class="glyphicon glyphicon-link"></span></a>
+    </h1>
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Feld</th>
+                <th>Typ</th>
+                <th>Beschreibung</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>plenty_category_id</td>
+                <td>int</td>
+                <td>ID der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_parent_category_id</td>
+                <td>int</td>
+                <td>ID der übergeordneten Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_level</td>
+                <td>int</td>
+                <td>Tiefe der Kategorie im Kategorie-Baum</td>
+            </tr>
+            <tr>
+                <td>plenty_category_type</td>
+                <td>string</td>
+                <td>Artikel-Typ ('item' | 'content' | 'blog' | 'container' )</td>
+            </tr>
+            <tr>
+                <td>plenty_category_linklist</td>
+                <td>bool</td>
+                <td>Sichtbarkeit in Link-Listen</td>
+            </tr>
+            <tr>
+                <td>plenty_category_sitemap</td>
+                <td>bool</td>
+                <td>Sichtbarkeit in Sitemap</td>
+            </tr>
+            <tr>
+                <td>plenty_category_right</td>
+                <td>string</td>
+                <td>Sichtbarkeit der Kategorie: 'all' | 'customer'</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_webstore_id</td>
+                <td>int</td>
+                <td>ID des verknüpften Mandanten</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_lang</td>
+                <td>string</td>
+                <td>Sprache der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_name</td>
+                <td>string</td>
+                <td>Name der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_description</td>
+                <td>string</td>
+                <td>Kategorie-Beschreibung (1)</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_description2</td>
+                <td>string</td>
+                <td>Kategorie-Beschreibung (2)</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_short_description</td>
+                <td>string</td>
+                <td>Kurzbeschreibung der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_meta_keywords</td>
+                <td>string</td>
+                <td>Meta-Keywords der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_meta_description</td>
+                <td>string</td>
+                <td>Meta-Beschreibung der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_name_url</td>
+                <td>string</td>
+                <td>URL-Name der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_meta_title</td>
+                <td>string</td>
+                <td>Meta-Titel der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_image</td>
+                <td>int</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_image2</td>
+                <td>int</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_position</td>
+                <td>int</td>
+                <td>Position der Kategorie in Kategorie-Listen</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_item_list_view</td>
+                <td>string</td>
+                <td>Verknüpftes ItemList-Template der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_single_item_view</td>
+                <td>string</td>
+                <td>Verknüpftes Item-Template der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_page_view</td>
+                <td>string</td>
+                <td>Verwendetes PageDesign der Kategorie</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_fulltext</td>
+                <td>bool</td>
+                <td>Volltextsuche für Kategorie erlauben</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_placeholder_translation</td>
+                <td>string</td>
+                <td>Template-Variablen übersetzen?</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_meta_robots</td>
+                <td>string</td>
+                <td>'all' | 'index' | 'nofollow' | 'noindex' | 'noindex, nofollow'</td>
+            </tr>
+            <tr>
+                <td>plenty_category_details_canonical_link</td>
+                <td>string</td>
+                <td>Canonical Link der Kategorie</td>
+            </tr>
+            <tr>
+                <td>children</td>
+                <td>array&lt;Category&gt;</td>
+                <td>Untergeordnete Kategorien oder <code>null</code></td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        <ul class="list-group">
+            {% for category in categoryTree %}
+                <li class="list-group-item">
+                    <a href="{{ category.plenty_category_details_name_url }}">
+                        {{ category.plenty_category_details_name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+        {% if currentCategory != null %}
+            <p class="text-muted">Aktuelle Kategorie:</p>
+            <p>{{ currentCategory.plenty_category_details_name }}</p>
+        {% else %}
+            <p class="text-muted">Keine Kategorie gewählt.</p>
+        {% endif %}
+    </div>
+</div>

@@ -66,7 +66,15 @@ body {
   border-color: #777;
 }
 
-/* example editor */
+/* examples */
+.example-container {
+  margin-bottom: 48px;
+}
+
+.example-container .panel-example {
+  margin-top: 24px;
+}
+
 .editor-container {
   border-width: 0 1px 1px 1px;
   border-style: solid;

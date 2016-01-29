@@ -1,12 +1,14 @@
 {% import 'PlentyPluginShowcase::examples.categories.categoryRepository.CategoryListMacro' as list %}
 {% import 'PlentyPluginShowcase::examples.categories.categoryRepository.CategoryTreeMacro' as tree %}
 
-<div class="col-lg-6 col-md-6">
-    <p><code>getSitemapList()</code></p>
-    {{ list.output( categoryList ) }}
-</div>
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        <p><code>getSitemapList()</code></p>
+        {{ list.output( categoryList ) }}
+    </div>
 
-<div class="col-lg-6 col-md-6">
-    <p><code>getSitemapTree()</code></p>
-    {{ tree.output( categoryTree ) }}
+    <div class="col-lg-6 col-md-6">
+        <p><code>getSitemapTree()</code></p>
+        {{ tree.output( categoryTree ) }}
+    </div>
 </div>

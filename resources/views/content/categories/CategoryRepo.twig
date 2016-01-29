@@ -17,15 +17,7 @@
 {% endblock %}
 
 {% block ExampleOutput %}
-    <div class="col-lg-6 col-md-6">
-        <p><code>getSitemapList('content')</code></p>
-        {{ list.output( categoryList ) }}
-    </div>
-
-    <div class="col-lg-6 col-md-6">
-        <p><code>getSitemapTree('item')</code></p>
-        {{ tree.output( categoryTree ) }}
-    </div>
+    {% include 'PlentyPluginShowcase::examples.categories.categoryRepository.Category' %}
 {% endblock %}
 
 {% set exampleId = "category-repository" %}
