@@ -1,5 +1,11 @@
 {% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
+{% set navId = "sidebar-nav" %}
+
+{% block BodyStart %}
+<body data-spy="scroll" data-target="#{{ navId }}">
+{% endblock %}
+
 {% set sections = {
     "Category Repository"        : "PlentyPluginShowcase::content.categories.CategoryRepo.twig"
 } %}
