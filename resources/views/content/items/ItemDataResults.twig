@@ -1,0 +1,157 @@
+{% extends 'PlentyPluginShowcase::templates.Example' %}
+{% import 'PlentyPluginShowcase::macros.collapseTable' as tables %}
+
+{% block Description %}
+    <h1 class="has-hover">
+        Das <code>ItemDataLayer</code>
+        <a href="#{{ sectionId }}" class="text-muted hover-visible text-small"><span class="glyphicon glyphicon-link"></span></a>
+    </h1>
+
+    <p>
+        Das <code>ItemDataLayerRepositoryContract</code> ermöglicht die Abfrage von Artikel-Daten. Die Methode
+        <code>search()</code> erwartet dabei drei Parameter, um die benötigten Felder der Artikel zu definieren.
+    </p>
+
+    {{
+        tables.output(
+            "itemDataLayer",
+            [
+                {
+                    "name"          : "itemBase",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.ItemBase.twig"
+                },
+                {
+                    "name"          : "itemCharacterList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.ItemCharacterList.twig"
+                },
+                {
+                    "name"          : "itemCrossSellingList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.ItemCrossSellingList.twig"
+                },
+                {
+                    "name"          : "itemDescription",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.ItemDescription.twig"
+                },
+                {
+                    "name"          : "variationBase",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationBase.twig"
+                },
+                {
+                    "name"          : "variationAttributeValueList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationAttributeValueList.twig"
+                },
+                {
+                    "name"          : "variationBarcode",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationBarcode.twig"
+                },
+                {
+                    "name"          : "variationBarcodeList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationBarcodeList.twig"
+                },
+                {
+                    "name"          : "variationBundleComponentList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationBundleComponentList.twig"
+                },
+                {
+                    "name"          : "variationCategoryList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationCategoryList.twig"
+                },
+                {
+                    "name"          : "variationImageList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationImageList.twig"
+                },
+                {
+                    "name"          : "variationLinkMarketplace",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationLinkMarketplace.twig"
+                },
+                {
+                    "name"          : "variationLinkWebstore",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationLinkWebstore.twig"
+                },
+                {
+                    "name"          : "variationMarketStatus",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationMarketStatus.twig"
+                },
+                {
+                    "name"          : "variationRecommendedRetailPrice",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationRecommendedRetailPrice.twig"
+                },
+                {
+                    "name"          : "variationRecommendedRetailPriceList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.ItemBase.twig"
+                },
+                {
+                    "name"          : "variationRetailPrice",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationRetailPrice.twig"
+                },
+                {
+                    "name"          : "variationRetailPriceList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationRetailPriceList.twig"
+                },
+                {
+                    "name"          : "variationSpecialOfferRetailPrice",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationSpecialOfferRetailPrice.twig"
+                },
+                {
+                    "name"          : "variationSpecialOfferRetailPriceList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationSpecialOfferRetailPriceList.twig"
+                },
+                {
+                    "name"          : "variationStandardCategory",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationStandardCategory.twig"
+                },
+                {
+                    "name"          : "variationStock",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationStock.twig"
+                },
+                {
+                    "name"          : "variationStockBuffer",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationStockBuffer.twig"
+                },
+                {
+                    "name"          : "variationStockList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationStockList.twig"
+                },
+                {
+                    "name"          : "variationSupplierList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationSupplierList.twig"
+                },
+                {
+                    "name"          : "variationWarehouse",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationWarehouse.twig"
+                },
+                {
+                    "name"          : "variationWarehouseList",
+                    "description"   : "",
+                    "content"       : "PlentyPluginShowcase::content.items.ItemDataResults.VariationWarehouseList.twig"
+                }
+            ]
+        )
+    }}
+{% endblock %}

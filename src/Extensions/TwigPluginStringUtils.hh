@@ -45,6 +45,7 @@ class TwigPluginStringUtils extends Twig_Extension
 	{
 		return [
 			$this->factory->createSimpleFilter('cssSelector', [$this, 'formatCssSelector']),
+			$this->factory->createSimpleFilter('typeof', [$this, 'typeof']),
 		];
 	}
 	
@@ -97,9 +98,8 @@ class TwigPluginStringUtils extends Twig_Extension
 		return $in;
     }
 
-	public function escapeTwig( string $in ):string
+	public function typeof( string $in ):string
 	{
-		echo $in;
-		return $in;
+		return gettype($in);
 	}
 }

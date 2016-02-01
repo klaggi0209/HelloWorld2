@@ -80,4 +80,10 @@ class ExampleController extends Controller
 
         return $twig->render('PlentyPluginShowcase::content.Categories', $templateData);
     }
+
+    public function showItemExamples(Twig $twig, ItemDataLayerRepositoryContract $itemRespository):string
+    {
+
+        return $twig->render('PlentyPluginShowcase::content.Items');
+    }
 }
