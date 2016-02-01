@@ -1,10 +1,10 @@
-{% macro output(categories, baseURL, maxDepth) %}
+{% macro output(categories, baseURL, maxDepth, urlSuffix) %}
     {% for category in categories %}
         {% if category.plenty_category_level <= maxDepth %}
 
             {% if category.children is empty %}
                 <li{% if category.plenty_category_id == currentCategory.plenty_category_id %} class="active"{% endif %}>
-                    <a href="{{ baseURL ~ category.plenty_category_details_name_url ~ '/' }}">
+                    <a href="{{ baseURL ~ category.plenty_category_details_name_url ~ '/' }}{{ urlSuffix }}">
                         {{ category.plenty_category_details_name }}
                     </a>
                 </li>
@@ -15,7 +15,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        {{ _self.output( category.children, baseURL ~ category.plenty_category_details_name_url ~ '/', maxDepth ) }}
+                        {{ _self.output( category.children, baseURL ~ category.plenty_category_details_name_url ~ '/', maxDepth, urlSuffix ) }}
                     </ul>
                 </li>
             {% endif %}
