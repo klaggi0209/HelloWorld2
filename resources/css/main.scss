@@ -151,30 +151,9 @@ body {
 ul.nav.nav-tabs li.active  {
   background-color:#F7F7F9;
 } 
-.nav-tabs > li.active > a {
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:active
+{
   background-color:#F7F7F9;
 }
-/*
-ul.categoryDetails
-{
-  list-style-type: none;
-}
-
-.categoryView.isGridView .itemBox .name
-{
-  min-height: 60px;
-  max-height: 60px;
-  overflow: hidden;
-}
-
-.h-lg-2.adapt-line-height
-{
-  line-height: 165px;
-}
-
-.h-lg-2
-{
-  height: 165px;
-}
-
-*/
