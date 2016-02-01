@@ -139,6 +139,21 @@ body {
   font-size: 100%;
 }
 
+/* ACE-Editor OVERWRITES */
+.ace_static_highlight.ace_show_gutter {
+  background: #f7f7f9 none repeat scroll;
+}
+
+.panel-footer {
+  background-color: transparent;
+}
+
+ul.nav.nav-tabs li.active  {
+  background-color:#F7F7F9;
+} 
+.nav-tabs > li.active > a {
+  background-color:#F7F7F9;
+}
 /*
 ul.categoryDetails
 {
