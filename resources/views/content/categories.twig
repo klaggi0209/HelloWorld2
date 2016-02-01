@@ -1,11 +1,5 @@
 {% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
-{% set navId = "sidebar-nav" %}
-
-{% block BodyStart %}
-<body data-spy="scroll" data-target="#{{ navId }}" data-offset="92">
-{% endblock %}
-
 {% set sections = {
     "Das 'Category'-Modell" : "PlentyPluginShowcase::content.categories.CategoryObject.twig",
     "Kategorie-Listen erstellen"  : "PlentyPluginShowcase::content.categories.CategoryRepo.twig",

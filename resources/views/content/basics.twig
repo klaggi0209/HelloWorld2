@@ -1,12 +1,5 @@
 {% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
-{% set navId = "sidebar-nav" %}
-
-{% block BodyStart %}
-    <body data-spy="scroll" data-target="#{{ navId }}">
-{% endblock %}
-
-
 {% set sections = {
 "Einleitung"        : "PlentyPluginShowcase::content.basics.introduction.twig",
 "Werkzeuge & IDEs"  : "PlentyPluginShowcase::content.basics.ide.twig",

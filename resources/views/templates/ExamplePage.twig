@@ -20,7 +20,7 @@
 
         {% for label, section in sections %}
             {% set sectionId = label | cssSelector %}
-            <div id="{{ sectionId }}" class="example-container">
+            <div class="example-container">
                 {{ include( section, {sectionId: sectionId} ) }}
             </div>
         {%  endfor %}
@@ -28,12 +28,11 @@
 
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs fixed-right" id="{{ navId | default('sidebar-nav') }}">
         <ul class="nav nav-list">
-            {% for label in sections | keys %}
+            {#% for label in sections | keys %}
                 <li>
                     <a href="#{{ label | cssSelector }}" data-scrollTo="#{{ label | cssSelector }}" data-scrollOffset="70">{{ label }}</a>
                 </li>
-            {%  endfor %}
-            </li>
+            {%  endfor %#}
         </ul>
         <a href="#" data-scrollTo="0">Zurück nach oben</a>
     </div>
