@@ -16,13 +16,20 @@
 
 {% if exampleFiles is defined %}
 <div class="panel panel-default panel-example">
-    <div class="panel-body">
-        <p class="text-muted bold text-uppercase">Beispiel</p>
-        {% block ExampleOutput %}
-        {% endblock %}
+    <div class="panel-body panel-expandable">
+        <div class="panel-expandable-inner">
+            <p class="text-muted bold text-uppercase">Beispiel</p>
+            <span class="btn btn-default" data-toggle="height"><span class="glyphicon glyphicon-resize-full"></span></span>
+            {% block ExampleOutput %}
+            {% endblock %}
+        </div>
     </div>
-    <div class="panel-footer">
-        {{ tabs.output(exampleId, exampleFiles) }}
+    <div class="panel-footer panel-expandable">
+        <div class="panel-expandable-inner">
+            <span class="btn btn-default" data-toggle="height"><span class="glyphicon glyphicon-resize-full"></span></span>
+
+            {{ tabs.output(exampleId, exampleFiles) }}
+        </div>
     </div>
 </div>
 {% endif %}

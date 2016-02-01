@@ -52,6 +52,7 @@
             return Array.apply(null, document.querySelectorAll(sel));
         }
         qsa("[ace-mode]").forEach(function (codeEl) {
+
             var mode = codeEl.getAttribute("ace-mode");
             if( mode == "hh" ) mode = "php";
             highlight(codeEl, {
@@ -68,6 +69,30 @@
             $(document).ready(function() {
                 $('[data-toggle="tooltip"]').tooltip({
                     trigger: 'hover click focus'
+                });
+            });
+
+            $(window).on('load', function() {
+                $('[data-toggle="height"]').each(function(i, elem) {
+                    var $elem = $(elem);
+                    var $panelBody = $elem.parents('.panel-expandable');
+
+                    if( $panelBody.find('.panel-expandable-inner').outerHeight() > $panelBody.outerHeight() )
+                    {
+                        $elem.click(function() {
+                            var width = parseInt( $panelBody.find('.panel-expandable-inner').width() );
+                            $panelBody.find('.panel-expandable-inner').width( width );
+                            $panelBody.toggleClass('expanded');
+                            $elem.find('.glyphicon').toggleClass('glyphicon-resize-full');
+                            $elem.find('.glyphicon').toggleClass('glyphicon-resize-small');
+
+                        });
+                    }
+                    else
+                    {
+                        $elem.hide();
+                    }
+
                 });
             });
         } (jQuery));
