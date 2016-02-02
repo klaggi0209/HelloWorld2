@@ -2,12 +2,27 @@
 
 
     $(document).ready(function() {
+
+
         $('#sidebar-nav .nav').buildSidebarNav();
 
         $('body').scrollspy({
             target: '#sidebar-nav',
             offset: 70
         });
+
+        $('body').scrollspy({
+            target: '.nav.nav-list li ul',
+            offset: 70
+        });
+
+
+        $('.nav.nav-list li').on('activate.bs.scrollspy', function (event) {
+            var elem = $(event.target);
+            elem.find('ul').show();
+            elem.prev('li' ).find('ul').hide();
+        });
+
 
         $('[data-scrollTo]').each(function(i, elem) {
             var $elem = $( elem );
