@@ -5,6 +5,7 @@
 
 
         $('#sidebar-nav .nav').buildSidebarNav();
+        $('h1, h2').appendLink();
 
         $('body').scrollspy({
             target: '#sidebar-nav',
@@ -15,14 +16,6 @@
             target: '.nav.nav-list li ul',
             offset: 70
         });
-
-
-        $('.nav.nav-list li').on('activate.bs.scrollspy', function (event) {
-            var elem = $(event.target);
-            elem.find('ul').show();
-            elem.prev('li' ).find('ul').hide();
-        });
-
 
         $('[data-scrollTo]').each(function(i, elem) {
             var $elem = $( elem );
@@ -52,6 +45,18 @@
         });
 
     });
+
+    $.fn.appendLink = function()
+    {
+        this.each(function(i, elem) {
+
+            var id = $(elem).getIdForced();
+            $(elem).addClass('has-hover');
+            $(elem).append(
+                $('<a href="#' + id + '" class="text-muted hover-visible text-small"><span class="glyphicon glyphicon-link"></span></a>')
+            )
+        });
+    };
 
     $.fn.buildSidebarNav = function()
     {
