@@ -13,7 +13,7 @@
 
         <p>{{ method.description }}</p>
 
-        <pre>{{ method.call }}</pre>
+        <pre class="prettyprint">{{ method.call }}</pre>
 
         <div class="api-doc-param-list">
             {% for param in method.params %}
@@ -27,7 +27,7 @@
                             <span class="badge">nullable</span>
                         {% endif %}
                         {% if param.defaultValue is defined %}
-                            <small>default: "{{ param.defaultValue }}"</small>
+                            <small>default: {{ param.defaultValue }}</small>
                         {% endif %}
                     </h5>
 
