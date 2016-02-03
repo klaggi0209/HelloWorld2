@@ -1,0 +1,38 @@
+{% import 'PlentyPluginShowcase::macros.methodApiDoc.twig' as apiDoc %}
+
+{{ apiDoc.printClass(
+    'ItemDataLayerRepositoryContract',
+    'Plenty\\Modules\\Item\\DataLayer\\Contracts',
+    'Description of ItemRepo',
+    [
+        {
+            name: "search",
+            description: "Desciption for search method",
+            call: "search(\n\tarray<string, mixed> $columns,\n\t?array<string, mixed> $filter = [],\n\t?array<string, mixed> $params = []\n):RecordList",
+            params:
+            [
+                {
+                    name: "$columns",
+                    type: "array<string, mixed>",
+                    isMandatory: true,
+                    isNullable: false
+                },
+                {
+                    name: "$filter",
+                    type: "array<string, mixed>",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "[]"
+                },
+                {
+                    name: "$params",
+                    type: "array<string, mixed>",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "[]"
+                },
+            ]
+        }
+    ]
+) }}
+

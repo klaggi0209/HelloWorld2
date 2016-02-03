@@ -1,5 +1,18 @@
 {% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
-{% set sections = {
-    "Das 'ItemDataLayer'" : "PlentyPluginShowcase::content.items.ItemDataResults.twig",
-} %}
+{% block Content %}
+
+        <h1 id="category-module">Module Item</h1>
+
+        <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+
+        <h2 id="category-repository">Repositories</h2>
+
+        {% include 'PlentyPluginShowcase::content.item.ItemRepository.twig' %}
+
+        <h2 id="category-model">Model</h2>
+{% endblock %}
