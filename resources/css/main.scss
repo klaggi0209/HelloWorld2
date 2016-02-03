@@ -66,11 +66,21 @@ body {
 
     display: block;
 
-
     li {
       padding: 0;
     }
 
+  }
+  li ul li {
+    font-weight: normal;
+
+    a:focus {
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #777;
+    }
   }
 }
 
