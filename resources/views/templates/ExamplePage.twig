@@ -76,8 +76,6 @@
                     var $elem = $(elem);
                     var $panelBody = $elem.parents('.panel-expandable');
 
-                    if( $panelBody.find('.panel-expandable-inner').outerHeight() > $panelBody.outerHeight() )
-                    {
                         $elem.click(function() {
                             var width = parseInt( $panelBody.find('.panel-expandable-inner').width() );
                             $panelBody.find('.panel-expandable-inner').width( width );
@@ -86,14 +84,10 @@
                             $elem.find('.glyphicon').toggleClass('glyphicon-resize-small');
 
                         });
-                    }
-                    else
-                    {
-                        $elem.hide();
-                    }
-
                 });
             });
         } (jQuery));
     </script>
+
+
 {% endblock %}
