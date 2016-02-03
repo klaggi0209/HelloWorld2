@@ -1,8 +1,11 @@
 {% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
-{% set sections = {
-"Einleitung"        : "PlentyPluginShowcase::content.basics.introduction.twig",
-"Werkzeuge & IDEs"  : "PlentyPluginShowcase::content.basics.ide.twig",
-"Installation"      : "PlentyPluginShowcase::content.basics.installation.twig",
-"Veröffentlichung"  : "PlentyPluginShowcase::content.basics.deployment.twig"
-} %}
+{% block Content %}
+
+    {% include "PlentyPluginShowcase::content.basics.introduction.twig" %}
+    {% include "PlentyPluginShowcase::content.basics.ide.twig" %}
+    {% include "PlentyPluginShowcase::content.basics.installation.twig" %}
+    {% include "PlentyPluginShowcase::content.basics.deployment.twig" %}
+
+{% endblock %}
+
