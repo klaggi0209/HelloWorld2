@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Showcase</a>
+                    <a class="navbar-brand" href="{{ url('showcase') }}">Showcase</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -45,12 +45,21 @@
                                 <li><a href="#">Wartung &amp; Testing</a></li>
                             </ul -->
                         </li>
-                        <li>
-                            <a href="{{ url('showcase') }}/categories">Kategorie-Templates</a>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+                                Module
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ url('showcase') }}/categories">Category</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('showcase') }}/items">Item</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="{{ url('showcase') }}/items">Artikel-Daten</a>
-                        </li>
+
                         <!--li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Front-End <span class="caret"></span></a>
                             <ul class="dropdown-menu">
