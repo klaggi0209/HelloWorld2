@@ -1,0 +1,41 @@
+{% import 'PlentyPluginShowcase::macros.apiDoc.twig' as apiDoc %}
+
+{{ apiDoc.printClass(
+    'ItemDataLayerRepositoryContract',
+    'Plenty\\Modules\\Item\\DataLayer\\Contracts',
+    '',
+    [
+        {
+            name: "search",
+            description: "Receive specified data for items matching provided filters.",
+            call: "search(\n\tarray&lt;string, mixed&gt; $columns,\n\t?array&lt;string, mixed&gt; $filter = [],\n\t?array&lt;string, mixed&gt; $params = []\n):array&lt;<a href=\"#item-model-record\">Record</a>&gt;",
+            params:
+            [
+                {
+                    name: "$columns",
+                    description: "List of item data to request.",
+                    type: "array<string, mixed>",
+                    isMandatory: true,
+                    isNullable: false
+                },
+                {
+                    name: "$filter",
+                    description: "Qualifies returned items.",
+                    type: "array<string, mixed>",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "[]"
+                },
+                {
+                    name: "$params",
+                    description: "Parameters needed by filters.",
+                    type: "array<string, mixed>",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "[]"
+                },
+            ]
+        }
+    ]
+) }}
+

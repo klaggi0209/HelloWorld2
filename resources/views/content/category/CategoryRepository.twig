@@ -1,0 +1,217 @@
+{% import 'PlentyPluginShowcase::macros.apiDoc.twig' as apiDoc %}
+
+{{ apiDoc.printClass(
+    'CategoryRepository',
+    'Plenty\\Modules\\Category\\Contracts',
+    'Description of CategoryRepo',
+    [
+        {
+            name: "all",
+            description: "",
+            call: "all( ?string $lang=\"de\" ):?array<Category>",
+            params:
+            [
+                {
+                    name: "$lang",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"de\""
+                }
+            ]
+        },
+        {
+            name: "get",
+            description: "",
+            call: "get( int $category_id, ?string $lang=\"de\"):?Category",
+            params:
+            [
+                {
+                    name: "$category_id",
+                    type: "int",
+                    isMandatory: true,
+                    isNullable: false
+                },
+                {
+                    name: "$lang",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"de\""
+                }
+            ]
+
+        },
+        {
+            name: "getByType",
+            description: "",
+            call: "getByType( string $type, ?string $lang=\"de\"):?array<Category>",
+            params:
+            [
+                {
+                    name: "$type",
+                    type: "string",
+                    isMandatory: true,
+                    isNullable: false
+                },
+                {
+                    name: "$lang",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"de\""
+                }
+            ]
+        },
+        {
+            name: "hasChildren",
+            description: "",
+            call: "hasChildren( int $category_id ):bool",
+            params:
+            [
+                {
+                    name: "$category_id",
+                    type: "int",
+                    isMandatory: true,
+                    isNullable: false
+                }
+            ]
+        },
+        {
+            name: "getChildren",
+            description: "",
+            call: "getChildren( int $category_id, ?string $lang=\"de\"):?array<Category>",
+            params:
+            [
+                {
+                    name: "$category_id",
+                    type: "int",
+                    isMandatory: true,
+                    isNullable: false
+                },
+                {
+                    name: "$lang",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"de\""
+                }
+            ]
+        },
+        {
+            name: "getSitemapList",
+            description: "",
+            call: "getSitemapList( string $type=\"all\", ?string $lang=\"de\"):?array<Category>",
+            params:
+            [
+                {
+                    name: "$type",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: false,
+                    defaultValue: "\"all\""
+                },
+                {
+                    name: "$lang",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"de\""
+                }
+            ]
+        },
+        {
+            name: "getSitemapTree",
+            description: "",
+            call: "getSitemapList( string $type=\"all\", ?string $lang=\"de\"):?array<Category>",
+            params:
+            [
+                {
+                    name: "$type",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: false,
+                    defaultValue: "\"all\""
+                },
+                {
+                    name: "$lang",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"de\""
+                }
+            ]
+        },
+        {
+            name: "getUrl",
+            description: "",
+            call: "getUrl( int $id=\"all\", ?string $lang=\"de\"):string",
+            params:
+            [
+                {
+                    name: "$id",
+                    type: "int",
+                    isMandatory: true,
+                    isNullable: false
+                },
+                {
+                    name: "$lang",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"de\""
+                }
+            ]
+        },
+        {
+            name: "findCategoryByUrl",
+            description: "",
+            call: "findCategoryByUrl(\n\tstring $level1=\"\",\n\t?string $level2=\"\",\n\t?string $level3=\"\",\n\t?string $level4=\"\",\n\t?string $level5=\"\",\n\t?string $level6=\"\"\n):?Category",
+            params:
+            [
+                {
+                    name: "$level1",
+                    type: "string",
+                    isMandatory: true,
+                    isNullable: false
+                },
+                {
+                    name: "$level2",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"\""
+                },
+                {
+                    name: "$level3",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"\""
+                },
+                {
+                    name: "$level4",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"\""
+                },
+                {
+                    name: "$level5",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"\""
+                },
+                {
+                    name: "$level6",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"\""
+                }
+            ]
+        }
+    ]
+) }}
+

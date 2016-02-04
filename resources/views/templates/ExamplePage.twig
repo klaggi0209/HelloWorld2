@@ -1,46 +1,28 @@
 {#
     Provided blocks:
-     - Introduction
+     - Content
      - AdditionalScripts
-
-    Required variables:
-     - sections: Object containing sections to include into page ( label => file )
-     - navId (optional): an id referencing the generated fixed navigation
-
-    Provided variables:
-     - sectionId: The id referencing the container element of the current section
 #}
 {% extends 'PlentyPluginShowcase::HtmlStructure' %}
 
 {%  block MainFrame %}
 <div class="row">
     <div class="col-lg-9 col-md-9">
-
-        {% block Introduction %}{% endblock %}
-
-        {% for label, section in sections %}
-            {% set sectionId = label | cssSelector %}
-            <div id="{{ sectionId }}" class="example-container">
-                {{ include( section, {sectionId: sectionId} ) }}
-            </div>
-        {%  endfor %}
+        {% block Content %}{% endblock %}
     </div>
 
-    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs fixed-right" id="{{ navId | default('sidebar-nav') }}">
-        <ul class="nav nav-list">
-            {% for label in sections | keys %}
-                <li>
-                    <a href="#{{ label | cssSelector }}" data-scrollTo="#{{ label | cssSelector }}" data-scrollOffset="70">{{ label }}</a>
-                </li>
-            {%  endfor %}
-            </li>
-        </ul>
+    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs fixed-right" id="sidebar-nav">
+        <p class="h4">Contents</p>
+        <ul class="nav nav-list"></ul>
         <a href="#" data-scrollTo="0">Zurück nach oben</a>
     </div>
 </div>
 {% endblock %}
 
 {% block AdditionalScripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script src="{{ plugin_path('PlentyPluginShowcase') }}/js/lang-hack.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ext-static_highlight.js"></script>
 
@@ -66,19 +48,14 @@
 
     <script>
         (function($) {
-            $(document).ready(function() {
-                $('[data-toggle="tooltip"]').tooltip({
-                    trigger: 'hover click focus'
-                });
-            });
-
             $(window).on('load', function() {
+
+                prettyPrint();
+
                 $('[data-toggle="height"]').each(function(i, elem) {
                     var $elem = $(elem);
                     var $panelBody = $elem.parents('.panel-expandable');
 
-                    if( $panelBody.find('.panel-expandable-inner').outerHeight() > $panelBody.outerHeight() )
-                    {
                         $elem.click(function() {
                             var width = parseInt( $panelBody.find('.panel-expandable-inner').width() );
                             $panelBody.find('.panel-expandable-inner').width( width );
@@ -87,14 +64,11 @@
                             $elem.find('.glyphicon').toggleClass('glyphicon-resize-small');
 
                         });
-                    }
-                    else
-                    {
-                        $elem.hide();
-                    }
-
                 });
+
             });
         } (jQuery));
     </script>
+
+
 {% endblock %}

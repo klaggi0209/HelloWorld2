@@ -1,0 +1,42 @@
+{% macro printClass( className, namespace, description, methods ) %}
+
+    <h3>
+        <code>{{ className }}</code>
+        <small>{{ namespace }}</small>
+    </h3>
+
+    <p>{{ description }}</p>
+
+    {% for method in methods %}
+    <div class="api-doc-method">
+        <h4>{{ className }}::{{ method.name }}()</h4>
+
+        <p>{{ method.description }}</p>
+
+        <pre class="prettyprint lang-hack">{{ method.call | raw }}</pre>
+
+        <div class="api-doc-param-list">
+            {% for param in method.params %}
+                <div class="api-doc-param">
+                    <h5>
+                        {{ param.name }}:{{ param.type }}
+                        {%  if not param.isMandatory %}
+                            <span class="badge">optional</span>
+                        {% endif %}
+                        {% if param.isNullable %}
+                            <span class="badge">nullable</span>
+                        {% endif %}
+                        {% if param.defaultValue is defined %}
+                            <small>default: {{ param.defaultValue }}</small>
+                        {% endif %}
+                    </h5>
+
+                    <p>
+                        {{ param.description }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+{% endmacro %}

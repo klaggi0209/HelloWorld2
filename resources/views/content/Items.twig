@@ -1,11 +1,40 @@
 {% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
-{% set navId = "sidebar-nav" %}
+{% block Content %}
 
-{% block BodyStart %}
-<body data-spy="scroll" data-target="#{{ navId }}" data-offset="92">
+        <h1 id="category-module">Module Item</h1>
+
+        <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+
+        <h2 id="category-repository">Repositories</h2>
+
+        {% include 'PlentyPluginShowcase::content.item.ItemRepository.twig' %}
+
+        <h2 id="category-model">Model</h2>
+
+        {% include 'PlentyPluginShowcase::content.item.models.Record.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.ItemBase.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.ItemCharacter.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.ItemCrossSelling.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.ItemDescription.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationAttributeValue.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationBarcode.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationBase.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationBundleComponent.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationCategory.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationImage.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationLinkMarketplace.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationLinkWebstore.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationMarketStatus.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationRetailPrice.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationStandardCategory.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationStock.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationStockBuffer.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationSupplier.twig' %}
+        {% include 'PlentyPluginShowcase::content.item.models.VariationWarehouse.twig' %}
+
 {% endblock %}
-
-{% set sections = {
-    "Das 'ItemDataLayer'" : "PlentyPluginShowcase::content.items.ItemDataResults.twig",
-} %}
