@@ -21,10 +21,10 @@
                     <h5>
                         {{ param.name }}:{{ param.type }}
                         {%  if not param.isMandatory %}
-                            <span class="badge">optional</span>
+                            <span class="label label-default">optional</span>
                         {% endif %}
                         {% if param.isNullable %}
-                            <span class="badge">nullable</span>
+                            <span class="label label-primary">nullable</span>
                         {% endif %}
                         {% if param.defaultValue is defined %}
                             <small>default: {{ param.defaultValue }}</small>
