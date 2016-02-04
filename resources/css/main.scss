@@ -1,5 +1,30 @@
 body {
   padding-top: 70px;
+  color: #4D4E53;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #4D4E53;
+}
+
+h1 {
+  border-bottom: 1px solid #EEEEEE;
+  padding-bottom: 12px;
+}
+
+h3 small {
+  font-family: Menlo;
+  color: #666;
+  font-size: 12px;
+}
+
+h3 code {
+  border: 1px solid #DF2453;
+  padding:2px 12px;
+}
+
+p.h4 {
+  color: #4D4E53;
 }
 
 .block {
@@ -53,7 +78,7 @@ body {
   li.active {
     > a {
       color: #333;
-      border-color: #777;
+      border-color: #337AB7;
     }
   }
 
@@ -108,7 +133,7 @@ body {
 .editor-container {
   border-width: 0 1px 1px 1px;
   border-style: solid;
-  border-color: #ddd;
+  border-color: #bbb;
   border-radius: 0 0 4px 4px;
   overflow: hidden;
 }
@@ -186,4 +211,13 @@ ul.nav.nav-tabs li.active {
 
 .nav-tabs > li.active > a:hover {
   background: none;
+}
+
+/* margins and paddings */
+.api-doc-method {
+  margin: 40px 0;
+}
+
+pre.prettyprint {
+  padding: 6px 18px;
 }
