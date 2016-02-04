@@ -20,7 +20,7 @@ h3 small {
 
 h3 code {
   border: 1px solid #DF2453;
-  padding:2px 12px;
+  padding: 2px 12px;
 }
 
 p.h4 {
@@ -214,10 +214,12 @@ ul.nav.nav-tabs li.active {
 }
 
 /* margins and paddings */
-.api-doc-method {
+.api-doc-method,
+.api-doc-param {
   margin: 40px 0;
 }
 
 pre.prettyprint {
   padding: 6px 18px;
+  border-color: #bbb;
 }
