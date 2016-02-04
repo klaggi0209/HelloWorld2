@@ -15,24 +15,21 @@ body {
 }
 
 .text-tt {
-  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .has-hover .hover-visible,
-.has-hover:hover .hover-hidden
-{
+.has-hover:hover .hover-hidden {
   display: none;
 }
 
 .has-hover:hover .hover-visible,
-.has-hover .hover-hidden
-{
+.has-hover .hover-hidden {
   display: inline-block;
 }
 
 /* sidebar nav */
-.fixed-right
-{
+.fixed-right {
   position: fixed;
   top: 92px;
   right: 0;
@@ -40,23 +37,19 @@ body {
   font-size: .9em;
 }
 
-.fixed-right a:hover
-{
+.fixed-right a:hover {
   text-decoration: none;
 }
 
-.nav.nav-list
-{
+.nav.nav-list {
   margin-bottom: 24px;
 }
 
-.nav.nav-list > li
-{
+.nav.nav-list > li {
   padding: 4px 0;
 }
 
-.nav.nav-list > li > a
-{
+.nav.nav-list > li > a {
   padding: 2px 12px;
   border-left: 2px solid transparent;
 }
@@ -65,8 +58,7 @@ body {
   background-color: transparent;
 }
 
-.nav.nav-list > li.active > a
-{
+.nav.nav-list > li.active > a {
   border-color: #777;
 }
 
@@ -130,12 +122,12 @@ body {
 }
 
 .table.model-table tr td {
-  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 90%;
 }
 
 .table.model-table tr td:last-child {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100%;
 }
 
@@ -163,3 +155,129 @@ ul.categoryDetails
 }
 
 */
+
+/* Vim sunburst theme by David Leibovic */
+pre {
+  background-color: #292b36;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 6px;
+  position: relative;
+  margin: 10px 0 20px 0;
+  overflow: visible;
+
+  &.language-json {
+    overflow: auto;
+  }
+
+  &.language-html {
+    margin: 40px 0 20px 0;
+  }
+
+  &.language-html:before {
+    content: attr(data-type);
+    position: absolute;
+    top: -30px;
+    left: 0;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    background-color: #3387CC;
+    color: #ffffff;
+  }
+
+  &.language-html[data-type="get"]:before {
+    background-color: green;
+  }
+
+  &.language-html[data-type="put"]:before {
+    background-color: #e5c500;
+  }
+
+  &.language-html[data-type="post"]:before {
+    background-color: #4070ec;
+  }
+
+  &.language-html[data-type="delete"]:before {
+    background-color: #ed0039;
+  }
+
+  &.language-api .str {
+    color: #ffffff;
+  }
+
+  &.language-api .pln,
+  &.language-api .pun {
+    color: #65B042;
+  }
+
+  code {
+    display: block;
+    font-size: 14px;
+    font-family: "Source Code Pro";
+    font-style: normal;
+    font-weight: 400;
+    word-wrap: normal;
+    white-space: pre;
+  }
+
+  .str {
+    color: #65B042;
+  }
+
+  .kwd {
+    color: #E28964;
+  }
+  .com {
+    color: #AEAEAE;
+    font-style: italic;
+  }
+  .typ {
+    color: #89bdff;
+  }
+  .lit {
+    color: #3387CC;
+  }
+  .pun {
+    color: #fff;
+  }
+  .pln {
+    color: #fff;
+  }
+  .tag {
+    color: #89bdff;
+  }
+  .atn {
+    color: #bdb76b;
+  }
+  .atv {
+    color: #65B042;
+  }
+  .dec {
+    color: #3387CC;
+  }
+}
+
+/* decimal - blue */
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #AEAEAE;
+}
+
+/* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 {
+  list-style-type: none;
+}
