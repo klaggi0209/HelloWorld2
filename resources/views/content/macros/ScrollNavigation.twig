@@ -1,0 +1,17 @@
+{% macro generateNavigation(navigationMap) %}
+	{% import _self as Navi %}
+	<ul>
+		{% for label in navigationMap %}
+			<li>
+			{% if label is iterable %}
+				{% for subLable, subNav in label %}
+					<a href="#{{ subLable|url_encode }}">{{ subLable }}</a>
+					{{ Navi.generateNavigation(subNav) }}
+				{% endfor %}
+			{% else %}
+				<a href="#{{ label|url_encode }}">{{ label }}</a>
+			{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+{% endmacro %}

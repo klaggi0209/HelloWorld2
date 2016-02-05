@@ -37,6 +37,12 @@
         qsa("[ace-mode]").forEach(function (codeEl) {
 
             var mode = codeEl.getAttribute("ace-mode");
+
+            if( mode == "json")
+            {
+                $(codeEl).html(JSON.stringify( JSON.parse($(codeEl).html()), null, '\t'));
+            }
+
             if( mode == "hh" ) mode = "php";
             highlight(codeEl, {
                 mode: "ace/mode/" + mode,
