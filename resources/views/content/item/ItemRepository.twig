@@ -13,7 +13,8 @@
             [
                 {
                     name: "$columns",
-                    description: "List of item data to request.",
+                    description: "Defines all required item fields to fetch from database. All available values are listed below:",
+                    docFile: "PlentyPluginShowcase::content.item.ItemRepositoryColumns.twig",
                     type: "array<string, mixed>",
                     isMandatory: true,
                     isNullable: false
@@ -21,6 +22,7 @@
                 {
                     name: "$filter",
                     description: "Qualifies returned items.",
+                    docFile: "PlentyPluginShowcase::content.item.ItemRepositoryFilter.twig",
                     type: "array<string, mixed>",
                     isMandatory: false,
                     isNullable: true,
@@ -29,6 +31,7 @@
                 {
                     name: "$params",
                     description: "Parameters needed by filters.",
+                    docFile: "PlentyPluginShowcase::content.item.ItemRepositoryParams.twig",
                     type: "array<string, mixed>",
                     isMandatory: false,
                     isNullable: true,
