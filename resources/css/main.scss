@@ -270,18 +270,45 @@ pre {
     color: #ffffff;
   }
 
+  &.language-html[data-middleware="oauth"]:after {
+    content: "\e033  oauth";
+    position: absolute;
+    top: -30px;
+    font-family: "Source Sans Pro", 'Glyphicons Halflings';
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    background-color: #3387cc;
+    color: #fff;
+  }
+
+  &.language-html[data-type="get"]:after {
+    left: 40px;
+  }
   &.language-html[data-type="get"]:before {
     background-color: green;
   }
 
+  &.language-html[data-type="put"]:after {
+    left: 41px;
+  }
   &.language-html[data-type="put"]:before {
     background-color: #e5c500;
   }
 
+  &.language-html[data-type="post"]:after {
+    left: 50px;
+  }
   &.language-html[data-type="post"]:before {
     background-color: #4070ec;
   }
 
+  &.language-html[data-type="delete"]:after {
+    left: 64px;
+  }
   &.language-html[data-type="delete"]:before {
     background-color: #ed0039;
   }
