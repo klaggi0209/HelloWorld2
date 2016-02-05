@@ -39,7 +39,7 @@ PR['registerLangHandler'](
          [PR['PR_KEYWORD'],     new RegExp('^(?:' + keywords + '|' + functions + '|' + constants + ')\\b')],
 
          // constants
-         [PR['PR_TYPE'],        new RegExp('^(?:' + types + '|\G[A-Z][A-Za-z0-9_]*)\\b') ],
+         [PR['PR_TYPE'],        new RegExp('^(?:' + types + '|[A-Z][A-Za-z0-9_]*)\\b') ],
 
          // PHP functions
          //[PR['PR_TYPE'],        new RegExp('^(?:' + functions + ')\\b')],
@@ -54,6 +54,8 @@ PR['registerLangHandler'](
          [PR['PR_PUNCTUATION'], /^[^\t\n\r\$ \xA0\"\'\w]+/],
 
          // variables
-         [PR['PR_DECLARATION'], /^(\$[a-z_]+)/i]
+         [PR['PR_DECLARATION'], /^(\$[a-z_]+)/i],
+
+         ['func',               /^(?:[a-z][A-Za-z0-9_]+)/]
         ]),
     ['hack']);
