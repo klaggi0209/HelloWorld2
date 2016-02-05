@@ -4,7 +4,7 @@
     $(document).ready(function() {
 
 
-        $('#sidebar-nav .nav').buildSidebarNav();
+        $('#sidebar-nav .nav').collectHeadlines(3);
         $('h1, h2').appendLink();
 
         $('body').scrollspy({
@@ -12,10 +12,12 @@
             offset: 70
         });
 
+        /*
         $('body').scrollspy({
             target: '.nav.nav-list li ul',
             offset: 70
         });
+        */
 
         $('[data-scrollTo]').each(function(i, elem) {
             var $elem = $( elem );
@@ -58,43 +60,49 @@
         });
     };
 
-    $.fn.buildSidebarNav = function()
+    $.fn.collectHeadlines = function( maxDepth, headlines, depth )
     {
-        var list = this;
-        $('h1').each(function(i, section) {
-            var $section = $(section);
-            var sectionId = $section.getIdForced();
-            var listItem = $('<li><a href="#' + sectionId + '">' + $section.text() + '</a></li>');
+        maxDepth = maxDepth || 1;
+        depth = depth || 1;
 
-            listItem.find('a').click(function(e) {
+        var $container = this;
+        var $headlines = headlines || $('h1');
+
+        $headlines.each( function ( i, headline ) {
+            var $headline = $(headline);
+            var $next = $headlines.eq(i+1);
+
+            var $item = buildListItem( $headline );
+
+            if( depth < maxDepth )
+            {
+                var $children = $('<ul></ul>').collectHeadlines( maxDepth, $headline.nextUntil($next).filter('h'+(depth+1) ), depth+1);
+                $item.append( $children );
+            }
+
+            $container.append( $item );
+        });
+
+        return this;
+
+        function buildListItem( $target )
+        {
+            var targetID = $target.getIdForced();
+            var targetText = $target.attr('data-title') || $target.text();
+
+            var $item = $('<li></li>');
+            $item.append('<a href="#' + targetID + '">' + targetText + '</a>');
+
+            $item.find('a').click(function(e) {
                 e.preventDefault();
                 $('html,body').animate({
-                    scrollTop: ($section.offset().top - 70)
+                    scrollTop: ($target.offset().top - 70)
                 }, 300);
             });
 
-            var subList = $('<ul></ul>');
-            $section.nextUntil('h1').filter('h2').each(function(j, subSection) {
-                var $subSection = $(subSection);
-                var subSectionId = $subSection.getIdForced();
-                var subListItem = $( '<li><a href="#'+subSectionId+'">' + $subSection.text() + '</a></li>' );
+            return $item;
+        }
 
-                subListItem.find('a').click(function(e) {
-                    e.preventDefault();
-                    $('html,body').animate({
-                        scrollTop: ($subSection.offset().top - 70)
-                    }, 300);
-                });
-
-                subList.append( subListItem );
-            });
-
-            if( subList.find('li').length > 0 ) {
-                listItem.append(subList);
-            }
-
-            list.append(listItem);
-        });
     };
 
     var idCount = 0;
