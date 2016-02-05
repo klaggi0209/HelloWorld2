@@ -1,0 +1,112 @@
+{% set filters = [
+{
+    name: "itemAmazonType.hasProductGenre",
+    description: "Filters items by amazon product genre",
+    params: [
+        {
+            name: "genre",
+            type: "string",
+            description: "the amazon genre. Allowed values: \"- a - b\""
+        }
+    ]
+},
+{
+    name: "itemAttribute.hasAttribute",
+    description: "Deny items not having defined attributes",
+    params: [
+        {
+            name: "attributeId",
+            type: "int[]",
+            description: "IDs of attributes to require"
+        }
+    ]
+},
+{
+    name: "itemAttribute.doesNotHaveAttribute",
+    description: "Deny items having one of the defined attributes",
+    params: [
+        {
+            name: "attributeId",
+            type: "int[]",
+            description: "IDs of attributes to deny"
+        }
+    ]
+},
+{
+    name: "itemBase.hasAgeRestriction",
+    description: "Filter items by age restriction",
+    params: [
+        {
+            name: "ageRestriction",
+            type: "int[]",
+            description: "Required age restriction values"
+        }
+    ]
+},
+{
+    name: "itemBase.hasAmazonProductType",
+    description: "Filter items matching specific amazon product type",
+    params: [
+        {
+            name: "amazonProductType",
+            type: "int[]",
+            description: "The required amazon product type."
+        }
+    ]
+},
+{
+    name: "itemBase.hasAmazonProductType?",
+    description: "Filter items having any amazon product type"
+},
+{
+    name: "itemBase.hasBarcode?",
+    description: "Filter items having a barcode"
+},
+{
+    name: "itemBase.hasCrossItemId",
+    description: "Filter items by CrossItemIDs",
+    params: [
+        {
+            name: "itemId",
+            type: "int[]",
+            description: "The linked item IDs"
+        },
+        {
+            name: "dynamic",
+            type: "bool",
+            description: "Filter dynamic entries (true|false) or all entries (null)"
+        },
+        {
+            name: "relationship",
+            type: "string[]",
+            description: "The relationship between the linked items ('Variation', 'DisplaySet', 'Collection', 'Accessory', 'Customized', 'Part', 'Complements', 'Piece', 'Necessary', 'ReplacementPart', 'Similar', 'Episode', 'Season', 'Bundle', 'Component')"
+        }
+    ]
+}
+] %}
+
+{% for filter in filters %}
+
+    <p class="bold">{{ filter.name }}</p>
+    <p>{{ filter.description }}</p>
+    {% if filter.params is defined %}
+    <table class="table table-hover model-table">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for param in filter.params %}
+                <tr>
+                    <td>{{ param.name }}</td>
+                    <td>{{ param.type }}</td>
+                    <td>{{ param.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endfor %}
