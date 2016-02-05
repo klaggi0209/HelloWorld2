@@ -13,6 +13,20 @@
             offset: 90
         });
 
+        $('a').each(function(i, link) {
+            var $link = $(link);
+            if( $link.attr('href').charAt(0) == '#' )
+            {
+                $link.click(function(e) {
+                    e.preventDefault();
+                    var $target = $( $link.attr('href') );
+                    $('html,body').animate({
+                        scrollTop: ($target.offset().top - 70)
+                    }, 300);
+                });
+            }
+        });
+
         /*
         $('body').scrollspy({
             target: '.nav.nav-list li ul',

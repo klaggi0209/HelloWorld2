@@ -7,6 +7,7 @@
 
 {%  block MainFrame %}
 <div class="row">
+    <a href="#" id="top"></a>
     <div class="col-lg-9 col-md-9">
         {% block Content %}{% endblock %}
     </div>
@@ -14,7 +15,7 @@
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs fixed-right" id="sidebar-nav">
         <p class="h4">Contents</p>
         <ul class="nav nav-list"></ul>
-        <a href="#" data-scrollTo="0">Zurück nach oben</a>
+        <a href="#top">Zurück nach oben</a>
     </div>
 </div>
 {% endblock %}
@@ -40,7 +41,8 @@
             highlight(codeEl, {
                 mode: "ace/mode/" + mode,
                 showGutter: true,
-                trim: true
+                trim: true,
+                showFoldWidgets: true
             }, function (highlighted) {
             });
         });
