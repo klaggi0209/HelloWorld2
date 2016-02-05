@@ -5,11 +5,12 @@
 
 
         $('#sidebar-nav .nav').collectHeadlines(3);
-        $('h1, h2').appendLink();
+
+        $('h1, h2, h3').appendLink();
 
         $('body').scrollspy({
             target: '#sidebar-nav',
-            offset: 70
+            offset: 90
         });
 
         /*
