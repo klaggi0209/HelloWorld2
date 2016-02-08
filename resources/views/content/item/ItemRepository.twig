@@ -8,7 +8,7 @@
         {
             name: "search",
             description: "Receive specified data for items matching provided filters.",
-            call: "search(\n\tarray&lt;string, mixed&gt; $columns,\n\t?array&lt;string, mixed&gt; $filter = [],\n\t?array&lt;string, mixed&gt; $params = []\n):array&lt;<a href=\"#item-model-record\">Record</a>&gt;",
+            call: "search(\n    array&lt;string, mixed&gt; $columns,\n    ?array&lt;string, mixed&gt; $filter = [],\n    ?array&lt;string, mixed&gt; $params = []\n):array&lt;<a href=\"#item-model-record\">Record</a>&gt;",
             params:
             [
                 {
@@ -30,8 +30,7 @@
                 },
                 {
                     name: "$params",
-                    description: "Parameters needed by filters.",
-                    docFile: "PlentyPluginShowcase::content.item.ItemRepositoryParams.twig",
+                    description: "Parameters required by used filters.",
                     type: "array<string, mixed>",
                     isMandatory: false,
                     isNullable: true,
