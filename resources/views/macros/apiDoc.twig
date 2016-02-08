@@ -1,48 +1,54 @@
 {% macro printClass( className, namespace, description, methods ) %}
 
-    <h3 id="repository-{{ className }}" data-title="{{ className }}">
-        <code>{{ className }}</code>
-        <small>{{ namespace }}</small>
-    </h3>
+<h3 id="repository-{{ className }}" data-title="{{ className }}">
+    <code>{{ className }}</code>
+    <small>{{ namespace }}</small>
+</h3>
 
-    <p>{{ description }}</p>
+<p>{{ description }}</p>
 
-    {% for method in methods %}
-    <div class="api-doc-method">
-        <h4>{{ className }}::{{ method.name }}()</h4>
+        {% for method in methods %}
+<div class="api-doc-method">
+<h4>{{ className }}::{{ method.name }}()</h4>
 
-        <p>
-            {{ method.description }}
-        </p>
+<div class="api-doc-method-container">
+    <p>
+        {{ method.description }}
+    </p>
 
-        <pre class="prettyprint lang-hack">{{ method.call | raw }}</pre>
+    <pre class="prettyprint lang-hack">{{ method.call | raw }}</pre>
 
-        <div class="api-doc-param-list">
-            {% for param in method.params %}
-                <div class="api-doc-param">
-                    <h5>
-                        {{ param.name }}:{{ param.type }}
-                        {%  if not param.isMandatory %}
-                            <span class="label label-default">optional</span>
-                        {% endif %}
-                        {% if param.isNullable %}
-                            <span class="label label-primary">nullable</span>
-                        {% endif %}
-                        {% if param.defaultValue is defined %}
-                            <small>default: {{ param.defaultValue }}</small>
-                        {% endif %}
-                    </h5>
+    <div class="api-doc-param-list">
+        {% for param in method.params %}
+        <div class="api-doc-param">
+            <h5>
+                {{ param.name }}
+                {% if not param.isMandatory %}
+                <span class="label label-default">optional</span>
+                {% endif %}
+                {% if param.isNullable %}
+                <span class="label label-primary">nullable</span>
+                {% endif %}
+            </h5>
 
-                    <p>
-                        {{ param.description }}
-                    </p>
+            <p>Type: <span class="label-white">{{ param.type }}</span></p>
+            {% if param.defaultValue is defined %}
+            <p>Default: <span class="label-white">{{ param.defaultValue }}</span></p>
+            {% endif %}
 
-                    {% if param.docFile is defined %}
-                        {{ include( param.docFile ) }}
-                    {% endif %}
-                </div>
-            {% endfor %}
+            <div class="api-doc-param-container">
+                <p>
+                    {{ param.description }}
+                </p>
+
+                {% if param.docFile is defined %}
+                {{ include( param.docFile ) }}
+                {% endif %}
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-{% endmacro %}
+</div>
+</div>
+        {% endfor %}
+        {% endmacro %}
