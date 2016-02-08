@@ -1,8 +1,13 @@
 (function($) {
 
 
+    var hash = window.location.hash;
+
     $(document).ready(function() {
 
+        $('html,body').animate({
+            scrollTop: ($(hash).offset().top - 70)
+        }, 10);
 
         $('#sidebar-nav .nav').collectHeadlines(3);
 
@@ -23,9 +28,17 @@
                     $('html,body').animate({
                         scrollTop: ($target.offset().top - 70)
                     }, 300);
+
+                    var match = $link.attr('href').match(/^(.*)(#.*)$/);
+                    if( !!match && match.length > 2 )
+                    {
+                        window.location.hash = match[2];
+                    }
                 });
             }
         });
+
+
 
         /*
         $('body').scrollspy({
