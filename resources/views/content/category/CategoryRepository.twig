@@ -8,7 +8,7 @@
         {
             name: "all",
             description: "",
-            call: "all( ?string $lang=\"de\" ):?array<Category>",
+            call: "all( ?string $lang=\"de\" ):?array&lt;<a href=\"#category-model-category\">Category</a>&gt;",
             params:
             [
                 {
@@ -23,7 +23,7 @@
         {
             name: "get",
             description: "",
-            call: "get( int $category_id, ?string $lang=\"de\"):?Category",
+            call: "get( int $category_id, ?string $lang=\"de\"):?<a href=\"#category-model-category\">Category</a>",
             params:
             [
                 {
@@ -45,7 +45,7 @@
         {
             name: "getByType",
             description: "",
-            call: "getByType( string $type, ?string $lang=\"de\"):?array<Category>",
+            call: "getByType( string $type, ?string $lang=\"de\"):?array&lt;<a href=\"#category-model-category\">Category</a>&gt;",
             params:
             [
                 {
@@ -80,7 +80,7 @@
         {
             name: "getChildren",
             description: "",
-            call: "getChildren( int $category_id, ?string $lang=\"de\"):?array<Category>",
+            call: "getChildren( int $category_id, ?string $lang=\"de\"):?&lt;<a href=\"#category-model-category\">Category</a>&gt;",
             params:
             [
                 {
@@ -101,7 +101,7 @@
         {
             name: "getSitemapList",
             description: "",
-            call: "getSitemapList( string $type=\"all\", ?string $lang=\"de\"):?array<Category>",
+            call: "getSitemapList( string $type=\"all\", ?string $lang=\"de\"):?&lt;<a href=\"#category-model-category\">Category</a>&gt;",
             params:
             [
                 {
@@ -123,7 +123,7 @@
         {
             name: "getSitemapTree",
             description: "",
-            call: "getSitemapList( string $type=\"all\", ?string $lang=\"de\"):?array<Category>",
+            call: "getSitemapList( string $type=\"all\", ?string $lang=\"de\"):?&lt;<a href=\"#category-model-category\">Category</a>&gt;",
             params:
             [
                 {
@@ -166,7 +166,7 @@
         {
             name: "findCategoryByUrl",
             description: "",
-            call: "findCategoryByUrl(\n\tstring $level1=\"\",\n\t?string $level2=\"\",\n\t?string $level3=\"\",\n\t?string $level4=\"\",\n\t?string $level5=\"\",\n\t?string $level6=\"\"\n):?Category",
+            call: "findCategoryByUrl(\n\tstring $level1=\"\",\n\t?string $level2=\"\",\n\t?string $level3=\"\",\n\t?string $level4=\"\",\n\t?string $level5=\"\",\n\t?string $level6=\"\"\n):?<a href=\"#category-model-category\">Category</a>",
             params:
             [
                 {
