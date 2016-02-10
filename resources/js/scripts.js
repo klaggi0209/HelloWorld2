@@ -14,7 +14,7 @@
 
         $('#sidebar-nav .nav').collectHeadlines(3);
 
-        $('h1, h2, h3').appendLink();
+        $('h1, h2, h3').not('[data-link="ignore"]').appendLink();
 
         $('body').scrollspy({
             target: '#sidebar-nav',
