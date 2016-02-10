@@ -1,6 +1,6 @@
-
-$alabaster-grey:  #f8f8f8;
-
+$alabaster-grey: #f8f8f8;
+$mercury-grey: #e3e3e3;
+$astral-blue: #337AB7;
 
 body {
   padding-top: 70px;
@@ -17,7 +17,7 @@ h1 {
 }
 
 h3 {
-  margin:50px 0 20px 0;
+  margin: 50px 0 20px 0;
 }
 
 h3 small {
@@ -29,8 +29,9 @@ h3 small {
 h3 code {
   background-color: $alabaster-grey;
   padding: 2px 12px;
-  color: #337AB7;
+  color: $astral-blue;
 }
+
 p.h4 {
   color: #4D4E53;
 }
@@ -87,7 +88,7 @@ p.h4 {
     font-size: 14px;
     > a {
       color: #4D4D53;
-      border-color: #337AB7;
+      border-color: $astral-blue;
     }
   }
 
@@ -145,7 +146,7 @@ p.h4 {
 }
 
 .nav.nav-list > li.active > a {
-  border-color: #337AB7;
+  border-color: $astral-blue;
 }
 
 /* examples */
@@ -255,13 +256,18 @@ ul.categoryDetails
 
 */
 
-pre {
-  background-color: #fff;
+.code-container {
   color: #333;
-  padding: 10px;
   position: relative;
   margin: 10px 0 20px 0;
   overflow: visible;
+  border-radius: 0;
+  border-left: 4px solid $astral-blue;
+}
+
+pre {
+  background-color: #fff;
+  padding: 10px;
   border-radius: 0;
 
   &.language-json {
@@ -285,7 +291,7 @@ pre {
     padding: 2px 5px;
     border-radius: 6px;
     text-transform: uppercase;
-    background-color: #3387CC;
+    background-color: $astral-blue;
     color: #ffffff;
   }
 
@@ -300,7 +306,7 @@ pre {
     padding: 2px 5px;
     border-radius: 6px;
     text-transform: uppercase;
-    background-color: #3387cc;
+    background-color: $astral-blue;
     color: #fff;
   }
 
@@ -322,7 +328,7 @@ pre {
     left: 50px;
   }
   &.language-html[data-type="post"]:before {
-    background-color: #4070ec;
+    background-color: $astral-blue;
   }
 
   &.language-html[data-type="delete"]:after {
@@ -343,14 +349,15 @@ pre {
 
   &.prettyprint {
     padding: 6px 18px;
-    border: 2px solid #E3E3E3;
-    border-left: 4px solid #337AB7;
+    border-color: #E3E3E3;
+    border-width: 2px 2px 2px 0;
+
   }
 
   code {
     display: block;
     font-size: 14px;
-    font-family: "Source Code Pro";
+    font-family: "Menlo";
     font-style: normal;
     font-weight: 400;
     word-wrap: normal;
@@ -426,14 +433,6 @@ li.L8 {
   border: 2px solid #ECECEC;
 }
 
-/*
-.api-doc-param-container{
-  margin: 40px 0 0 50px;
-  background-color: #F5F5F5;
-  padding: 30px;
-  border: 2px solid #ECECEC;
-}*/
-
 .api-doc-method h4 {
   background-color: #ffffff;
   border: 2px solid #ECECEC;
@@ -447,7 +446,7 @@ li.L8 {
 
 .label-white {
   background-color: #fff;
-  color: #337AB7;
+  color: $astral-blue;
   padding: 2px 6px;
   font-family: Menlo;
   font-size: 12px;
@@ -467,4 +466,22 @@ li.L8 {
   padding-left: 40px;
 }
 
+.border-bottom {
+  border-bottom: 1px solid #DDDDDD;
+  padding-bottom: 15px;
+  font-weight: 200;
+}
+
+.jumbotron {
+  background-color: #f8f8f8;
+  margin-top: 40px;
+}
+
+.jumbotron h1 {
+  border: none;
+}
+
+.jumbotron h2 {
+  font-weight: 200;
+}
 
