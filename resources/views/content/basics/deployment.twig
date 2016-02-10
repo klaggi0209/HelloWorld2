@@ -1,31 +1,112 @@
-<h1>Test 2</h1>
+<h1 id="workflow-deployment">Workflow and Deployment</h1>
+
+<h2 id="plugin-structure">Creating a new plugin</h2>
+
+<pre class="prettyprint lang-plain">
+PluginDirectory
+    |-- resources       // organize your resources here
+        |-- css
+        |-- img
+        |-- js
+        |-- ...
+        |-- views       // contains all twig-templates
+            |-- content
+            |-- macros
+            |-- templates
+    |-- src             // the logical parts of your plugin
+        |-- Controllers
+        |-- Extensions
+        |-- Providers
+    |-- config.json
+    |-- plugin.json
+</pre>
+
+<h3 id="plugin-json">plugin.json</h3>
 
 <p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    This file contains several information about your plugin. Mainly it defines the service provider of your plugin, which is
+    hooked-up by plentymarkets system to run your plugin.
 </p>
 
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+    </thead>
 
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
+    <tbody>
+        <tr>
+            <td>version</td>
+            <td>The version of your plugin. We recommend to use <a href="http://semver.org/" target="_blank">semantic versioning</a>.</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>The name of your plugin</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>The description of your plugin</td>
+        </tr>
+        <tr>
+            <td>author</td>
+            <td>The author of the plugin</td>
+        </tr>
+        <tr>
+            <td>keywords</td>
+            <td>An array of keywords describing your plugin</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>The type of your plugin. Available types: "design"</td>
+        </tr>
+        <tr>
+            <td>require</td>
+            <td>An array of dependencies</td>
+        </tr>
+        <tr>
+            <td>namespace</td>
+            <td>The root namespace of your plugin</td>
+        </tr>
+        <tr>
+            <td>service_provider</td>
+            <td>The service provider to hook-up</td>
+        </tr>
+    </tbody>
+
+</table>
+
+<h4><code>plugin.json</code> Example</h4>
+<pre class="prettyprint lang-js">
+{
+    "version"           : 0.1,
+    "name"              : "MyPlugin",
+    "description"       : "Description of your plugin",
+    "author"            : "Your name",
+    "keywords"          : ["plentymarkets", "plugins"],
+    "type"              : "design",
+    "require"           : [],
+    "namespace"         : "PluginNamespace",
+    "service_provider"  : "PluginNamespace\\Providers\\MyServiceProvider"
+}
+</pre>
+
+<h3 id="config-json">config.json</h3>
+
+<h3>Lifecycle</h3>
+    <p>plugin.json['service_provider'] --> ServiceProvider::register() --> ServiceProvider::boot()</p>
+    <p>on request: RouteProvider:map --> Controller</p>
+
+
+<h2>Workflow</h2>
+<h3>Synchronization with plentymarkets</h3>
+    <ul>
+        <li>git</li>
+        <li>(SFTP) coming soon</li>
+    </ul>
+
+    <h3>Building Plugins</h3>
+    <p>Inbox --> Stage</p>
+    <p>Inbox --> Productive</p>
+

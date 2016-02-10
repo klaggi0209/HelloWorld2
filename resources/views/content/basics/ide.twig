@@ -1,63 +1,48 @@
-<h1>Entwicklungsumgebung</h1>
+<h1 id="requirements">IDEs and tools</h1>
+
+<h2 id="environment">Required environment</h2>
 
 <p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    For security reasons and performance optimization all plugins are executed inside
+    <a href="http://hhvm.com/" target="_blank">HHVM</a>. We recommend to
+    <a href="https://docs.hhvm.com/hhvm/installation/introduction" target="_blank">install HHVM</a> (including a Hack compiler) locally
+    for improved language support and easier development.
 </p>
 
+<h2 id="ide-support">Recommended IDEs</h2>
 
 <p>
-    <figure class="highlight">
-        <pre>
-            <code data-lang="bash" class="language-bash">
-                plentyPluginShowcase/
-                |-- resources/
-                    |-- css
-                        |-- CSS / SCSS / LESS
-                    |-- documents
-                        |-- fonts
-                    |-- img
-                        |-- favicon.png
-                        |-- ...
-                    |-- js
-                    |-- views
-                        |-- content
-                            |-- basics
-                                |-- file1.twig
-                                |-- file2.twig
-                                |-- ...
-                            |-- categories
-                                |-- file1.twig
-                                |-- file2.twig
-                                |-- ...
-                            |-- file1.twig
-                            |-- file2.twig
-                            |-- ...
-                         |-- examples
-                         |-- macros
-                            |-- file1.twig
-                            |-- ...
-                         |-- templates
-                         |-- file1.twig
-                |-- src/
-                    |-- Controllers
-                        |-- file1.hh
-                        |-- ...
-                    |-- Extensions
-                        |-- file1.hh
-                        |-- ...
-                    |-- Providers
-                        |-- file1.hh
-                        |-- ...
-                |-- config.json
-                |-- plugin.json
-
-            </code>
-        </pre>
-    </figure>
+    We recommend the usage of an IDE which supports hack language and Twig syntax.
+    For this purpose we suggest using one of the following IDEs.
 </p>
+
+<h3 id="atom-nuclide">Atom with Nuclide</h3>
+<p>Facebook provides this IDE for hack develompent and can be extended to support Twig syntax too.</p>
+<h4>Installation</h4>
+<ol>
+    <li>
+        <a href="https://github.com/atom/atom/releases/latest" target="_blank">Download</a>
+        and <a href="https://atom.io/docs/latest/getting-started-installing-atom" target="_blank">install</a>
+        Atom IDE
+    </li>
+    <li>
+        <a href="http://nuclide.io/docs/editor/setup" target="_blank">Install Nuclide Plugin</a><sup>*</sup> for hack language support
+    </li>
+    <li>
+        <a href="https://atom.io/packages/php-twig" target="_blank">Install Twig Plugin</a><sup>*</sup> for Twig syntax highlighting
+    </li>
+</ol>
+<p>
+    *) All required Atom packages can be found using the embedded package control pane of the Atom IDE. This pane can be found in Atom: <i>Settings</i> > <i>Install</i>
+</p>
+
+<h3 id="sublime-text">Sublime Text</h3>
+<p>Next to Facebook's Nuclide IDE you can use Sublime Text for plugin development. You can use the stable Sublime Text 2 or Sublime Text 3, which is currently in beta.</p>
+
+<h4>Installtion</h4>
+<ol>
+    <li><a href="https://www.sublimetext.com/2" target="_blank">Install Sublime Text</a></li>
+    <li>Install Sublime Text's <a href="https://packagecontrol.io/installation" target="_blank">Package-Control</a></li>
+    <li>Install <a href="https://packagecontrol.io/packages/Hacklang%20Typechecker%20and%20Autocompletion" target="_blank">hack Plugin</a></li>
+    <li>Install <a href="https://packagecontrol.io/packages/PHP-Twig" target="_blank">Twig Plugin</a></li>
+</ol>
