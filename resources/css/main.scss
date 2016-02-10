@@ -1,18 +1,23 @@
-$alabaster-grey: #f8f8f8;
-$mercury-grey: #e3e3e3;
+$white: #FFFFFF;
+$alabaster-grey: #F8F8F8;
+$mercury-grey: #E3E3E3;
+$cararra-grey: #ECECEC;
+$smoke-white: #F5F5F5;
+$stormdust-grey: #666666;
+$abbey-black: #4D4E53;
 $astral-blue: #337AB7;
 
 body {
   padding-top: 70px;
-  color: #4D4E53;
+  color: $abbey-black;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #4D4E53;
+  color: $abbey-black;
 }
 
 h1 {
-  border-bottom: 2px solid #ECECEC;
+  border-bottom: 2px solid $cararra-grey;
   padding-bottom: 12px;
 }
 
@@ -22,7 +27,7 @@ h3 {
 
 h3 small {
   font-family: Menlo;
-  color: #666;
+  color: $stormdust-grey;
   font-size: 12px;
 }
 
@@ -33,7 +38,7 @@ h3 code {
 }
 
 p.h4 {
-  color: #4D4E53;
+  color: $abbey-black;
 }
 
 .block {
@@ -161,7 +166,7 @@ p.h4 {
 .editor-container {
   border-width: 0 1px 1px 1px;
   border-style: solid;
-  border-color: #ECECEC;
+  border-color: $cararra-grey;
   overflow: hidden;
 }
 
@@ -221,12 +226,12 @@ p.h4 {
 .filter-table {
   margin-left: 40px;
   max-width: 90%;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .model-table {
-  background-color: #F5F5F5;
-  border: 2px solid #ececec;
+  background-color: $smoke-white;
+  border: 2px solid $cararra-grey;
 }
 
 /* /TABLES */
@@ -265,7 +270,7 @@ ul.categoryDetails
 }
 
 pre {
-  background-color: #fff;
+  background-color: $white;
   padding: 10px;
   border-radius: 0;
 
@@ -291,7 +296,7 @@ pre {
     border-radius: 6px;
     text-transform: uppercase;
     background-color: $astral-blue;
-    color: #ffffff;
+    color: $white;
   }
 
   &.language-html[data-middleware="oauth"]:after {
@@ -306,7 +311,7 @@ pre {
     border-radius: 6px;
     text-transform: uppercase;
     background-color: $astral-blue;
-    color: #fff;
+    color: $white;
   }
 
   &.language-html[data-type="get"]:after {
@@ -338,7 +343,7 @@ pre {
   }
 
   &.language-api .str {
-    color: #ffffff;
+    color: $white;
   }
 
   &.language-api .pln,
@@ -348,9 +353,10 @@ pre {
 
   &.prettyprint {
     padding: 6px 18px;
-    border: 2px solid #E3E3E3;
-    border-left: none; //4px solid #337AB7;
+    border: 1px solid $mercury-grey;
+    border-left: none;
     position: relative;
+    overflow: hidden;
   }
 
   &.prettyprint::before {
@@ -361,7 +367,7 @@ pre {
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: #337AB7;
+    background-color: $astral-blue;
   }
 
   code {
@@ -440,12 +446,12 @@ li.L8 {
 .api-doc-method-container {
   background-color: $alabaster-grey;
   padding: 30px;
-  border: 2px solid #ECECEC;
+  border: 2px solid $mercury-grey;
 }
 
 .api-doc-method h4 {
-  background-color: #ffffff;
-  border: 2px solid #ECECEC;
+  background-color: $white;
+  border: 2px solid $mercury-grey;
   padding: 12px 20px;
   margin: 40px 0 -4px 0;
 }
@@ -455,7 +461,7 @@ li.L8 {
 }
 
 .label-white {
-  background-color: #fff;
+  background-color: $white;
   color: $astral-blue;
   padding: 2px 6px;
   font-family: Menlo;
@@ -467,24 +473,19 @@ li.L8 {
 }
 
 .item-model-container {
-  background-color: #F5F5F5;
+  background-color: $smoke-white;
   padding: 30px;
-  border: 2px solid #ECECEC;
+  border: 2px solid $cararra-grey;
 }
 
 .api-doc-param p {
   padding-left: 40px;
 }
 
-.border-bottom {
-  border-bottom: 1px solid #DDDDDD;
-  padding-bottom: 15px;
-  font-weight: 200;
-}
-
 .jumbotron {
-  background-color: #f8f8f8;
+  background-color: $alabaster-grey;
   margin-top: 40px;
+  border: 2px solid $cararra-grey;
 }
 
 .jumbotron h1 {
@@ -495,3 +496,23 @@ li.L8 {
   font-weight: 200;
 }
 
+.jumbotron p {
+  font-weight: 100;
+  color: $mercury-grey;
+}
+
+.components {
+  margin: 40px 0;
+}
+
+img.plug {
+  position: relative;
+  top: -144px;
+  left: 50px;
+  width: 60%;
+}
+
+.components div {
+  padding: 0;
+  text-align:right;
+}
