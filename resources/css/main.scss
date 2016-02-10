@@ -212,7 +212,7 @@ p.h4 {
   font-size: 90%;
 }
 
-.filter-table:last-child {
+.filter-table tr td:last-child {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100%;
 }
@@ -344,7 +344,19 @@ pre {
   &.prettyprint {
     padding: 6px 18px;
     border: 2px solid #E3E3E3;
-    border-left: 4px solid #337AB7;
+    border-left: none; //4px solid #337AB7;
+    position: relative;
+  }
+
+  &.prettyprint::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 4px;
+    top: -2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #337AB7;
   }
 
   code {

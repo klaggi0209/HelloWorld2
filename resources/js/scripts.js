@@ -5,9 +5,12 @@
 
     $(document).ready(function() {
 
-        $('html,body').animate({
-            scrollTop: ($(hash).offset().top - 70)
-        }, 10);
+        if( !!hash && hash.length > 0 )
+        {
+            $('html,body').animate({
+                scrollTop: ($(hash).offset().top - 70)
+            }, 10);
+        }
 
         $('#sidebar-nav .nav').collectHeadlines(3);
 
