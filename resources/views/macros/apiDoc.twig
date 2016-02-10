@@ -16,7 +16,10 @@
         {{ method.description }}
     </p>
 
-    <pre class="prettyprint lang-hack">{{ method.call | raw }}</pre>
+    <div class="code-container">
+        <pre class="prettyprint lang-hack">{{ method.call | raw }}</pre>
+    </div>
+
 
     <div class="api-doc-param-list">
         {% for param in method.params %}
