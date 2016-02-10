@@ -97,17 +97,18 @@
         depth = depth || 1;
 
         var $container = this;
-        var $headlines = headlines || $('h1');
+        var headlineSelector = 'h' + depth;
+        var $headlines = headlines || $(headlineSelector);
 
         $headlines.each( function ( i, headline ) {
             var $headline = $(headline);
-            var $next = $headlines.eq(i+1);
+            var childHeadlineSelector = 'h' + (depth+1);
 
             var $item = buildListItem( $headline );
 
             if( depth < maxDepth )
             {
-                var $children = $('<ul></ul>').collectHeadlines( maxDepth, $headline.nextUntil($next).filter('h'+(depth+1) ), depth+1);
+                var $children = $('<ul></ul>').collectHeadlines( maxDepth, $headline.nextUntil(headlineSelector, childHeadlineSelector) , depth+1);
                 $item.append( $children );
             }
 
