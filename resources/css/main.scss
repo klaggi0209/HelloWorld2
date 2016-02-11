@@ -12,6 +12,9 @@ body {
   color: $abbey-black;
 }
 
+
+
+/* HEADLINES  ---------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
   color: $abbey-black;
 }
@@ -42,6 +45,10 @@ p.h4 {
   color: $abbey-black;
 }
 
+/* -- */
+
+/* HELPER CLASSES ---------------------------------------------------------- */
+
 .block {
   display: block;
 }
@@ -57,6 +64,8 @@ p.h4 {
 .text-tt {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+/* -- */
+
 
 .has-hover .hover-visible,
 .has-hover:hover .hover-hidden {
@@ -68,7 +77,8 @@ p.h4 {
   display: inline-block;
 }
 
-/* sidebar nav */
+/* SIDEBAR ---------------------------------------------------------- */
+
 .nav.nav-list {
   margin-bottom: 24px;
 
@@ -155,6 +165,8 @@ p.h4 {
   border-color: $astral-blue;
 }
 
+/* -- */
+
 /* examples */
 .example-container {
   margin-bottom: 48px;
@@ -237,30 +249,6 @@ p.h4 {
 
 /* /TABLES */
 
-/*
-ul.categoryDetails
-{
-  list-style-type: none;
-}
-
-.categoryView.isGridView .itemBox .name
-{
-  min-height: 60px;
-  max-height: 60px;
-  overflow: hidden;
-}
-
-.h-lg-2.adapt-line-height
-{
-  line-height: 165px;
-}
-
-.h-lg-2
-{
-  height: 165px;
-}
-
-*/
 
 .code-container {
   color: #333;
@@ -361,26 +349,6 @@ pre {
     overflow: hidden;
   }
 
-  /*&.prettyprint::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 4px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background-color: $astral-blue;
-  }*/
-
-  code {
-    display: block;
-    font-size: 14px;
-    font-family: "Menlo";
-    font-style: normal;
-    font-weight: 400;
-    word-wrap: normal;
-    white-space: pre;
-  }
 
   .str {
     color: #65B042;
@@ -534,6 +502,24 @@ li.L8 {
 
 }
 
+.label {
+  font-weight: 300;
+}
+
+
+/* CODE STYLES ------------------------------------------------------------ */
+code {
+  font-size: 14px;
+  font-family: "Menlo";
+  font-style: normal;
+  font-weight: 400;
+  word-wrap: normal;
+  white-space: pre;
+  background-color: $white;
+  color: $astral-blue;
+}
+/* -- */
+
 /* MEDIA QUERIES ---------------------------------------------------------- */
 
 @media (max-width: 768px) {
@@ -544,4 +530,4 @@ li.L8 {
     font-size: 21px;
   }
 }
-
+/* -- */

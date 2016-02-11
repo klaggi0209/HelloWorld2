@@ -1,158 +1,160 @@
-<pre class="prettyprint lang-hack">
-$columns = array(
-    'itemBase' => array(
-        // for available fields see <a href="#item-model-itemBase">ItemBase</a>
-    ),
-    'itemCharacterList' => array(
-        'params' => array(
-            'type' => '[string]'
+<div class="code-container">
+    <pre class="prettyprint lang-hack">
+    $columns = array(
+        'itemBase' => array(
+            // for available fields see <a href="#item-model-itemBase">ItemBase</a>
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-itemCharacter">ItemCharacter</a>
-        )
-    ),
-    'itemCrossSellingList' => array(
-        // for available fields see <a href="#item-model-itemCrossSelling">ItemCrossSelling</a>
-    ),
-    'itemDescription' => array(
-        'params' => array(
-            'language' => '[string]'
+        'itemCharacterList' => array(
+            'params' => array(
+                'type' => '[string]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-itemCharacter">ItemCharacter</a>
+            )
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-itemDescription">ItemDescription</a>
-        )
-    ),
-    'variationAttributeValueList' => array(
-        // for available fields see <a href="#item-model-variationAttributeValue">VariationAttributeValue</a>
-    ),
-    'variationBarcode' => array(
-        'params' => array(
-            'barcodeType' => '[string]',
-            'barcodeId' => '[integer]'
+        'itemCrossSellingList' => array(
+            // for available fields see <a href="#item-model-itemCrossSelling">ItemCrossSelling</a>
         ),
-        'fields' => array(
+        'itemDescription' => array(
+            'params' => array(
+                'language' => '[string]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-itemDescription">ItemDescription</a>
+            )
+        ),
+        'variationAttributeValueList' => array(
+            // for available fields see <a href="#item-model-variationAttributeValue">VariationAttributeValue</a>
+        ),
+        'variationBarcode' => array(
+            'params' => array(
+                'barcodeType' => '[string]',
+                'barcodeId' => '[integer]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationBarcode">VariationBarcode</a>
+            )
+        ),
+        'variationBarcodeList' => array(
             // for available fields see <a href="#item-model-variationBarcode">VariationBarcode</a>
-        )
-    ),
-    'variationBarcodeList' => array(
-        // for available fields see <a href="#item-model-variationBarcode">VariationBarcode</a>
-    ),
-    'variationBase' => array(
-        // for available fields see <a href="#item-model-variationBase">VariationBase</a>
-    ),
-    'variationBundleComponentList' => array(
-        // for available fields see <a href="#item-model-variationBundleComponent">VariationBundleComponent</a>
-    ),
-    'variationCategoryList' => array(
-        // for available fields see <a href="#item-model-variationCategory">VariationCategory</a>
-    ),
-    'variationImageList' => array(
-        // for available fields see <a href="#item-model-variationImage">VariationImage</a>
-    ),
-    'variationLinkMarketplace' => array(
-        // for available fields see <a href="#item-model-variationBarcode">VariationLinkMarketplace</a>
-    ),
-    'variationLinkWebstore' => array(
-        // for available fields see <a href="#item-model-variationLinkWebstore">VariationLinkWebstore</a>
-    ),
-    'variationMarketStatus' => array(
-        'params' => array(
-            'marketId' => '[float]'
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationMarketStatus">VariationMarketStatus</a>
-        )
-    ),
-    'variationRecommendedRetailPrice' => array(
-        'params' => array(
-            'quantity' => '[int]'
+        'variationBase' => array(
+            // for available fields see <a href="#item-model-variationBase">VariationBase</a>
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
-        )
-    ),
-    'variationRecommendedRetailPriceList' => array(
-        'params' => array(
-            'quantity' => '[int]'
+        'variationBundleComponentList' => array(
+            // for available fields see <a href="#item-model-variationBundleComponent">VariationBundleComponent</a>
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
-        )
-    ),
-    'variationRetailPrice' => array(
-        'params' => array(
-            'quantity' => '[int]'
+        'variationCategoryList' => array(
+            // for available fields see <a href="#item-model-variationCategory">VariationCategory</a>
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
-        )
-    ),
-    'variationRetailPriceList' => array(
-        'params' => array(
-            'quantity' => '[int]'
+        'variationImageList' => array(
+            // for available fields see <a href="#item-model-variationImage">VariationImage</a>
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
-        )
-    ),
-    'variationSpecialOfferRetailPrice' => array(
-        'params' => array(
-            'quantity' => '[int]'
+        'variationLinkMarketplace' => array(
+            // for available fields see <a href="#item-model-variationBarcode">VariationLinkMarketplace</a>
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
-        )
-    ),
-    'variationSpecialOfferRetailPriceList' => array(
-        'params' => array(
-            'quantity' => '[int]'
+        'variationLinkWebstore' => array(
+            // for available fields see <a href="#item-model-variationLinkWebstore">VariationLinkWebstore</a>
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
-        )
-    ),
-    'variationStandardCategory' => array(
-        'params' => array(
-            'plentyId' => '[integer]'
+        'variationMarketStatus' => array(
+            'params' => array(
+                'marketId' => '[float]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationMarketStatus">VariationMarketStatus</a>
+            )
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationStandardCategory">VariationStandardCategory</a>
-        )
-    ),
-    'variationStock' => array(
-        'params' => array(
-            'type' => '[string]',
-            'warehouseId' => '[integer]'
+        'variationRecommendedRetailPrice' => array(
+            'params' => array(
+                'quantity' => '[int]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
+            )
         ),
-        'fields' => array(
+        'variationRecommendedRetailPriceList' => array(
+            'params' => array(
+                'quantity' => '[int]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
+            )
+        ),
+        'variationRetailPrice' => array(
+            'params' => array(
+                'quantity' => '[int]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
+            )
+        ),
+        'variationRetailPriceList' => array(
+            'params' => array(
+                'quantity' => '[int]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
+            )
+        ),
+        'variationSpecialOfferRetailPrice' => array(
+            'params' => array(
+                'quantity' => '[int]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
+            )
+        ),
+        'variationSpecialOfferRetailPriceList' => array(
+            'params' => array(
+                'quantity' => '[int]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationRetailPrice">VariationRetailPrice</a>
+            )
+        ),
+        'variationStandardCategory' => array(
+            'params' => array(
+                'plentyId' => '[integer]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationStandardCategory">VariationStandardCategory</a>
+            )
+        ),
+        'variationStock' => array(
+            'params' => array(
+                'type' => '[string]',
+                'warehouseId' => '[integer]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationStock">VariationStock</a>
+            )
+        ),
+        'variationStockBuffer' => array(
+            'params' => array(
+                'type' => '[string]',
+                'warehouseId' => '[integer]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationStockBuffer">VariationStockBuffer</a>
+            )
+        ),
+        'variationStockList' => array(
             // for available fields see <a href="#item-model-variationStock">VariationStock</a>
-        )
-    ),
-    'variationStockBuffer' => array(
-        'params' => array(
-            'type' => '[string]',
-            'warehouseId' => '[integer]'
         ),
-        'fields' => array(
-            // for available fields see <a href="#item-model-variationStockBuffer">VariationStockBuffer</a>
-        )
-    ),
-    'variationStockList' => array(
-        // for available fields see <a href="#item-model-variationStock">VariationStock</a>
-    ),
-    'variationSupplierList' => array(
-        // for available fields see <a href="#item-model-variationSupplier">VariationSupplier</a>
-    ),
-    'variationWarehouse' => array(
-        'params' => array(
-            'warehouseId' => '[integer]'
+        'variationSupplierList' => array(
+            // for available fields see <a href="#item-model-variationSupplier">VariationSupplier</a>
         ),
-        'fields' => array(
+        'variationWarehouse' => array(
+            'params' => array(
+                'warehouseId' => '[integer]'
+            ),
+            'fields' => array(
+                // for available fields see <a href="#item-model-variationWarehouse">VariationWarehouse</a>
+            )
+        ),
+        'variationWarehouseList' => array(
             // for available fields see <a href="#item-model-variationWarehouse">VariationWarehouse</a>
         )
-    ),
-    'variationWarehouseList' => array(
-        // for available fields see <a href="#item-model-variationWarehouse">VariationWarehouse</a>
-    )
-);
-</pre>
+    );
+    </pre>
+</div>
