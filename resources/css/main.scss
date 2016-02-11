@@ -31,7 +31,8 @@ h3 small {
   font-size: 12px;
 }
 
-h3 code {
+h3 code,
+h4 code {
   background-color: $alabaster-grey;
   padding: 2px 12px;
   color: $astral-blue;
@@ -267,6 +268,7 @@ ul.categoryDetails
   margin: 10px 0 20px 0;
   overflow: visible;
   border-radius: 0;
+  border-left: 4px solid $astral-blue;
 }
 
 pre {
@@ -359,7 +361,7 @@ pre {
     overflow: hidden;
   }
 
-  &.prettyprint::before {
+  /*&.prettyprint::before {
     content: "";
     position: absolute;
     display: block;
@@ -368,7 +370,7 @@ pre {
     bottom: 0;
     left: 0;
     background-color: $astral-blue;
-  }
+  }*/
 
   code {
     display: block;
@@ -503,16 +505,43 @@ li.L8 {
 
 .components {
   margin: 40px 0;
+  padding: 40px 0;
 }
 
-img.plug {
+.plug {
+  text-align: right;
+}
+
+.plug img {
   position: relative;
   top: -144px;
   left: 50px;
-  width: 60%;
 }
 
 .components div {
   padding: 0;
-  text-align:right;
 }
+
+.btn-plenty {
+  border: 2px solid $mercury-grey;
+  color: $astral-blue;
+
+  &:hover {
+    text-decoration: none;
+    border: 2px solid $astral-blue;
+    color: $astral-blue;
+  }
+
+}
+
+/* MEDIA QUERIES ---------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .plug {
+    text-align: left;
+  }
+  .lead {
+    font-size: 21px;
+  }
+}
+
