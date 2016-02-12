@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // twig tags
-var keywords = 'block|endblock|do|embed|extends|filter|flush|for|in|from|if|else|endif|elseif|import|include|macro|sandbox|set|spaceless|use|verbatim|as|_self';
+var keywords = 'autoescape|endautoescape|block|endblock|do|embed|endembed|extends|filter|endfilter|flush|for|endfor|in|from|if|else|endif|elseif|is|not|import|include|macro|endmacro|sandbox|endsandbox|ignore|missing|with|set|spaceless|endspaceless|use|verbatim|endverbatim|as|_self';
 
 PR['registerLangHandler'](
     PR['createSimpleLexer'](

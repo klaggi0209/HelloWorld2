@@ -1,0 +1,45 @@
+{# macro for generating category navigation #}
+{# @param array<Category> categories    The categories as tree #}
+{# @param string          baseURL       The root URL to prepend to category urls #}
+{# @param int             maxDepth      The maximum level to display in the navigation #}
+{# @param string          urlSuffix     A suffix to append to category urls #}
+{% macro output(categories, baseURL, maxDepth, urlSuffix) %}
+    {% for category in categories %}
+
+        {# check if current depth should be displayed #}
+        {% if category.plenty_category_level <= maxDepth %}
+
+            {% if category.children is empty %}
+                {# current category has no children #}
+                <li
+                    {% if category.id == currentCategory.id %} class="active"{% endif %}>
+                    <a href="{{ baseURL ~ category.nameUrl ~ '/' }}{{ urlSuffix }}">
+                        {{ category.name }}
+                    </a>
+                </li>
+            {% else %}
+                <li class="dropdown{% if category.id == currentCategory.id %} active{% endif %}">
+                    <a href="#"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                            {{ category.name }}
+                            <span class="caret"></span>
+                    </a>
+                    {# append children #}
+                    <ul class="dropdown-menu">
+                        {{ _self.output(
+                            category.children,
+                            baseURL ~ category.nameUrl ~ '/',
+                            maxDepth,
+                            urlSuffix
+                        ) }}
+                    </ul>
+                </li>
+            {% endif %}
+
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

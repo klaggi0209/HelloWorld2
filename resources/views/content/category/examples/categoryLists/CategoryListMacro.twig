@@ -1,6 +1,9 @@
+{# define macro to generate category lists #}
+{# @param array<Category> categories    The category list #}
 {% macro output(categories) %}
     <ul class="list-group">
     {% for category in categories %}
+        {# print each item #}
         <li class="list-group-item">
             {{ category.plenty_category_details_name }}
         </li>
