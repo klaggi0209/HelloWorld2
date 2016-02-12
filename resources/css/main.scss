@@ -251,17 +251,22 @@ p.h4 {
 .model-table {
   background-color: $alabaster-grey;
   border: 1px solid $mercury-grey;
-  margin:30px 0;
+  margin: 30px 0 50px 0;
 }
 
 /* /TABLES */
-
 
 .code-container {
   color: #333;
   position: relative;
   margin: 16px 0 40px 0;
   overflow: visible;
+  border-radius: 0;
+  border-left: 4px solid $astral-blue;
+}
+
+.code-container-2 {
+  color: #333;
   border-radius: 0;
   border-left: 4px solid $astral-blue;
 }
@@ -499,7 +504,6 @@ li.L8 {
   font-weight: 300;
 }
 
-
 /* CODE STYLES ------------------------------------------------------------ */
 code {
   font-size: 14px;
@@ -511,12 +515,37 @@ code {
   background-color: $white;
   color: $astral-blue;
 }
+
 /* -- */
 .panel-footer {
-background-color: $alabaster-grey;
+  background-color: $alabaster-grey;
 }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
   border-bottom-color: $mercury-grey;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+  text-decoration: none;
+  background-color: $white;
+}
+
+.panel {
+  margin-bottom: 60px;
+}
+
+.img-pretty {
+  background-color: $alabaster-grey;
+  padding: 20px;
+  border: 1px solid $mercury-grey;
+}
+
+.grey-back {
+  background-color: $alabaster-grey;
 }
 
 /* MEDIA QUERIES ---------------------------------------------------------- */
@@ -528,4 +557,5 @@ background-color: $alabaster-grey;
     font-size: 21px;
   }
 }
+
 /* -- */

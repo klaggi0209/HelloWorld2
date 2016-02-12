@@ -10,7 +10,7 @@
 </div>
 
 <div class="code-container">
-<pre class="prettyprint lang-plain">
+<pre class="prettyprint lang-plain grey-back">
 PluginDirectory/
     +-- meta/
     |   +-- images/
@@ -106,8 +106,8 @@ PluginDirectory/
 
 
 <h4><code>plugin.json</code> Example</h4>
-<div class="code-container">
-    <pre class="prettyprint lang-js">
+<div class="code-container grey-back">
+    <pre class="prettyprint lang-js grey-back">
 {
     "version"           : 0.1,
     "name"              : "MyPlugin",
@@ -167,7 +167,7 @@ PluginDirectory/
 </div>
 <h4><code>config.json</code> Example</h4>
 <div class="code-container">
-    <pre class="prettyprint lang-js">
+    <pre class="prettyprint lang-js grey-back">
 [
     {
         "key"           : "show_title",
@@ -190,7 +190,7 @@ PluginDirectory/
 
 <h4>Accessing plugin options from <code>HackClass.hh</code></h4>
     <div class="code-container">
-        <pre class="prettyprint lang-hack">
+        <pre class="prettyprint lang-hack grey-back">
 // access configuration from hack
 function getTitle(ConfigRepository $config):string
 {
@@ -207,7 +207,7 @@ function getTitle(ConfigRepository $config):string
 
 <h4>Accessing plugin options from <code>Template.twig</code></h4>
 <div class="code-container">
-<pre class="prettyprint lang-twig">
+<pre class="prettyprint lang-twig grey-back">
 {% verbatim %}{% if config('MyPlugin.show_title') == "1" %}
     &lt;h1&gt;{{ config('MyPlugin.title_text') }}&lt;/h1&gt;
 {% endif %}
@@ -227,6 +227,6 @@ function getTitle(ConfigRepository $config):string
 
 <div class="api-docs-basics">
     <figure>
-        <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-workflow.png" />
+        <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-workflow.png" />
     </figure>
 </div>
