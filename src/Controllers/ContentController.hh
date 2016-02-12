@@ -123,8 +123,8 @@ class ContentController extends Controller
 
 		if ($category != null)
 		{
-			$categoryId = $category->plenty_category_id;
-			$categoryLevel = $category->plenty_category_level;
+			$categoryId = $category->id;
+			$categoryLevel = $category->level;
 
 			$categoryFilter = [
 				'category1' => 0,
@@ -135,8 +135,8 @@ class ContentController extends Controller
 				'category6' => 0,
 			];
 			
-			$categoryFilter['category'.$categoryLevel] = $category->plenty_category_id;
-			$parentCategoryId = $category->plenty_category_parent_category_id;
+			$categoryFilter['category'.$categoryLevel] = $category->id;
+			$parentCategoryId = $category->parentCategoryId;
 
 			for($level = $categoryLevel; $level > 1 && $category != null; $level--)
 			{
@@ -144,8 +144,8 @@ class ContentController extends Controller
 
 				if ($category != null)
 				{
-					$categoryFilter['category'.$category->plenty_category_level] = $category->plenty_category_id;
-					$parentCategoryId = $category->plenty_category_parent_category_id;
+					$categoryFilter['category'.$category->level] = $category->id;
+					$parentCategoryId = $category->parentCategoryId;
 				}
 			}
 		}
