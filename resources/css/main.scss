@@ -12,20 +12,20 @@ body {
   color: $abbey-black;
 }
 
-
+.api-docs-basics {
+  margin-bottom: 30px;
+}
 
 /* HEADLINES  ---------------------------------------------------------- */
+
 h1, h2, h3, h4, h5, h6 {
   color: $abbey-black;
+  margin: 30px 0 10px 0;
 }
 
 h1 {
   border-bottom: 2px solid $cararra-grey;
   padding-bottom: 12px;
-}
-
-h3 {
-  margin: 50px 0 20px 0;
 }
 
 h3 small {
@@ -43,6 +43,13 @@ h4 code {
 
 p.h4 {
   color: $abbey-black;
+}
+
+.api-doc-method h4 {
+  background-color: $white;
+  border: 2px solid $mercury-grey;
+  padding: 12px 20px;
+  margin-bottom: -4px;
 }
 
 /* -- */
@@ -64,8 +71,8 @@ p.h4 {
 .text-tt {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-/* -- */
 
+/* -- */
 
 .has-hover .hover-visible,
 .has-hover:hover .hover-hidden {
@@ -78,7 +85,6 @@ p.h4 {
 }
 
 /* SIDEBAR ---------------------------------------------------------- */
-
 .nav.nav-list {
   margin-bottom: 24px;
 
@@ -246,14 +252,12 @@ p.h4 {
   background-color: $smoke-white;
   border: 2px solid $cararra-grey;
 }
-
 /* /TABLES */
-
 
 .code-container {
   color: #333;
   position: relative;
-  margin: 10px 0 20px 0;
+  margin: 16px 0 40px 0;
   overflow: visible;
   border-radius: 0;
   border-left: 4px solid $astral-blue;
@@ -349,7 +353,6 @@ pre {
     overflow: hidden;
   }
 
-
   .str {
     color: #65B042;
   }
@@ -412,22 +415,10 @@ li.L8 {
 }
 
 /* margins and paddings */
-
 .api-doc-method-container {
   background-color: $alabaster-grey;
   padding: 30px;
   border: 2px solid $mercury-grey;
-}
-
-.api-doc-method h4 {
-  background-color: $white;
-  border: 2px solid $mercury-grey;
-  padding: 12px 20px;
-  margin: 40px 0 -4px 0;
-}
-
-.api-doc-param h5 {
-  margin-top: 40px;
 }
 
 .label-white {
@@ -472,7 +463,6 @@ li.L8 {
 }
 
 .components {
-  margin: 40px 0;
   padding: 40px 0;
 }
 
@@ -480,7 +470,7 @@ li.L8 {
   text-align: right;
 }
 
-.plug img {
+.plug figure img {
   position: relative;
   top: -144px;
   left: 50px;
@@ -520,8 +510,8 @@ code {
 }
 /* -- */
 
-/* MEDIA QUERIES ---------------------------------------------------------- */
 
+/* MEDIA QUERIES ---------------------------------------------------------- */
 @media (max-width: 768px) {
   .plug {
     text-align: left;
