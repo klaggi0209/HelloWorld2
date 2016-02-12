@@ -23,11 +23,11 @@
         {
             name: "get",
             description: "",
-            call: "get( int $category_id, ?string $lang=\"de\"):?<a href=\"#category-model-category\">Category</a>",
+            call: "get( int $categoryId, ?string $lang=\"de\"):?<a href=\"#category-model-category\">Category</a>",
             params:
             [
                 {
-                    name: "$category_id",
+                    name: "$categoryId",
                     type: "int",
                     isMandatory: true,
                     isNullable: false
@@ -66,11 +66,11 @@
         {
             name: "hasChildren",
             description: "",
-            call: "hasChildren( int $category_id ):bool",
+            call: "hasChildren( int $categoryId ):bool",
             params:
             [
                 {
-                    name: "$category_id",
+                    name: "$categoryId",
                     type: "int",
                     isMandatory: true,
                     isNullable: false
@@ -80,11 +80,46 @@
         {
             name: "getChildren",
             description: "",
-            call: "getChildren( int $category_id, ?string $lang=\"de\"):?&lt;<a href=\"#category-model-category\">Category</a>&gt;",
+            call: "getChildren( int $categoryId, ?string $lang=\"de\"):?&lt;<a href=\"#category-model-category\">Category</a>&gt;",
             params:
             [
                 {
-                    name: "$category_id",
+                    name: "$categoryId",
+                    type: "int",
+                    isMandatory: true,
+                    isNullable: false
+                },
+                {
+                    name: "$lang",
+                    type: "string",
+                    isMandatory: false,
+                    isNullable: true,
+                    defaultValue: "\"de\""
+                }
+            ]
+        },
+        {
+            name: "hasParent",
+            description: "",
+            call: "hasParent( int $categoryId ):bool",
+            params:
+            [
+                {
+                    name: "$categoryId",
+                    type: "int",
+                    isMandatory: true,
+                    isNullable: false
+                }
+            ]
+        },
+        {
+            name: "getParent",
+            description: "",
+            call: "getParent( int $categoryId, ?string $lang=\"de\"):?&lt;<a href=\"#category-model-category\">Category</a>&gt;",
+            params:
+            [
+                {
+                    name: "$categoryId",
                     type: "int",
                     isMandatory: true,
                     isNullable: false
