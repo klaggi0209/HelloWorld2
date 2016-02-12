@@ -96,7 +96,7 @@ PluginDirectory/
                 <td>The root namespace of your plugin</td>
             </tr>
             <tr>
-                <td>service_provider</td>
+                <td>serviceProvider</td>
                 <td>The service provider to hook-up</td>
             </tr>
         </tbody>
@@ -117,7 +117,7 @@ PluginDirectory/
     "type"              : "template",
     "require"           : [],
     "namespace"         : "PluginNamespace",
-    "service_provider"  : "PluginNamespace\\Providers\\MyServiceProvider"
+    "serviceProvider"  : "PluginNamespace\\Providers\\MyServiceProvider"
 }</pre>
 </div>
 
@@ -216,7 +216,7 @@ function getTitle(ConfigRepository $config):string
 
 
 
-<h2>Workflow</h2>
+<h2 id="workflow">Workflow & deployment</h2>
 <div class="api-docs-basics">
     <p>
         You can synchronize your local changes to the plentymarkets plugin inbox using git. This involves all benefits of using

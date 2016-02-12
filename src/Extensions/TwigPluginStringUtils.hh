@@ -89,10 +89,10 @@ class TwigPluginStringUtils extends Twig_Extension
 		);
 
 		// replace whitespaces
-		$in = preg_replace( "/[\s]+/", "-", $in );
+		$in = preg_replace( "/[\\s]+/", "-", $in );
 
 		// remove invalid characters
-		$in = preg_replace( "/[^a-zA-Z0-9\-]/", "", $in );
+		$in = preg_replace( "/[^a-zA-Z0-9\\-]/", "", $in );
 
 		return $in;
     }

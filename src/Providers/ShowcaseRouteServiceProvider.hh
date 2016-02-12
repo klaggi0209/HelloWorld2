@@ -20,27 +20,14 @@ class ShowcaseRouteServiceProvider extends RouteServiceProvider
 	 */
 	public function map(Router $router):void
 	{
-		$router->get('showcase', 'Showcase\Controllers\ContentController@landingPage');
+		$router->get('showcase', 'Showcase\Controllers\ContentController@showLandingPage');
 
-		$router->get('showcase{spacer}a-{itemId}', 'Showcase\Controllers\ContentController@showItemView')
-			->where('spacer','(/.+?/)|(/)')
-			->where('itemId','[0-9]+');
 
-		$router->get('showcase/navigation', 'Showcase\Controllers\ContentController@showCategory');
+		$router->get('showcase/basics', 'Showcase\Controllers\ContentController@showBasicExamples');
 
-		// Showcase examples
-		/*
-		 * referred pages should extend 'templates.ExamplePage'.
-		 * Each section should extend 'templates.Example'.
-		 */
-		$router->get('showcase/basics', 'Showcase\Controllers\ExampleController@showBasicExamples');
+		$router->get('showcase/categories', 'Showcase\Controllers\ContentController@showCategoryExamples');
+		$router->get('showcase/categories/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ContentController@showCategoryExamples');
 
-		$router->get('showcase/categories', 'Showcase\Controllers\ExampleController@showCategoryExamples');
-		$router->get('showcase/categories/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ExampleController@showCategoryExamples');
-
-		$router->get('showcase/items', 'Showcase\Controllers\ExampleController@showItemExamples');
-
-		// Last route to define!
-		$router->get('showcase/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ContentController@showCategory');
+		$router->get('showcase/items', 'Showcase\Controllers\ContentController@showItemExamples');
 	}
 }
