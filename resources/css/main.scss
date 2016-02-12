@@ -1,31 +1,53 @@
+$white: #FFFFFF;
+$alabaster-grey: #F8F8F8;
+$mercury-grey: #E3E3E3;
+$cararra-grey: #ECECEC;
+$smoke-white: #F5F5F5;
+$stormdust-grey: #666666;
+$abbey-black: #4D4E53;
+$astral-blue: #337AB7;
+
 body {
   padding-top: 70px;
-  color: #4D4E53;
+  color: $abbey-black;
 }
 
+
+
+/* HEADLINES  ---------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  color: #4D4E53;
+  color: $abbey-black;
 }
 
 h1 {
-  border-bottom: 1px solid #EEEEEE;
+  border-bottom: 2px solid $cararra-grey;
   padding-bottom: 12px;
+}
+
+h3 {
+  margin: 50px 0 20px 0;
 }
 
 h3 small {
   font-family: Menlo;
-  color: #666;
+  color: $stormdust-grey;
   font-size: 12px;
 }
 
-h3 code {
-  border: 1px solid #DF2453;
+h3 code,
+h4 code {
+  background-color: $alabaster-grey;
   padding: 2px 12px;
+  color: $astral-blue;
 }
 
 p.h4 {
-  color: #4D4E53;
+  color: $abbey-black;
 }
+
+/* -- */
+
+/* HELPER CLASSES ---------------------------------------------------------- */
 
 .block {
   display: block;
@@ -42,6 +64,8 @@ p.h4 {
 .text-tt {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+/* -- */
+
 
 .has-hover .hover-visible,
 .has-hover:hover .hover-hidden {
@@ -53,13 +77,15 @@ p.h4 {
   display: inline-block;
 }
 
-/* sidebar nav */
+/* SIDEBAR ---------------------------------------------------------- */
+
 .nav.nav-list {
   margin-bottom: 24px;
 
   li {
     font-weight: bold;
-    padding: 4px 0;
+    padding: 8px 0;
+    font-size: 14px;
 
     a {
       color: #777;
@@ -75,9 +101,10 @@ p.h4 {
   }
 
   li.active {
+    font-size: 14px;
     > a {
-      color: #333;
-      border-color: #337AB7;
+      color: #4D4D53;
+      border-color: $astral-blue;
     }
   }
 
@@ -91,7 +118,8 @@ p.h4 {
     display: block;
 
     li {
-      padding: 0;
+      padding: 4px 0;
+      font-size: 12px;
     }
 
   }
@@ -100,10 +128,6 @@ p.h4 {
 
     a:focus {
       text-decoration: none;
-    }
-
-    a:visited {
-      color: #777;
     }
   }
 }
@@ -138,8 +162,10 @@ p.h4 {
 }
 
 .nav.nav-list > li.active > a {
-  border-color: #777;
+  border-color: $astral-blue;
 }
+
+/* -- */
 
 /* examples */
 .example-container {
@@ -153,8 +179,7 @@ p.h4 {
 .editor-container {
   border-width: 0 1px 1px 1px;
   border-style: solid;
-  border-color: #bbb;
-  border-radius: 0 0 4px 4px;
+  border-color: $cararra-grey;
   overflow: hidden;
 }
 
@@ -200,50 +225,44 @@ p.h4 {
   overflow: hidden;
 }
 
-.table.model-table tr td {
+/* TABLES */
+.filter-table tr td {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 90%;
 }
 
-.table.model-table tr td:last-child {
+.filter-table tr td:last-child {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100%;
 }
 
-/*
-ul.categoryDetails
-{
-  list-style-type: none;
+.filter-table {
+  margin-left: 40px;
+  max-width: 90%;
+  background-color: $white;
 }
 
-.categoryView.isGridView .itemBox .name
-{
-  min-height: 60px;
-  max-height: 60px;
-  overflow: hidden;
+.model-table {
+  background-color: $smoke-white;
+  border: 2px solid $cararra-grey;
 }
 
-.h-lg-2.adapt-line-height
-{
-  line-height: 165px;
-}
+/* /TABLES */
 
-.h-lg-2
-{
-  height: 165px;
-}
 
-*/
-
-/* Vim sunburst theme by David Leibovic */
-pre {
-  background-color: #292b36;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 6px;
+.code-container {
+  color: #333;
   position: relative;
   margin: 10px 0 20px 0;
   overflow: visible;
+  border-radius: 0;
+  border-left: 4px solid $astral-blue;
+}
+
+pre {
+  background-color: $white;
+  padding: 10px;
+  border-radius: 0;
 
   &.language-json {
     overflow: auto;
@@ -266,8 +285,8 @@ pre {
     padding: 2px 5px;
     border-radius: 6px;
     text-transform: uppercase;
-    background-color: #3387CC;
-    color: #ffffff;
+    background-color: $astral-blue;
+    color: $white;
   }
 
   &.language-html[data-middleware="oauth"]:after {
@@ -281,8 +300,8 @@ pre {
     padding: 2px 5px;
     border-radius: 6px;
     text-transform: uppercase;
-    background-color: #3387cc;
-    color: #fff;
+    background-color: $astral-blue;
+    color: $white;
   }
 
   &.language-html[data-type="get"]:after {
@@ -303,7 +322,7 @@ pre {
     left: 50px;
   }
   &.language-html[data-type="post"]:before {
-    background-color: #4070ec;
+    background-color: $astral-blue;
   }
 
   &.language-html[data-type="delete"]:after {
@@ -314,7 +333,7 @@ pre {
   }
 
   &.language-api .str {
-    color: #ffffff;
+    color: $white;
   }
 
   &.language-api .pln,
@@ -324,18 +343,12 @@ pre {
 
   &.prettyprint {
     padding: 6px 18px;
-    border-color: #bbb;
+    border: 1px solid $mercury-grey;
+    border-left: none;
+    position: relative;
+    overflow: hidden;
   }
 
-  code {
-    display: block;
-    font-size: 14px;
-    font-family: "Source Code Pro";
-    font-style: normal;
-    font-weight: 400;
-    word-wrap: normal;
-    white-space: pre;
-  }
 
   .str {
     color: #65B042;
@@ -349,16 +362,16 @@ pre {
     font-style: italic;
   }
   .typ {
-    color: #89bdff;
+    color: #8C3F8C;
   }
   .lit {
     color: #3387CC;
   }
   .pun {
-    color: #fff;
+    color: #262626;
   }
   .pln {
-    color: #fff;
+    color: #262626;
   }
   .tag {
     color: #89bdff;
@@ -399,7 +412,122 @@ li.L8 {
 }
 
 /* margins and paddings */
-.api-doc-method,
-.api-doc-param {
-  margin: 40px 0;
+
+.api-doc-method-container {
+  background-color: $alabaster-grey;
+  padding: 30px;
+  border: 2px solid $mercury-grey;
 }
+
+.api-doc-method h4 {
+  background-color: $white;
+  border: 2px solid $mercury-grey;
+  padding: 12px 20px;
+  margin: 40px 0 -4px 0;
+}
+
+.api-doc-param h5 {
+  margin-top: 40px;
+}
+
+.label-white {
+  background-color: $white;
+  color: $astral-blue;
+  padding: 2px 6px;
+  font-family: Menlo;
+  font-size: 12px;
+}
+
+.api-doc-method a:link {
+  text-decoration: underline;
+}
+
+.item-model-container {
+  background-color: $smoke-white;
+  padding: 30px;
+  border: 2px solid $cararra-grey;
+}
+
+.api-doc-param p {
+  padding-left: 40px;
+}
+
+.jumbotron {
+  background-color: $alabaster-grey;
+  margin-top: 40px;
+  border: 2px solid $cararra-grey;
+}
+
+.jumbotron h1 {
+  border: none;
+}
+
+.jumbotron h2 {
+  font-weight: 200;
+}
+
+.jumbotron p {
+  font-weight: 100;
+  color: $mercury-grey;
+}
+
+.components {
+  margin: 40px 0;
+  padding: 40px 0;
+}
+
+.plug {
+  text-align: right;
+}
+
+.plug img {
+  position: relative;
+  top: -144px;
+  left: 50px;
+}
+
+.components div {
+  padding: 0;
+}
+
+.btn-plenty {
+  border: 2px solid $mercury-grey;
+  color: $astral-blue;
+
+  &:hover {
+    text-decoration: none;
+    border: 2px solid $astral-blue;
+    color: $astral-blue;
+  }
+
+}
+
+.label {
+  font-weight: 300;
+}
+
+
+/* CODE STYLES ------------------------------------------------------------ */
+code {
+  font-size: 14px;
+  font-family: "Menlo";
+  font-style: normal;
+  font-weight: 400;
+  word-wrap: normal;
+  white-space: pre;
+  background-color: $white;
+  color: $astral-blue;
+}
+/* -- */
+
+/* MEDIA QUERIES ---------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .plug {
+    text-align: left;
+  }
+  .lead {
+    font-size: 21px;
+  }
+}
+/* -- */

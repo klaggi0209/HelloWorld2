@@ -1,0 +1,1027 @@
+{% set filters = [
+{
+    name: "itemAmazonType.hasProductGenre",
+    description: "Filters items by amazon product genre",
+    params: [
+        {
+            name: "genre",
+            type: "string",
+            description: "the amazon genre. Allowed values: \"- a - b\""
+        }
+    ]
+},
+{
+    name: "itemAttribute.hasAttribute",
+    description: "Deny items not having defined attributes",
+    params: [
+        {
+            name: "attributeId",
+            type: "int[]",
+            description: "IDs of attributes to require"
+        }
+    ]
+},
+{
+    name: "itemAttribute.doesNotHaveAttribute",
+    description: "Deny items having one of the defined attributes",
+    params: [
+        {
+            name: "attributeId",
+            type: "int[]",
+            description: "IDs of attributes to deny"
+        }
+    ]
+},
+{
+    name: "itemBase.hasAgeRestriction",
+    description: "Filter items by age restriction",
+    params: [
+        {
+            name: "ageRestriction",
+            type: "int[]",
+            description: "Required age restriction values"
+        }
+    ]
+},
+{
+    name: "itemBase.hasAmazonProductType?",
+    description: "Filter items having any amazon product type"
+},
+{
+    name: "itemBase.hasNoAmazonProductType?",
+    description: "Deny items with any amazon product type"
+},
+{
+    name: "itemBase.hasAmazonProductType",
+    description: "Filter items matching specific amazon product type",
+    params: [
+        {
+            name: "amazonProductType",
+            type: "int[]",
+            description: "The required amazon product type."
+        }
+    ]
+},
+{
+    name: "itemBase.hasBarcode?",
+    description: "Filter items having a barcode"
+},
+{
+    name: "itemBase.hasNoBarcode?",
+    description: "Deny items with Barcode"
+},
+{
+    name: "itemBase.hasCrossItemId",
+    description: "Filter items by CrossItemIDs",
+    params: [
+        {
+            name: "itemId",
+            type: "int[]",
+            description: "The linked item IDs"
+        },
+        {
+            name: "dynamic",
+            type: "bool",
+            description: "Filter dynamic entries (true|false) or all entries (null)"
+        },
+        {
+            name: "relationship",
+            type: "string[]",
+            description: "The relationship between the linked items ('Variation', 'DisplaySet', 'Collection', 'Accessory', 'Customized', 'Part', 'Complements', 'Piece', 'Necessary', 'ReplacementPart', 'Similar', 'Episode', 'Season', 'Bundle', 'Component')"
+        }
+    ]
+},
+{
+    name: "itemBase.hasId",
+    description: "Filter item by IDs",
+    params: [
+        {
+            name: "itemId",
+            type: "int[]",
+            description: "Allowed item IDs"
+        }
+    ]
+},
+{
+    name: "itemBase.hasImage?",
+    description: "Deny items without images"
+},
+{
+    name: "itemBase.hasNoImage?",
+    description: "Deny items having an image"
+},
+{
+    name: "itemBase.hasMarkingOne",
+    description: "Filter items by marking 1",
+    params: [
+        {
+            name: "markingOne",
+            type: "int[]",
+            description: "IDs of the markings"
+        }
+    ]
+},
+{
+    name: "itemBase.hasMarkingTwo",
+    description: "Filter items by marking 2",
+    params: [
+        {
+        name: "markingOne",
+        type: "int[]",
+        description: "IDs of the markings"
+        }
+    ]
+},
+{
+    name: "itemBase.hasProducer?",
+    description: "Deny items without a producer"
+},
+{
+    name: "itemBase.hasNoProducer?",
+    description: "Deny items having a producer"
+},
+{
+    name: "itemBase.hasProducer",
+    description: "Filter items by producer",
+    params: [
+        {
+            name: "producer",
+            type: "int[]",
+            description: "IDs of allowed producers"
+        }
+    ]
+},
+{
+    name: "itemBase.isBundle?",
+    description: "Filter bundle items"
+},
+{
+    name: "itemBase.isNotABundle?",
+    description: "Deny bundle items"
+},
+{
+    name: "itemBase.isBundleItem?",
+    description: "Filter bundle componets"
+},
+{
+    name: "itemBase.isColli?",
+    description: "Filter items with type 'ColliItem'"
+},
+{
+    name: "itemBase.isProductionItem?",
+    description: "Filter items witn type 'ProductionItem'"
+},
+{
+    name: "itemBase.isSpecialOrderItem?",
+    description: "Filter items with type 'DeliveryItem'"
+},
+{
+    name: "itemBase.isStockedItem?",
+    description: "Filter items with type 'StockedItem'"
+},
+{
+    name: "itemBase.isType",
+    description: "Filter items by type",
+    params: [
+        {
+            name: "type",
+            type: "int[]",
+            description: "The type IDs"
+        }
+    ]
+},
+{
+    name: "itemBase.isStoreSpecial",
+    description: "Filter items by shop action",
+    params: [
+        {
+            name: "shopActions",
+            type: "int[]",
+            description: "IDs of allowed shop actions"
+        }
+    ]
+},
+{
+    name: "itemBase.mayBeShippedWithAmazonFBA?",
+    description: "Filter items which can be shipped via Amazon FBA"
+},
+{
+    name: "itemBase.mayNotBeShippedWithAmazonFBA?",
+    description: "Filter items which cannot be shipped via Amazon FBA"
+},
+{
+    name: "itemBase.wasUpdatedBetween",
+    description: "Filter items by last changes on item data",
+    params: [
+        {
+            name: "timestampFrom",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "timestampTo",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        }
+    ]
+},
+{
+    name: "itemDescription.contains",
+    description: "Filter items containing search string in desciprion",
+    params: [
+        {
+            name: "searchString",
+            type: "string",
+            description: "string to search in item description"
+        },
+        {
+            name: "browseDescription",
+            type: "bool",
+            description: "use extended search index"
+        }
+    ]
+},
+{
+    name: "itemDescription.hasDescription",
+    description: "Filter items having a description",
+    params: [
+        {
+            name: "language",
+            type: "string",
+            description: "language to filter description for, e.g. \"de\", \"en\""
+        }
+    ]
+},
+{
+    name: "itemDescription.doesNotHaveDescription",
+    description: "Filter items which does not have a description",
+    params: [
+        {
+            name: "language",
+            type: "string",
+            description: "language to filter description for, e.g. \"de\", \"en\""
+        }
+    ]
+},
+{
+    name: "itemListing.hasListing",
+    description: "Filter items linked with a listing",
+    params: [
+        {
+            name: "auctionType",
+            type: "string",
+            description: "Type of listing. Possible values: \"fixedPrice\", \"only\", \"shopItem\", \"all\""
+        }
+    ]
+},
+{
+    name: "itemListing.hasNoListing",
+    description: "Filter items not linked with any listing",
+    params: [
+        {
+            name: "auctionType",
+            type: "string",
+            description: "Type of listing. Possible values: \"fixedPrice\", \"only\", \"shopItem\", \"all\""
+        }
+    ]
+},
+{
+    name: "search.hasId",
+    desciption: "Filter items by itemId or variationId",
+    params: [
+        {
+            name: "id",
+            type: "int",
+            description: "the ID to search"
+        }
+    ]
+},
+{
+    name: "search.hasNumber",
+    description: "Filter items by externalId or customNumber",
+    params: [
+        {
+            name: "number",
+            type: "string",
+            description: "the number to search"
+        }
+    ]
+},
+{
+    name: "variationBase.hasAttributes?",
+    description: "Filter variations with any attribute"
+},
+{
+    name: "variationBase.hasNoAttributes?",
+    description: "Filter variations without attributes"
+},
+{
+    name: "variationBase.hasAttributeValue",
+    description: "Filter variations linked with specific attribute values",
+    params: [
+        {
+            name: "attributes",
+            type: "array",
+            description: "Associative array: attributeId => attributeValue"
+        }
+    ]
+},
+{
+    name: "variationBase.hasAttributeValueSetId",
+    description: "Filter variations by value set Id",
+    params: [
+        {
+            name: "attributeValueSetId",
+            type: "int[]",
+            description: "IDs of attributeValueSets to filter"
+        }
+    ]
+},
+{
+    name: "variationBase.hasAvailability",
+    description: "Filter variations by availability",
+    params: [
+        {
+            name: "availability",
+            type: "int[]",
+            descriptions: "The availabilities: 0..10"
+        }
+    ]
+},
+{
+    name: "variationBase.hasBarcode",
+    description: "Filter variations by specific barcode",
+    params: [
+        {
+            name: "barcode",
+            type: "string",
+            description: "value of the barcode"
+        }
+    ]
+},
+{
+    name: "variationBase.hasCustomNumber",
+    description: "Filter variations by customNumber",
+    params: [
+        {
+            name: "customNumber",
+            type: "string",
+            description: "value of customNumber to search"
+        },
+        {
+            name: "fuzzy",
+            type: "bool",
+            description: "do not search exactly and use 'LIKE' instead"
+        }
+    ]
+},
+{
+    name: "variationBase.hasExternalId",
+    description: "Filter variations by externalId",
+    params: [
+        {
+            name: "externalId",
+            type: "string",
+            description: "Value of the external id to filter"
+        }
+    ]
+},
+{
+    name: "variationBase.hasId",
+    description: "Filter variations by variationId",
+    params: [
+        {
+            name: "id",
+            type: "int[]",
+            description: "variation IDs to filter"
+        }
+    ]
+},
+{
+    name: "variationBase.hasItemId",
+    description: "Filter variation by itemId",
+    params: [
+        {
+            name: "itemId",
+            type: "int[]",
+            description: "item IDs to filter"
+        }
+    ]
+},
+{
+    name: "variationBase.hasMainWarehouse",
+    description: "Filter variations by default warehouses",
+    params: [
+        {
+            name: "warehouseId",
+            type: "int[]",
+            description: "warehouse IDs to filter"
+        }
+    ]
+},
+{
+    name: "variationBase.hasSKU",
+    description: "Filter variations by SKU",
+    params: [
+        {
+            name: "itemId",
+            type: "string"
+        },
+        {
+            name: "priceId",
+            type: "string"
+        },
+        {
+            name: "attributeValueSetId",
+            type: "string"
+        }
+    ]
+},
+{
+    name: "variationBase.hasStockLimitation",
+    description: "Filter variations by stock limitations",
+    params: [
+        {
+            name: "stockLimitation",
+            type: "int[]",
+            description: "Possible values: 0 (no stock limitation), 1 (limit net stock), 2 (allow oversold)"
+        }
+    ]
+},
+{
+    name: "variationBase.hasUnitCombinationId",
+    description: "Filter variations by unitCombinationId",
+    params: [
+        {
+            name: "unitCombinationId",
+            type: "int",
+            description: "The unit combination id"
+        }
+    ]
+},
+{
+    name: "variationBase.isActive?",
+    description: "Filter active variations"
+},
+{
+    name: "variationBase.isNotActive?",
+    description: "Filter inactive variations"
+},
+{
+    name: "variationBase.Child?",
+    description: "Exclude the primary variation from result"
+},
+{
+    name: "variationBase.isPrimary?",
+    description: "Exclude child variations from result"
+},
+{
+    name: "variationBase.onlyBasicVariations?",
+    description: "If item has variations with any attribute, exclude variations without attributes. Otherwise return all variations without attributes"
+},
+{
+    name: "variationBase.wasAvailableUntilBetween",
+    description: "Filter variations by date 'available until'",
+    params: [
+        {
+            name: "timestampFrom",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "timestampTo",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        }
+    ]
+},
+{
+    name: "variationBase.wasCreatedBetween",
+    description: "Filter variations by creation date",
+    params: [
+        {
+            name: "timestampFrom",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "timestampTo",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        }
+    ]
+},
+{
+    name: "variationBase.wasUpdatedBetween",
+    description: "Filter variations by date of last changes on variation information, e.g. availability",
+    params: [
+    {
+        name: "timestampFrom",
+        type: "string",
+        description: "The start datetime of the period in unix format."
+    },
+    {
+        name: "timestampTo",
+        type: "string",
+        description: "The start datetime of the period in unix format."
+    }
+    ]
+},
+{
+    name: "variationBase.wasRelatedUpdatedBetween",
+    description: "Filter variations by date of last changes on related data, e.g. category, bundle, etc.",
+    params: [
+        {
+            name: "timestampFrom",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "timestampTo",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        }
+    ]
+},
+{
+    name: "variationBase.wasReleaseBetween",
+    description: "Filter variations by release date",
+    params: [
+        {
+            name: "timestampFrom",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "timestampTo",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        }
+    ]
+},
+{
+    name: "variationBase.weightG",
+    description: "Filter variations by gross weight",
+    params: [
+        {
+            name: "weightG",
+            type: "int",
+            description: "Weight in gramm"
+        }
+    ]
+},
+{
+    name: "variationBase.weightNetG",
+    description: "Filter variations by net weight",
+    params: [
+        {
+            name: "weightG",
+            type: "int",
+            description: "Weight in gramm"
+        }
+    ]
+},
+{
+    name: "variationBase.hasComponentVariationId",
+    description: "Filter variations by variationId"
+},
+{
+    name: "variationBase.hasCategory",
+    description: "Filter variations linked with specific categories",
+    params: [
+        {
+            name: "categoryId",
+            type: "int",
+            description: "The category id"
+        }
+    ]
+},
+{
+    name: "variationBase.hasCategory?",
+    description: "Filter variations linked with any category"
+},
+{
+    name: "variationBase.hasNoCategory?",
+    description: "Filter variations not linked with a category"
+},
+{
+    name: "variationBase.hasCategoryBranch",
+    description: "Filter variations linked with specific category branches",
+    params: [
+        {
+            name: "category1",
+            type: "int",
+            description: "Category ID at first layer"
+        },
+        {
+            name: "category2",
+            type: "int",
+            description: "Category ID at second layer or 0"
+        },
+        {
+            name: "category3",
+            type: "int",
+            description: "Category ID at third layer or 0"
+        },
+        {
+            name: "category4",
+            type: "int",
+            description: "Category ID at 4th layer or 0"
+        },
+        {
+            name: "category5",
+            type: "int",
+            description: "Category ID at 5th layer or 0"
+        },
+        {
+            name: "category6",
+            type: "int",
+            description: "Category ID at 6th layer or 0"
+        }
+    ]
+},
+{
+    name: "variationMarketStatus.hasAdditionalInformation",
+    description: "Filter variations by additional content for specific marketplaces",
+    params: [
+        {
+            name: "additionalInformation",
+            type: "string"
+        },
+        {
+            name: "marketplace",
+            type: "float",
+            description: "Referred marketplace id"
+        }
+    ]
+},
+{
+    name: "variationMarketStatus.wasFirstExportedBetween",
+    description: "Filter variations by date of first export to specific marketplace",
+    params: [
+        {
+            name: "timestampFrom",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "timestampTo",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "marketplace",
+            type: "float",
+            description: "Referred marketplace id"
+        }
+    ]
+},
+{
+    name: "variationMarketStatus.wasLastExportedBetween",
+    description: "Filter variations by date of last export to specific marketplace",
+    params: [
+        {
+            name: "timestampFrom",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "timestampTo",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "marketplace",
+            type: "float",
+            description: "Referred marketplace id"
+        }
+    ]
+},
+{
+    name: "variationShipping.hasShippingProfile",
+    description: "Filter variations by specified shipping profiles",
+    params: [
+        {
+            name: "parcelServicePresetId",
+            type: "int[]",
+            description: "Shipping profile IDs"
+        }
+    ]
+},
+{
+    name: "variationShipping.doesNotHaveShippingProfile",
+    description: "Filter variations without specified shipping profiles",
+    params: [
+        {
+            name: "parcelServicePresetId",
+            type: "int[]",
+            description: "Shipping profile IDs"
+        }
+    ]
+},
+{
+    name: "variationStock.hasWarehouse",
+    description: "Filter variations by warehouses",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.isSalable?",
+    description: "Filter variations which are salable because of stock"
+},
+{
+    name: "variationStock.net",
+    description: "Filter variations by net stock",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        },
+        {
+            name: "stockConditionOperand",
+            type: "float",
+            description: "Stock value to filter"
+        },
+        {
+            name: "stockConditionOperator",
+            type: "string",
+            description: "'<', '>', '=', '<=', '>='"
+        }
+    ]
+},
+{
+    name: "variationStock.netNegative",
+    description: "Filter variations by negative net stock",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.netNegativeEqual0",
+    description: "Filter variations with net stock value of 0",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.netPositive",
+    description: "Filter variations by positive net stock",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.physical",
+    description: "Filter variations by physical stock",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        },
+        {
+            name: "stockConditionOperand",
+            type: "float",
+            description: "Stock value to filter"
+        },
+        {
+            name: "stockConditionOperator",
+            type: "string",
+            description: "'<', '>', '=', '<=', '>='"
+        }
+    ]
+},
+{
+    name: "variationStock.physicalNegative",
+    description: "Filter variations by negative physical stock",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.physicalNegativeEqual0",
+    description: "Filter variations with physical stock value of 0",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.physicalPositive",
+    description: "Filter variations by positive physical stock",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.reorderLevel",
+    description: "Filter variations by reorder level",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        },
+        {
+            name: "stockConditionOperand",
+            type: "float",
+            description: "Stock value to filter"
+        },
+        {
+            name: "stockConditionOperator",
+            type: "string",
+            description: "'<', '>', '=', '<=', '>='"
+        }
+    ]
+},
+{
+    name: "variationStock.reorderLevelBelow",
+    description: "Filter variations fallen below reorder level",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.reorderLevelReached",
+    description: "Filter variations reached reorder level",
+    params: [
+        {
+            name: "warehouse",
+            type: "mixed",
+            description: "\"primary\", \"virtual\" or warehouse ID"
+        }
+    ]
+},
+{
+    name: "variationStock.wasUpdatedBetween",
+    description: "Filter variations by date of last changes on category",
+    params: [
+        {
+            name: "timestampFrom",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        },
+        {
+            name: "timestampTo",
+            type: "string",
+            description: "The start datetime of the period in unix format."
+        }
+    ]
+},
+{
+    name: "variationSupplier.hasSupplier",
+    description: "Filter variations by specified supplier",
+    params: [
+        {
+            name: "supplierId",
+            type: "int[]",
+            description: "Supplier IDs to allow"
+        }
+    ]
+},
+{
+    name: "variationSupplier.doesNotHaveSupplier",
+    description: "Filter variations not having a specified supplier",
+    params: [
+        {
+            name: "supplierId",
+            type: "int[]",
+            description: "Supplier IDs to deny"
+        }
+    ]
+},
+{
+    name: "variationSupplier.hasSupplierNumber",
+    description: "Filter variations by supplier number",
+    params: [
+        {
+            name: "supplierNumber",
+            type: "filter",
+            description: "Supplier number to filter"
+        }
+    ]
+},
+{
+    name: "variationVisibility.isVisibleForMarketplace",
+    description: "Filter items which are visible for specific marketplaces",
+    params: [
+        {
+            name: "mandatoryAllMarketplace",
+            type: "int[]",
+            description: "All listed marketplaces have to be linked with filtered item"
+        },
+        {
+            name: "mandatoryOneMarketplace",
+            type: "int[]",
+            description: "At least one marketpace have to be linked with filtered item"
+        }
+    ]
+},
+{
+    name: "variationVisibility.isNotVisibleForMarketplace",
+    description: "Filter items which are invisible for specific marketplaces",
+    params: [
+        {
+            name: "mandatoryAllMarketplace",
+            type: "int[]",
+            description: "All listed marketplaces have to be linked with filtered item"
+        },
+        {
+            name: "mandatoryOneMarketplace",
+            type: "int[]",
+            description: "At least one marketpace have to be linked with filtered item"
+        }
+    ]
+},
+{
+    name: "variationVisibility.isVisibleForPlentyId",
+    description: "Filter items which are visible for specific shop (plenty id)",
+    params: [
+        {
+            name: "mandatoryAllPlentyId",
+            type: "int[]",
+            description: "All listed shops have to be linked with filtered item"
+        },
+        {
+            name: "mandatoryOnePlentyId",
+            type: "int[]",
+            description: "At least one shop have to be linked with filtered item"
+        }
+    ]
+},
+{
+    name: "variationVisibility.isNotVisibleForPlentyId",
+    description: "Filter items which are invisible for specific shop (plenty id)",
+    params: [
+        {
+            name: "mandatoryAllPlentyId",
+            type: "int[]",
+            description: "All listed shops have to be linked with filtered item"
+        },
+        {
+            name: "mandatoryOnePlentyId",
+            type: "int[]",
+            description: "At least one shop have to be linked with filtered item"
+        }
+    ]
+}
+] %}
+
+{% for filter in filters %}
+
+    <p class="bold">{{ filter.name }}</p>
+    <p>{{ filter.description }}</p>
+    {% if filter.params is defined %}
+    <table class="table table-hover filter-table">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for param in filter.params %}
+                <tr>
+                    <td>{{ param.name }}</td>
+                    <td>{{ param.type }}</td>
+                    <td>{{ param.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endfor %}

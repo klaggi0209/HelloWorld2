@@ -1,17 +1,47 @@
 (function($) {
 
 
+    var hash = window.location.hash;
+
     $(document).ready(function() {
 
+        if( !!hash && hash.length > 0 )
+        {
+            $('html,body').animate({
+                scrollTop: ($(hash).offset().top - 70)
+            }, 10);
+        }
 
         $('#sidebar-nav .nav').collectHeadlines(3);
 
-        $('h1, h2, h3').appendLink();
+        $('h1, h2, h3').not('[data-link="ignore"]').appendLink();
 
         $('body').scrollspy({
             target: '#sidebar-nav',
             offset: 90
         });
+
+        $('a').each(function(i, link) {
+            var $link = $(link);
+            if( $link.attr('href').charAt(0) == '#' )
+            {
+                $link.click(function(e) {
+                    e.preventDefault();
+                    var $target = $( $link.attr('href') );
+                    $('html,body').animate({
+                        scrollTop: ($target.offset().top - 70)
+                    }, 300);
+
+                    var match = $link.attr('href').match(/^(.*)(#.*)$/);
+                    if( !!match && match.length > 2 )
+                    {
+                        window.location.hash = match[2];
+                    }
+                });
+            }
+        });
+
+
 
         /*
         $('body').scrollspy({
@@ -67,17 +97,18 @@
         depth = depth || 1;
 
         var $container = this;
-        var $headlines = headlines || $('h1');
+        var headlineSelector = 'h' + depth;
+        var $headlines = headlines || $(headlineSelector);
 
         $headlines.each( function ( i, headline ) {
             var $headline = $(headline);
-            var $next = $headlines.eq(i+1);
+            var childHeadlineSelector = 'h' + (depth+1);
 
             var $item = buildListItem( $headline );
 
             if( depth < maxDepth )
             {
-                var $children = $('<ul></ul>').collectHeadlines( maxDepth, $headline.nextUntil($next).filter('h'+(depth+1) ), depth+1);
+                var $children = $('<ul></ul>').collectHeadlines( maxDepth, $headline.nextUntil(headlineSelector, childHeadlineSelector) , depth+1);
                 $item.append( $children );
             }
 

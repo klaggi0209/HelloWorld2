@@ -1,8 +1,76 @@
 {% extends 'PlentyPluginShowcase::HtmlStructure' %}
 
-{% block MainFrame %}
-    <div class="jumbotron">
-        <h1>plentymarkets plugin showcase</h1>
-        <p>Erläuterung und Beispiele für die Entwicklung von plentymarkets plugins.</p>
-    </div>
-{% endblock %}
+        {% block MainFrame %}
+            <div class="jumbotron">
+                <h1 class="text-center">plentymarkets Plugins</h1>
+
+                <h2 class="text-center">Make it your own!</h2>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <p class="text-center">
+                            <hr noshade size="1" />
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row components">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 plug">
+                <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/plug.png" />
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                <p class="lead text-center">
+                    <strong>plentymarkets Plugins</strong> combine elements
+                    of popular tools and frameworks
+                    hence giving you the chance to create your
+                    own powerful plugins.
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">&nbsp;</div>
+
+            </div>
+
+            <div class="row components">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                <h2>Preprocessors</h2>
+                <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/sass.png" />
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                <h2>Template-Engine</h2>
+                <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/twig.png" />
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                <h2>Programming Language</h2>
+                <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/hack.png" />
+            </div>
+            </div>
+
+
+        <div class="row components">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                <a class="btn btn-lg btn-plenty">View Project on GitHub</a>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+
+            </div>
+        </div>
+
+        {% endblock %}

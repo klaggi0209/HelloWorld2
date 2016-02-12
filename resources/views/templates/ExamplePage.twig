@@ -7,6 +7,7 @@
 
 {%  block MainFrame %}
 <div class="row">
+    <a href="#" id="top"></a>
     <div class="col-lg-9 col-md-9">
         {% block Content %}{% endblock %}
     </div>
@@ -14,7 +15,7 @@
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs fixed-right" id="sidebar-nav">
         <p class="h4">Contents</p>
         <ul class="nav nav-list"></ul>
-        <a href="#" data-scrollTo="0">Zurück nach oben</a>
+        <a href="#top">Zurück nach oben</a>
     </div>
 </div>
 {% endblock %}
@@ -22,6 +23,8 @@
 {% block AdditionalScripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
     <script src="{{ plugin_path('PlentyPluginShowcase') }}/js/lang-hack.js"></script>
+    <script src="{{ plugin_path('PlentyPluginShowcase') }}/js/lang-plain.js"></script>
+    <script src="{{ plugin_path('PlentyPluginShowcase') }}/js/lang-twig.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ext-static_highlight.js"></script>
@@ -46,7 +49,8 @@
             highlight(codeEl, {
                 mode: "ace/mode/" + mode,
                 showGutter: true,
-                trim: true
+                trim: true,
+                showFoldWidgets: true
             }, function (highlighted) {
             });
         });

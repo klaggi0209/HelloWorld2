@@ -1,31 +1,221 @@
-<h1>Test 2</h1>
+<h1 id="workflow-deployment">Workflow and Deployment</h1>
+
+
+<h2 id="plugin-structure">Creating a new plugin</h2>
+<div class="code-container">
+<pre class="prettyprint lang-plain">
+PluginDirectory/
+    +-- meta/
+    |   +-- images/
+    |       |   // preview images showing this plugin
+    |       +-- preview_[0-6].[png | jpeg]
+    |       |   // plugin icons
+    |       +-- icon_plugin_[xs | sm | md].[png | jpeg]
+    |       |   // authors logo
+    |       +-- icon_author_[xs | sm | md].[png | jpeg]
+    |
+    +-- resources/
+    |   +-- css/
+    |   |   +-- // .css and .scss files
+    |   +-- img/
+    |   |   +-- // images
+    |   +-- js/
+    |   |   +-- // JavaScript and Coffee-Script
+    |   +-- lang/
+    |   |   +-- // language files
+    |   +-- document/
+    |   |   +-- // fonts, pdf-files or other resources
+    |   +-- views/
+    |       +-- // twig templates (can be organized in subdirectories)
+    |
+    +-- src/
+    |   +-- // plugin source code
+    |
+    |-- test/
+    |   +-- // Tests will be executed before build
+    |
+    +-- config.json // <a href="#plugin-options">admin's plugin options</a>
+    +-- plugin.json // <a href="#plugin-information">plugin information</a>
+    +-- README.md
+</pre>
+</div>
+
+<h3 id="plugin-information">Plugin information</h3>
 
 <p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    All information about your plugin are defined in a <code>plugin.json</code> file. This file defines the service
+    provider of your plugin, which will be called by plentymarkets to register and run your plugin.
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>version</td>
+            <td>The version of your plugin. We recommend to use <a href="http://semver.org/" target="_blank">semantic versioning</a>.</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>The name of your plugin</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>The description of your plugin</td>
+        </tr>
+        <tr>
+            <td>author</td>
+            <td>The author of the plugin</td>
+        </tr>
+        <tr>
+            <td>keywords</td>
+            <td>An array of keywords describing your plugin</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>The type of your plugin. Use "<i>export</i>" for plugins defining new export formats or "<i>template</i>" for frontend plugins</td>
+        </tr>
+        <tr>
+            <td>require</td>
+            <td>An array of dependencies of other plugins including required version, e.g. <i>PlentyPluginShowcase-1.0.0</i></td>
+        </tr>
+        <tr>
+            <td>namespace</td>
+            <td>The root namespace of your plugin</td>
+        </tr>
+        <tr>
+            <td>service_provider</td>
+            <td>The service provider to hook-up</td>
+        </tr>
+    </tbody>
+
+</table>
+
+<h4><code>plugin.json</code> Example</h4>
+<div class="code-container">
+    <pre class="prettyprint lang-js">
+{
+    "version"           : 0.1,
+    "name"              : "MyPlugin",
+    "description"       : "Description of your plugin",
+    "author"            : "Your name",
+    "keywords"          : ["plentymarkets", "plugins"],
+    "type"              : "template",
+    "require"           : [],
+    "namespace"         : "PluginNamespace",
+    "service_provider"  : "PluginNamespace\\Providers\\MyServiceProvider"
+}</pre>
+</div>
+
+<h3 id="plugin-options">Admin options</h3>
+
+<p>
+    You can define multiple options which will be displayed in the plentymarkets plugin pane to be configured by admin users.
+    The value of each option can be accessed in your hack code by using the <code>ConfigRepository</code> or from
+    Twig templates by using the <code>config()</code> macro.
 </p>
 
 <p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    All admin options can be defined in an array of configurations in the <code>config.json</code>. Each configuration needs
+    the following properties:
 </p>
 
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>key</td>
+            <td>The identifier of the configuration. This key can be used to access the options value.</td>
+        </tr>
+        <tr>
+            <td>label</td>
+            <td>The label of this configuration. Will be displayed in the plentymarkets plugin pane.</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>Defines the presentation of this configuration. Possible values: "dropdown", "text"</td>
+        </tr>
+        <tr>
+            <td>possibleValues</td>
+            <td>Define available values of a dropdown option (obsolete if type is "text")</td>
+        </tr>
+        <tr>
+            <td>default</td>
+            <td>The default value of this option</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4><code>config.json</code> Example</h4>
+<div class="code-container">
+    <pre class="prettyprint lang-js">
+[
+    {
+        "key"           : "show_title",
+        "label"         : "Show title?",
+        "type"          : "dropdown",
+        "possibleValues": {
+            "0" : "No",
+            "1" : "Yes"
+        },
+        "default"       : "0"
+    },
+    {
+        "key"           : "title_text"
+        "label"         : "Optional title"
+        "type"          : "text",
+        "default"       : "No title set"
+    }
+]</pre>
+</div>
+
+<h4>Accessing plugin options from <code>HackClass.hh</code></h4>
+    <div class="code-container">
+        <pre class="prettyprint lang-hack">
+// access configuration from hack
+function getTitle(ConfigRepository $config):string
+{
+    if( $config->get('MyPlugin.show_title') == "1" )
+    {
+        return $config->get('MyPlugin.title_text');
+    }
+    else
+    {
+        return "";
+    }
+}</pre>
+    </div>
+
+<h4>Accessing plugin options from <code>Template.twig</code></h4>
+<div class="code-container">
+<pre class="prettyprint lang-twig">
+{% verbatim %}{% if config('MyPlugin.show_title') == "1" %}
+    &lt;h1&gt;{{ config('MyPlugin.title_text') }}&lt;/h1&gt;
+{% endif %}
+{% endverbatim %}</pre>
+</div>
+
+
+
+<h2>Workflow</h2>
+<img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-workflow.png" />
+
+<h3>Synchronization with plentymarkets</h3>
+    <ul>
+        <li>git</li>
+    </ul>
+
+    <h3>Building Plugins</h3>
+    <p>Inbox --> Stage</p>
+    <p>Inbox --> Productive</p>
+

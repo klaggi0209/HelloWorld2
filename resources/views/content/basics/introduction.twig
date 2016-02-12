@@ -1,97 +1,64 @@
-<h1 id="introduction">Einleitung</h1>
+<h1 id="introduction">Getting started</h1>
+
+
+
+<h2 id="introduction">Technology and requirements</h2>
+
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <p>
+        For security reasons and performace optimization all plugins are based on recent technologies. The source code can be
+        developed using the <a href="http://hacklang.org/" target="_blank">hack programming language</a>, which will be executed in a HHVM environment
+        to support JIT-compilation and further benefits.
+    </p>
+
+    <p>
+        UI issues and representation of data are easily done by using the <a href="http://twig.sensiolabs.org/documentation" target="_blank">twig template engine</a>.
+    </p>
+</div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-structure.png" />
+    </div>
+</div>
+
+
+
+<h2 id="ide-support">Recommended IDEs</h2>
 
 <p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    We recommend the usage of an IDE which supports hack language and Twig syntax.
+    For this purpose we suggest using one of the following IDEs. For an improved language support and an easier development,
+    it is recommended to <a href="https://docs.hhvm.com/hhvm/installation/introduction" target="_blank">install HHVM</a>
+    (including a Hack compiler) locally.
 </p>
 
+<h3 id="atom-nuclide">Atom with Nuclide</h3>
+<p>Facebook provides this IDE for hack develompent and can be extended to support Twig syntax too.</p>
+<h4>Installation</h4>
+<ol>
+    <li>
+        <a href="https://github.com/atom/atom/releases/latest" target="_blank">Download</a>
+        and <a href="https://atom.io/docs/latest/getting-started-installing-atom" target="_blank">install</a>
+        Atom IDE
+    </li>
+    <li>
+        <a href="http://nuclide.io/docs/editor/setup" target="_blank">Install Nuclide Plugin</a><sup>*</sup> for hack language support
+    </li>
+    <li>
+        <a href="https://atom.io/packages/php-twig" target="_blank">Install Twig Plugin</a><sup>*</sup> for Twig syntax highlighting
+    </li>
+</ol>
 <p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    *) All required Atom packages can be found using the embedded package control pane of the Atom IDE. This pane can be found in Atom: <i>Settings</i> > <i>Install</i>
 </p>
 
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
+<h3 id="sublime-text">Sublime Text</h3>
+<p>Next to Facebook's Nuclide IDE you can use Sublime Text for plugin development. You can use the stable Sublime Text 2 or Sublime Text 3, which is currently in beta.</p>
 
-<h2 id="intro1">Einleitung 1</h2>
-
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
-
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
-
-<h2 id="intro2">Einleitung 2</h2>
-
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
-
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
-
-<h2>Einleitung 3</h2>
-
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
-
-<p>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
+<h4>Installtion</h4>
+<ol>
+    <li><a href="https://www.sublimetext.com/2" target="_blank">Install Sublime Text</a></li>
+    <li>Install Sublime Text's <a href="https://packagecontrol.io/installation" target="_blank">Package-Control</a></li>
+    <li>Install <a href="https://packagecontrol.io/packages/Hacklang%20Typechecker%20and%20Autocompletion" target="_blank">hack Plugin</a></li>
+    <li>Install <a href="https://packagecontrol.io/packages/PHP-Twig" target="_blank">Twig Plugin</a></li>
+</ol>
