@@ -2,6 +2,11 @@
 
 
 <h2 id="plugin-structure">Creating a new plugin</h2>
+<p>
+    All plugins need to be organized in a defined structure. You can create a new plugin automatically from the plentymarkets
+    plugin pane. This will create all required files and folder automatically as follows:
+</p>
+
 <div class="code-container">
 <pre class="prettyprint lang-plain">
 PluginDirectory/
@@ -208,14 +213,10 @@ function getTitle(ConfigRepository $config):string
 
 
 <h2>Workflow</h2>
+<p>
+    You can synchronize your local changes to the plentymarkets plugin inbox using git. This involves all benefits of using
+    a version control system. From your inbox you can publish a plugin either in <i>productive</i> state or in <i>stage</i>.
+    This allows development and testing of plugins without affecting the productive version if already in use.
+</p>
+
 <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-workflow.png" />
-
-<h3>Synchronization with plentymarkets</h3>
-    <ul>
-        <li>git</li>
-    </ul>
-
-    <h3>Building Plugins</h3>
-    <p>Inbox --> Stage</p>
-    <p>Inbox --> Productive</p>
-
