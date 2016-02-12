@@ -1,11 +1,11 @@
 {
-  "version": 0.1,
-  "name": "PlentyPluginShowcase",
-  "description":"showcase of plentymarkets plugins",
-  "namespace": "Showcase",
-  "author": "plentymarkets GmbH",
-  "keywords":["plentymarkets", "showcase", "plugins"],
-  "type":"design",
-  "require":[],
-  "service_provider": "Showcase\\Providers\\ShowcaseServiceProvider"
+  "version"         : 0.1,
+  "name"            : "PlentyPluginShowcase",
+  "description"     :"showcase of plentymarkets plugins",
+  "namespace"       : "Showcase",
+  "author"          : "plentymarkets GmbH",
+  "keywords"        :["plentymarkets", "showcase", "plugins"],
+  "type"            :"template",
+  "require"         :[],
+  "serviceProvider" : "Showcase\\Providers\\ShowcaseServiceProvider"
 }
