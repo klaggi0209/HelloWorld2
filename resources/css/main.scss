@@ -529,3 +529,121 @@ background-color: $alabaster-grey;
   }
 }
 /* -- */
+
+
+/* Callisto availability icon */
+
+.availabilityIcon {
+  display: inline-block;
+  margin-top: 2px;
+  height: 16px;
+  width: 16px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-left: 8px
+}
+.availabilityIcon span {
+  display: block;
+  width: 100%;
+}
+.availabilityIcon span {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.5) inset;
+  -moz-box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.5) inset;
+  box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.5) inset;
+}
+.availabilityIcon span + span {
+  margin-top: -1px;
+}
+.availabilityIcon.availabilityDetails-1 span {
+  height: 100%;
+}
+.availabilityIcon.availabilityDetails-2 span {
+  height: 8px;
+}
+.availabilityIcon.availabilityDetails-3 span {
+  height: 6px;
+}
+.availabilityIcon.availabilityDetails-1 .second,
+.availabilityIcon.availabilityDetails-1 .third,
+.availabilityIcon.availabilityDetails-2 .third {
+  display: none;
+}
+.availabilityDetails-1.available-1 .first,
+.availabilityDetails-1.available-2 .first,
+.availabilityDetails-1.available-3 .first,
+.availabilityDetails-1.available-4 .first,
+.availabilityDetails-2.available-1 .first,
+.availabilityDetails-2.available-1 .second,
+.availabilityDetails-2.available-2 .first,
+.availabilityDetails-2.available-2 .second,
+.availabilityDetails-2.available-3 .second,
+.availabilityDetails-2.available-4 .second,
+.availabilityDetails-3.available-1 .first,
+.availabilityDetails-3.available-1 .second,
+.availabilityDetails-3.available-1 .third,
+.availabilityDetails-3.available-2 .second,
+.availabilityDetails-3.available-2 .third,
+.availabilityDetails-3.available-3 .third {
+  background-color: #3b0;
+}
+.availabilityDetails-1.available-5 .first,
+.availabilityDetails-1.available-6 .first,
+.availabilityDetails-1.available-7 .first,
+.availabilityDetails-1.available-8 .first,
+.availabilityDetails-2.available-3 .first,
+.availabilityDetails-2.available-4 .first,
+.availabilityDetails-2.available-5 .first,
+.availabilityDetails-2.available-5 .second,
+.availabilityDetails-2.available-6 .first,
+.availabilityDetails-2.available-6 .second,
+.availabilityDetails-2.available-7 .second,
+.availabilityDetails-2.available-8 .second,
+.availabilityDetails-3.available-2 .first,
+.availabilityDetails-3.available-3 .first,
+.availabilityDetails-3.available-3 .second,
+.availabilityDetails-3.available-4 .first,
+.availabilityDetails-3.available-4 .second,
+.availabilityDetails-3.available-4 .third,
+.availabilityDetails-3.available-5 .second,
+.availabilityDetails-3.available-5 .third,
+.availabilityDetails-3.available-6 .third {
+  background-color: #fc3;
+}
+.availabilityDetails-1.available-9 .first,
+.availabilityDetails-1.available-10 .first,
+.availabilityDetails-2.available-7 .first,
+.availabilityDetails-2.available-8 .first,
+.availabilityDetails-2.available-9 .first,
+.availabilityDetails-2.available-9 .second,
+.availabilityDetails-2.available-10 .first,
+.availabilityDetails-2.available-10 .second,
+.availabilityDetails-3.available-5 .first,
+.availabilityDetails-3.available-6 .first,
+.availabilityDetails-3.available-6 .second,
+.availabilityDetails-3.available-7 .first,
+.availabilityDetails-3.available-7 .second,
+.availabilityDetails-3.available-7 .third,
+.availabilityDetails-3.available-8 .second,
+.availabilityDetails-3.available-8 .third,
+.availabilityDetails-3.available-9 .third {
+  background-color: #f11;
+}
+.availabilityDetails-3.available-8 .first,
+.availabilityDetails-3.available-9 .first,
+.availabilityDetails-3.available-9 .second,
+.availabilityDetails-3.available-10 .first,
+.availabilityDetails-3.available-10 .second,
+.availabilityDetails-3.available-10 .third {
+  background-color: #aaa;
+}
+
+/* END availability icon */

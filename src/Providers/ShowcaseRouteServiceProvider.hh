@@ -29,5 +29,6 @@ class ShowcaseRouteServiceProvider extends RouteServiceProvider
 		$router->get('showcase/categories/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ContentController@showCategoryExamples');
 
 		$router->get('showcase/items', 'Showcase\Controllers\ContentController@showItemExamples');
+        $router->get('showcase/items/item-{itemId}', 'Showcase\Controllers\ContentController@showItemExamples');
 	}
 }

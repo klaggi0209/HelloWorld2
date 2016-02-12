@@ -1,0 +1,65 @@
+<?hh //strict
+
+namespace Showcase\Controllers;
+
+use Plenty\Plugin\Controller;
+use Plenty\Plugin\Templates\Twig;
+
+use Plenty\Modules\Item\DataLayer\Contracts\ItemDataLayerRepositoryContract;
+
+class ItemController extends Controller
+{
+    public function showItem(
+        Twig $twig,
+        ItemDataLayerRepositoryContract $itemRepository,
+        ?string $itemId = null
+    ):string
+    {
+        $currentItem = null;
+
+        if( $itemId !== null )
+        {
+            {# define required item fields #}
+            $itemColumns = [
+                'itemDescription' => [
+                    'name1',
+                    'description'
+                ],
+                'variationBase' => [
+                    'availability'
+                ],
+                'variationRetailPrice' => [
+                    'price'
+                ],
+                'variationImageList' => [
+                    'path'
+                ]
+            ];
+
+            {# search item by id #}
+            $itemFilter = [
+                'itemBase.hasId' => [
+                    'itemId' => $itemId
+                ],
+                'variationBase.isPrimary?' => []
+            ];
+
+            {# set required parameters #}
+            $itemParams = [
+                'language' => 'de'
+            ];
+
+            {# request item #}
+            $currentItem = $itemRepository
+                ->search( $itemColumns, $itemFilter, $itemParams )
+                ->current();
+
+        }
+
+        $templateData = array(
+            'currentItem' => $currentItem
+        );
+
+        return $twig->render('PlentyPluginShowcase::content.Items', $templateData );
+    }
+}

@@ -86,9 +86,49 @@ class ContentController extends Controller
         return $twig->render('PlentyPluginShowcase::content.Categories', $templateData);
     }
 
-    public function showItemExamples(Twig $twig, ItemDataLayerRepositoryContract $itemRespository):string
+    public function showItemExamples(Twig $twig, ItemDataLayerRepositoryContract $itemRepository, ?string $itemId = null):string
     {
+        $currentItem = null;
 
-        return $twig->render('PlentyPluginShowcase::content.Items');
+        if( $itemId !== null )
+        {
+            $itemColumns = [
+                'itemDescription' => [
+                    'name1',
+                    'description'
+                ],
+                'variationBase' => [
+                    'availability'
+                ],
+                'variationRetailPrice' => [
+                    'price'
+                ],
+                'variationImageList' => [
+                    'path'
+                ]
+            ];
+
+
+            $itemFilter = [
+                'itemBase.hasId' => [
+                    'itemId' => $itemId
+                ],
+                'variationBase.isPrimary?' => []
+            ];
+
+
+            $itemParams = [
+                'language' => 'de'
+            ];
+
+            $currentItem = $itemRepository->search( $itemColumns, $itemFilter, $itemParams )->current();
+
+        }
+
+        $templateData = array(
+            'currentItem' => $currentItem
+        );
+
+        return $twig->render('PlentyPluginShowcase::content.Items', $templateData );
     }
 }

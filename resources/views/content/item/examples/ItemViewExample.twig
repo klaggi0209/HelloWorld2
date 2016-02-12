@@ -1,0 +1,45 @@
+{% extends 'PlentyPluginShowcase::templates.Example' %}
+
+{% block Description %}
+    <h2 id="item-example-itemView">Simple ItemView template</h2>
+{% endblock %}
+
+{% block ExampleOutput %}
+
+    {% if currentItem is not null %}
+        <h1>{{ currentItem.itemDescription.name1 }}</h1>
+        <div class="col-lg-3 col-md-3 col-sm-6 hidden-xs">
+            <img src="{{ image_url_middle( currentItem.variationImageList.0.path ) }}" class="img-thumbnail" alt="{{ currentItem.name1 }}">
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+            <p>
+                {{ currentItem.itemDescription.description }}
+            </p>
+            <hr>
+            <p>
+                <span class="pull-left">Availability:</span>
+                <span class="availabilityIcon availabilityDetails-3 available-{{ currentItem.variationBase.availability }}">
+                    <span class="first"></span>
+                    <span class="second"></span>
+                    <span class="third"></span>
+                </span>
+
+                <span class="pull-right label label-primary" style="font-size:1.5em;">
+                    {{ currentItem.variationRetailPrice.price | localizedcurrency('EUR') }}
+                </span>
+            </p>
+
+        </div>
+    {% else %}
+        <p>No item selected!</p>
+    {% endif %}
+
+{% endblock %}
+
+
+{% set exampleId = "item-example-itemView" %}
+{% set exampleFiles = {
+"Controller.hh"             : "PlentyPluginShowcase::content.item.examples.itemView.Controller.twig",
+"RouteProvider.hh"          : "PlentyPluginShowcase::content.item.examples.itemView.RouteProvider.twig",
+"Template.twig"             : "PlentyPluginShowcase::content.item.examples.itemView.ItemView.twig"
+} %}

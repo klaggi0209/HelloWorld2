@@ -82,7 +82,11 @@
     $.fn.appendLink = function()
     {
         this.each(function(i, elem) {
-
+            if( $(elem).parents('.panel-example').length > 0 )
+            {
+                // skip
+                return true;
+            }
             var id = $(elem).getIdForced();
             $(elem).addClass('has-hover');
             $(elem).append(
@@ -101,6 +105,11 @@
         var $headlines = headlines || $(headlineSelector);
 
         $headlines.each( function ( i, headline ) {
+            if( $(headline).parents('.panel-example').length > 0 )
+            {
+                // skip
+                return true;
+            }
             var $headline = $(headline);
             var childHeadlineSelector = 'h' + (depth+1);
 
