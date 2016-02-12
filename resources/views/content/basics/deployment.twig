@@ -99,18 +99,17 @@ PluginDirectory/
 <h4><code>plugin.json</code> Example</h4>
 <div class="code-container">
     <pre class="prettyprint lang-js">
-    {
-        "version"           : 0.1,
-        "name"              : "MyPlugin",
-        "description"       : "Description of your plugin",
-        "author"            : "Your name",
-        "keywords"          : ["plentymarkets", "plugins"],
-        "type"              : "template",
-        "require"           : [],
-        "namespace"         : "PluginNamespace",
-        "service_provider"  : "PluginNamespace\\Providers\\MyServiceProvider"
-    }
-    </pre>
+{
+    "version"           : 0.1,
+    "name"              : "MyPlugin",
+    "description"       : "Description of your plugin",
+    "author"            : "Your name",
+    "keywords"          : ["plentymarkets", "plugins"],
+    "type"              : "template",
+    "require"           : [],
+    "namespace"         : "PluginNamespace",
+    "service_provider"  : "PluginNamespace\\Providers\\MyServiceProvider"
+}</pre>
 </div>
 
 <h3 id="plugin-options">Admin options</h3>
@@ -160,54 +159,51 @@ PluginDirectory/
 <h4><code>config.json</code> Example</h4>
 <div class="code-container">
     <pre class="prettyprint lang-js">
-    [
-        {
-            "key"           : "show_title",
-            "label"         : "Show title?",
-            "type"          : "dropdown",
-            "possibleValues": {
-                "0" : "No",
-                "1" : "Yes"
-            },
-            "default"       : "0"
+[
+    {
+        "key"           : "show_title",
+        "label"         : "Show title?",
+        "type"          : "dropdown",
+        "possibleValues": {
+            "0" : "No",
+            "1" : "Yes"
         },
-        {
-            "key"           : "title_text"
-            "label"         : "Optional title"
-            "type"          : "text",
-            "default"       : "No title set"
-        }
-    ]
-    </pre>
+        "default"       : "0"
+    },
+    {
+        "key"           : "title_text"
+        "label"         : "Optional title"
+        "type"          : "text",
+        "default"       : "No title set"
+    }
+]</pre>
 </div>
 
 <h4>Accessing plugin options from <code>HackClass.hh</code></h4>
     <div class="code-container">
         <pre class="prettyprint lang-hack">
-        // access configuration from hack
-        function getTitle(ConfigRepository $config):string
-        {
-            if( $config->get('MyPlugin.show_title') == "1" )
-            {
-                return $config->get('MyPlugin.title_text');
-            }
-            else
-            {
-                return "";
-            }
-        }
-        </pre>
+// access configuration from hack
+function getTitle(ConfigRepository $config):string
+{
+    if( $config->get('MyPlugin.show_title') == "1" )
+    {
+        return $config->get('MyPlugin.title_text');
+    }
+    else
+    {
+        return "";
+    }
+}</pre>
     </div>
 
-            <h4>Accessing plugin options from <code>Template.twig</code></h4>
-                <div class="code-container">
-                    <pre class="prettyprint lang-twig">
-                    {% verbatim %}{% if config('MyPlugin.show_title') == "1" %}
-                        &lt;h1&gt;{{ config('MyPlugin.title_text') }}&lt;/h1&gt;
-                    {% endif %}
-                    {% endverbatim %}
-                    </pre>
-                 </div>
+<h4>Accessing plugin options from <code>Template.twig</code></h4>
+<div class="code-container">
+<pre class="prettyprint lang-twig">
+{% verbatim %}{% if config('MyPlugin.show_title') == "1" %}
+    &lt;h1&gt;{{ config('MyPlugin.title_text') }}&lt;/h1&gt;
+{% endif %}
+{% endverbatim %}</pre>
+</div>
 
 
 
