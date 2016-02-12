@@ -21,7 +21,7 @@
             offset: 90
         });
 
-        $('a').each(function(i, link) {
+        $('a').not('[role="tab"]').each(function(i, link) {
             var $link = $(link);
             if( $link.attr('href').charAt(0) == '#' )
             {

@@ -14,7 +14,11 @@
         {% for label, file in tabs %}
             <div id="{{ id | cssSelector }}_{{ loop.index }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
                 {% set fileName = label | split('.') %}
-                <div class="editor-container" ace-mode="{{ fileName | last }}">{{ source( file, ignore_missing=true ) | e }}</div>
+                {% set lang = fileName | last %}
+                {% if lang == "hh" %}
+                    {% set lang = "hack" %}
+                {% endif %}
+                <pre class="prettyprint lang-{{ lang }}">{{ source( file, ignore_missing=true ) | e }}</pre>
             </div>
         {% endfor %}
     </div>

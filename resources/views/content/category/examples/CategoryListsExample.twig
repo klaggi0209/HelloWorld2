@@ -1,0 +1,38 @@
+{% extends 'PlentyPluginShowcase::templates.Example' %}
+{% import 'PlentyPluginShowcase::content.category.examples.categoryLists.CategoryListMacro' as list %}
+{% import 'PlentyPluginShowcase::content.category.examples.categoryLists.CategoryTreeMacro' as tree %}
+
+{% block Description %}
+    <h2 id="category-example-list-tree">
+        Category lists and trees
+    </h2>
+
+    <p>
+        The <code>CategoryRepository</code> provides methods to request severalt category data. Categories can either be
+        received as a list or in a tree structure. Furthermore categories can be filtered by type. Available types are
+        <code>'item'</code>, <code>'content'</code>, <code>'blog'</code>, <code>'container'</code> and <code>'all'</code> (default).
+    </p>
+{% endblock %}
+
+{% block ExampleOutput %}
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <p><code>getSitemapList('content')</code></p>
+            {{ list.output( categoryList ) }}
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <p><code>getSitemapTree('item')</code></p>
+            {{ tree.output( categoryTree ) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% set exampleId = "category-repository" %}
+{% set exampleFiles = {
+"Controller.hh"             : "PlentyPluginShowcase::content.category.examples.categoryLists.Controller.twig",
+"Template.twig"             : "PlentyPluginShowcase::content.category.examples.categoryLists.CategoryLists.twig",
+"CategoryListMacro.twig"    : "PlentyPluginShowcase::content.category.examples.categoryLists.CategoryListMacro.twig",
+"CategoryTreeMacro.twig"    : "PlentyPluginShowcase::content.category.examples.categoryLists.CategoryTreeMacro.twig",
+} %}
