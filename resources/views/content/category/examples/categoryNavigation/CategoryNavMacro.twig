@@ -7,7 +7,7 @@
     {% for category in categories %}
 
         {# check if current depth should be displayed #}
-        {% if category.plenty_category_level <= maxDepth %}
+        {% if category.level <= maxDepth %}
 
             {% if category.children is empty %}
                 {# current category has no children #}

@@ -5,7 +5,7 @@
     {% for category in categories %}
         {# print each category at current level #}
         <li class="list-group-item">
-            {{ category.plenty_category_details_name }}
+            {{ category.name }}
 
             {# print children recursive if exists #}
             {% if category.children is not empty %}
