@@ -1,32 +1,27 @@
 {% extends 'PlentyPluginShowcase::HtmlStructure' %}
 
         {% block MainFrame %}
-            <div class="jumbotron">
-                <h1 class="text-center" data-link="ignore">plentymarkets Plugins</h1>
+        <div class="plugin-opener row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-right">
+                    <figure class="plug">
+                        <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/plug.png"  />
+                    </figure>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                    <p class="text-center">
+                        <h1 data-link="ignore">plentymarkets Plugins</h1>
+                        <h2 data-link="ignore">Make it your own!</h2>
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 
-                <h2 class="text-center" data-link="ignore">Make it your own!</h2>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <p class="text-center">
-                            <hr noshade size="1" />
-                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-                    </div>
                 </div>
             </div>
 
 
             <div class="row components">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 plug">
-                    <figure>
-                        <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/plug.png" class="img-responsive pull-right" />
-                    </figure>
+
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
@@ -43,19 +38,52 @@
             </div>
 
             <div class="row components">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
+               <a href="http://sass-lang.com/">
+                   <img class="component-image" src="{{ plugin_path('PlentyPluginShowcase') }}/img/sass.png" />
+               </a>
                 <h2 data-link="ignore">Preprocessors</h2>
-                <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/sass.png" />
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                    duo dolores et ea rebum.
+                </p>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center grey-back">
+                <a href="http://twig.sensiolabs.org/">
+                    <img class="component-image" src="{{ plugin_path('PlentyPluginShowcase') }}/img/twig.png" />
+                </a>
                 <h2 data-link="ignore">Template-Engine</h2>
-                <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/twig.png" />
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                    duo dolores et ea rebum.
+                </p>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
+                <a href="http://hacklang.org/">
+                    <img class="component-image" src="{{ plugin_path('PlentyPluginShowcase') }}/img/hack.png" />
+                </a>
+
                 <h2 data-link="ignore">Programming Language</h2>
-                <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/hack.png" />
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                    duo dolores et ea rebum.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
+                <a href="https://www.plentymarkets.eu/">
+                    <img class="component-image" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plentymarkets.png" />
+                </a>
+                <h2 data-link="ignore">plentymarkets</h2>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                    duo dolores et ea rebum.
+                </p>
             </div>
             </div>
 
@@ -66,12 +94,17 @@
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                <a class="btn btn-lg btn-plenty">View Project on GitHub</a>
+                <a class="btn-plenty">Download Project on GitHub</a>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
 
             </div>
         </div>
+    </div>
+
+
+    <footer></footer>
+
 
         {% endblock %}
