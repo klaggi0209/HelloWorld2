@@ -13,35 +13,30 @@
 // limitations under the License.
 
 // twig tags
-var keywords = 'block|endblock|do|embed|extends|filter|flush|for|in|from|if|else|endif|elseif|import|include|macro|sandbox|set|spaceless|use|verbatim';
+var keywords = 'autoescape|endautoescape|block|endblock|do|embed|endembed|extends|filter|endfilter|flush|for|endfor|in|from|if|else|endif|elseif|is|not|import|include|macro|endmacro|sandbox|endsandbox|ignore|missing|with|set|spaceless|endspaceless|use|verbatim|endverbatim|as|_self';
 
 PR['registerLangHandler'](
     PR['createSimpleLexer'](
+        [],
         [
-        ],
-        [
-         // block comments are delimited by /* and */
-         // single-line comments begin with // and extend to the end of a line
-         [PR['PR_COMMENT'],     /^(?:<!--[\s\S]*?-->|{#[\s\S]#})/],
+            [PR['PR_COMMENT'],     /^<\!--[\s\S]*?(?:-\->|$)|^{#[\s\S]*?(?:#})/],
+            // twig keywords
+            [PR['PR_KEYWORD'],     new RegExp('^(?:' + keywords + ')\\b')],
 
-         // a double or single quoted, possibly multi-line, string
-         [PR['PR_STRING'],      /^(?:\"(?:[^\"\\]|\\[\s\S])*(?:\"|$)|\'(?:[^\'\\]|\\[\s\S])*(?:\'|$))/, null, '"\''],
+            [PR['PR_STRING'],      /^(?:\"(?:[^\"\\]|\\[\s\S])*(?:\"|$)|\'(?:[^\'\\]|\\[\s\S])*(?:\'|$))/, null, '"\''],
+            // twig syntax
+            [PR['PR_TYPE'],        /^(?:\{%|%}|\{\{|}})/ ],
+            //[PR['PR_PLAIN'],       /^[^<?]+|[^{?]/],
 
-         // PHP keywords
-         [PR['PR_KEYWORD'],     new RegExp('^(?:' + keywords + '|[\S]\(\))\\b')],
+            [PR['PR_PLAIN'],       /^[\t\n\r \xA0]+/, null, '\t\n\r \xA0'],
+            [PR['PR_DECLARATION'], /^<!\w[^>]*(?:>|$)/],
+            [PR['PR_PUNCTUATION'], /^(?:<[%?]|[%?]>)/],
 
-         // constants
-         [PR['PR_TYPE'],        /^(?:\{%|%}|\{\{|}})/ ],
-
-         // literals, e.g. 1, null, true
-         [PR['PR_LITERAL'],     /^(?:true|false|null|this|<[^>]+>)|\d+\b/i],
-
-
-         // whitespace is made up of spaces, tabs and newline characters.
-         [PR['PR_PLAIN'],       /^[\t\n\r \xA0]+/, null, '\t\n\r \xA0'],
-
-         // printable non-space non-special characters
-         [PR['PR_PUNCTUATION'], /^(?:[^\t\n\r\$ \xA0\"\'\w]+)/]
-
+            ['lang-',        /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i],
+            // Unescaped content in javascript.  (Or possibly vbscript).
+            ['lang-js',      /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i],
+            // Contains unescaped stylesheet content
+            ['lang-css',     /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i],
+            ['lang-in.tag',  /^(<\/?[a-z][^<>]*>)/i]
         ]),
     ['twig']);

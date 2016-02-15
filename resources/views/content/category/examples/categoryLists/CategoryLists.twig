@@ -1,0 +1,15 @@
+{# import required macros #}
+{% import 'PlentyPluginShowcase::categoryLists.CategoryListMacro' as list %}
+{% import 'PlentyPluginShowcase::categoryLists.CategoryTreeMacro' as tree %}
+
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        {# call macro to generate list #}
+        {{ list.output( categoryList ) }}
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+        {# call macro to generate tree #}
+        {{ tree.output( categoryTree ) }}
+    </div>
+</div>

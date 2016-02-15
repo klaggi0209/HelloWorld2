@@ -1,5 +1,4 @@
 <?hh //strict
-
 namespace Showcase\Controllers;
 
 use Plenty\Plugin\Controller;
@@ -7,15 +6,9 @@ use Plenty\Plugin\Templates\Twig;
 
 use Plenty\Modules\Category\Contracts\CategoryRepository;
 use Plenty\Modules\Item\DataLayer\Contracts\ItemDataLayerRepositoryContract;
-use Plenty\Modules\Category\Models\Category;
 
-class ExampleController extends Controller
+class CategoryController extends Controller
 {
-    public function showBasicExamples( Twig $twig ):string
-    {
-        return $twig->render('PlentyPluginShowcase::content.Basics');
-    }
-
     public function showCategoryExamples(
         Twig $twig,
         CategoryRepository $categoryRepository,
@@ -28,16 +21,18 @@ class ExampleController extends Controller
         ?string $lvl6 = null
         ):string
     {
-        $categoryList = $categoryRepository->getSitemapList('content');
+        // get categories as tree for navigation
         $categoryTree = $categoryRepository->getSitemapTree('item');
 
+        // get current category by url if set
         $currentCategory = null;
         $currentCategoryItems = null;
         if( $lvl1 !== null )
         {
-            $currentCategory = $categoryRepository->findCategoryByUrl( $lvl1, $lvl2, $lvl3, $lvl4, $lvl5, $lvl6 );
+            $currentCategory =
+                $categoryRepository->findCategoryByUrl( $lvl1, $lvl2, $lvl3, $lvl4, $lvl5, $lvl6 );
 
-
+            // prepare required item information for item list
             $itemColumns = [
                 'itemDescription' => [
                     'name1',
@@ -51,26 +46,21 @@ class ExampleController extends Controller
                 ]
             ];
 
-
+            // Exclude child variations from received items
             $itemFilter = [
                 'variationBase.isPrimary?' => []
             ];
 
-            /*
-            $categoryFilter = $this->getCategoryFilter( $categoryRepository, $currentCategory );
-            if( count($categoryFilter) )
-            {
-                $filter['variationCategory']
-            }
-            */
-
+            // set params for item request
             $itemParams = [
                 'language' => 'de'
             ];
 
+            // request defined item data
             $currentCategoryItems = $itemRepository->search( $itemColumns, $itemFilter, $itemParams );
         }
 
+        // provide data to template
         $templateData = array(
             'categoryList' => $categoryList,
             'categoryTree' => $categoryTree,
@@ -78,12 +68,7 @@ class ExampleController extends Controller
             'categoryItems' => $currentCategoryItems
         );
 
+        // render category template
         return $twig->render('PlentyPluginShowcase::content.Categories', $templateData);
-    }
-
-    public function showItemExamples(Twig $twig, ItemDataLayerRepositoryContract $itemRespository):string
-    {
-
-        return $twig->render('PlentyPluginShowcase::content.Items');
     }
 }

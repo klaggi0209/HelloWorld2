@@ -17,11 +17,13 @@ class CategoryController extends Controller
         // request categories with type 'item' as tree
         $categoryTree = $categoryRepository->getSitemapTree( 'item' );
 
+        // provide received categories to template
         $templateData = array(
             'categoryList' => $categoryList,
             'categoryTree' => $categoryTree
         );
 
+        // render template
         return $twig->render('PlentyPluginShowcase::Category', $templateData);
     }
 }

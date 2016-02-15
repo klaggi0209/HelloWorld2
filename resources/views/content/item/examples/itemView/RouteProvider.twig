@@ -1,0 +1,30 @@
+<?hh // strict
+namespace Showcase\Providers;
+
+use Plenty\Plugin\RouteServiceProvider;
+use Plenty\Plugin\Routing\Router;
+use Plenty\Plugin\Templates\Twig;
+use Showcase\Extensions\TwigPluginStringUtils;
+
+class ShowcaseRouteServiceProvider extends RouteServiceProvider
+{
+
+	public function register():void {}
+
+	/**
+	 *
+	 */
+	public function map(Router $router):void
+	{
+        $router->get(
+            'showcase/items',
+            'Showcase\Controllers\ContentController@showItemExamples'
+        );
+
+        // pass itemId to controller if set
+        $router->get(
+            'showcase/items/item-{itemId}',
+            'Showcase\Controllers\ContentController@showItemExamples'
+        );
+    }
+}

@@ -5,27 +5,68 @@ $cararra-grey: #ECECEC;
 $smoke-white: #F5F5F5;
 $stormdust-grey: #666666;
 $abbey-black: #4D4E53;
-$astral-blue: #337AB7;
+$bondi-blue: #008EBD;
+//plentymarkets blue
+
+$blue-prim: $bondi-blue;
 
 body {
-  padding-top: 70px;
+  padding-top: 50px;
   color: $abbey-black;
 }
 
+.api-docs-basics {
+  margin-bottom: 30px;
+}
 
+.container {
+  max-width: 960px;
+}
+
+.row {
+  margin: 0;
+}
+
+.component-image {
+  height: 128px;
+}
 
 /* HEADLINES  ---------------------------------------------------------- */
+
 h1, h2, h3, h4, h5, h6 {
   color: $abbey-black;
+  margin: 30px 0 10px 0;
+  font-weight: 400;
+}
+
+.plugin-opener {
+  color: $white;
+  padding: 40px 0;
+  background: $blue-prim;
+  background: linear-gradient(lighten($blue-prim, 4%), $blue-prim);
+  box-shadow: 1px 1px 2px #999;
+  h1 {
+    color: $white;
+    border: none;
+    font-size: 62px;
+    padding-bottom: 0;
+    letter-spacing: 2px;
+    font-weight: 400;
+  }
+  h2 {
+    color: $white;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  div {
+    padding: 0;
+  }
 }
 
 h1 {
-  border-bottom: 2px solid $cararra-grey;
+  border-bottom: 1px solid $mercury-grey;
   padding-bottom: 12px;
-}
-
-h3 {
-  margin: 50px 0 20px 0;
 }
 
 h3 small {
@@ -38,11 +79,18 @@ h3 code,
 h4 code {
   background-color: $alabaster-grey;
   padding: 2px 12px;
-  color: $astral-blue;
+  color: $blue-prim;
 }
 
 p.h4 {
   color: $abbey-black;
+}
+
+.api-doc-method h4 {
+  background-color: $white;
+  border: 1px solid $mercury-grey;
+  padding: 12px 20px;
+  margin-bottom: -4px;
 }
 
 /* -- */
@@ -64,8 +112,8 @@ p.h4 {
 .text-tt {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-/* -- */
 
+/* -- */
 
 .has-hover .hover-visible,
 .has-hover:hover .hover-hidden {
@@ -78,7 +126,6 @@ p.h4 {
 }
 
 /* SIDEBAR ---------------------------------------------------------- */
-
 .nav.nav-list {
   margin-bottom: 24px;
 
@@ -104,7 +151,7 @@ p.h4 {
     font-size: 14px;
     > a {
       color: #4D4D53;
-      border-color: $astral-blue;
+      border-color: $blue-prim;
     }
   }
 
@@ -162,7 +209,7 @@ p.h4 {
 }
 
 .nav.nav-list > li.active > a {
-  border-color: $astral-blue;
+  border-color: $blue-prim;
 }
 
 /* -- */
@@ -243,20 +290,26 @@ p.h4 {
 }
 
 .model-table {
-  background-color: $smoke-white;
-  border: 2px solid $cararra-grey;
+  background-color: $alabaster-grey;
+  border: 1px solid $mercury-grey;
+  margin: 30px 0 50px 0;
 }
 
 /* /TABLES */
 
-
 .code-container {
   color: #333;
   position: relative;
-  margin: 10px 0 20px 0;
+  margin: 16px 0 40px 0;
   overflow: visible;
   border-radius: 0;
-  border-left: 4px solid $astral-blue;
+  border-left: 4px solid $blue-prim;
+}
+
+.code-container-2 {
+  color: #333;
+  border-radius: 0;
+  border-left: 4px solid $blue-prim;
 }
 
 .route-container{
@@ -286,7 +339,7 @@ p.h4 {
     padding: 2px 5px;
     border-radius: 6px;
     text-transform: uppercase;
-    background-color: $astral-blue;
+    background-color: $blue-prim;
     color: $white;
   }
 
@@ -301,7 +354,7 @@ p.h4 {
     padding: 2px 5px;
     border-radius: 6px;
     text-transform: uppercase;
-    background-color: $astral-blue;
+    background-color: $blue-prim;
     color: $white;
   }
 
@@ -322,8 +375,9 @@ p.h4 {
   &[data-type="post"]:after {
     left: 50px;
   }
+
   &[data-type="post"]:before {
-    background-color: $astral-blue;
+    background-color: $blue-prim;
   }
 
   &[data-type="delete"]:after {
@@ -364,7 +418,6 @@ pre {
     position: relative;
     overflow: hidden;
   }
-
 
   .str {
     color: #65B042;
@@ -428,27 +481,15 @@ li.L8 {
 }
 
 /* margins and paddings */
-
 .api-doc-method-container {
   background-color: $alabaster-grey;
   padding: 30px;
-  border: 2px solid $mercury-grey;
-}
-
-.api-doc-method h4 {
-  background-color: $white;
-  border: 2px solid $mercury-grey;
-  padding: 12px 20px;
-  margin: 40px 0 -4px 0;
-}
-
-.api-doc-param h5 {
-  margin-top: 40px;
+  border: 1px solid $mercury-grey;
 }
 
 .label-white {
   background-color: $white;
-  color: $astral-blue;
+  color: $blue-prim;
   padding: 2px 6px;
   font-family: Menlo;
   font-size: 12px;
@@ -488,7 +529,6 @@ li.L8 {
 }
 
 .components {
-  margin: 40px 0;
   padding: 40px 0;
 }
 
@@ -496,24 +536,47 @@ li.L8 {
   text-align: right;
 }
 
-.plug img {
+.plug figure img {
   position: relative;
   top: -144px;
   left: 50px;
 }
 
 .components div {
-  padding: 0;
+  padding: 0 20px;
 }
 
 .btn-plenty {
-  border: 2px solid $mercury-grey;
-  color: $astral-blue;
+  background-color: $blue-prim;
+  color: $white;
+  padding: 18px 28px 18px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+  border-radius: 5px;
+  position: relative;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-box-shadow: 0px 7px 0px darken($blue-prim, 10%);
+  -moz-box-shadow: 0px 7px 0px darken($blue-prim, 10%);
+  box-shadow: 0px 7px 0px darken($blue-prim, 10%);
 
   &:hover {
     text-decoration: none;
-    border: 2px solid $astral-blue;
-    color: $astral-blue;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    background-color: lighten($blue-prim, 5%);
+  }
+
+  &:active {
+    -webkit-box-shadow: 0px 2px 0px darken($blue-prim, 10%);
+    -moz-box-shadow: 0px 2px 0px darken($blue-prim, 10%);
+    box-shadow: 0px 2px 0px darken($blue-prim, 10%);
+    position: relative;
+    top: 7px;
   }
 
 }
@@ -521,7 +584,6 @@ li.L8 {
 .label {
   font-weight: 300;
 }
-
 
 /* CODE STYLES ------------------------------------------------------------ */
 code {
@@ -532,12 +594,42 @@ code {
   word-wrap: normal;
   white-space: pre;
   background-color: $white;
-  color: $astral-blue;
+  color: $blue-prim;
 }
+
 /* -- */
+.panel-footer {
+  background-color: $alabaster-grey;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  border-bottom-color: $mercury-grey;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+  text-decoration: none;
+  background-color: $white;
+}
+
+.panel {
+  margin-bottom: 60px;
+}
+
+.img-pretty {
+  background-color: $alabaster-grey;
+  padding: 20px;
+  border: 1px solid $mercury-grey;
+}
+
+.grey-back {
+  background-color: $alabaster-grey;
+}
 
 /* MEDIA QUERIES ---------------------------------------------------------- */
-
 @media (max-width: 768px) {
   .plug {
     text-align: left;
@@ -546,4 +638,133 @@ code {
     font-size: 21px;
   }
 }
+
 /* -- */
+
+/* Callisto availability icon */
+
+.availabilityIcon {
+  display: inline-block;
+  margin-top: 2px;
+  height: 16px;
+  width: 16px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-left: 8px
+}
+
+.availabilityIcon span {
+  display: block;
+  width: 100%;
+}
+
+.availabilityIcon span {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.5) inset;
+  -moz-box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.5) inset;
+  box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+.availabilityIcon span + span {
+  margin-top: -1px;
+}
+
+.availabilityIcon.availabilityDetails-1 span {
+  height: 100%;
+}
+
+.availabilityIcon.availabilityDetails-2 span {
+  height: 8px;
+}
+
+.availabilityIcon.availabilityDetails-3 span {
+  height: 6px;
+}
+
+.availabilityIcon.availabilityDetails-1 .second,
+.availabilityIcon.availabilityDetails-1 .third,
+.availabilityIcon.availabilityDetails-2 .third {
+  display: none;
+}
+
+.availabilityDetails-1.available-1 .first,
+.availabilityDetails-1.available-2 .first,
+.availabilityDetails-1.available-3 .first,
+.availabilityDetails-1.available-4 .first,
+.availabilityDetails-2.available-1 .first,
+.availabilityDetails-2.available-1 .second,
+.availabilityDetails-2.available-2 .first,
+.availabilityDetails-2.available-2 .second,
+.availabilityDetails-2.available-3 .second,
+.availabilityDetails-2.available-4 .second,
+.availabilityDetails-3.available-1 .first,
+.availabilityDetails-3.available-1 .second,
+.availabilityDetails-3.available-1 .third,
+.availabilityDetails-3.available-2 .second,
+.availabilityDetails-3.available-2 .third,
+.availabilityDetails-3.available-3 .third {
+  background-color: #3b0;
+}
+
+.availabilityDetails-1.available-5 .first,
+.availabilityDetails-1.available-6 .first,
+.availabilityDetails-1.available-7 .first,
+.availabilityDetails-1.available-8 .first,
+.availabilityDetails-2.available-3 .first,
+.availabilityDetails-2.available-4 .first,
+.availabilityDetails-2.available-5 .first,
+.availabilityDetails-2.available-5 .second,
+.availabilityDetails-2.available-6 .first,
+.availabilityDetails-2.available-6 .second,
+.availabilityDetails-2.available-7 .second,
+.availabilityDetails-2.available-8 .second,
+.availabilityDetails-3.available-2 .first,
+.availabilityDetails-3.available-3 .first,
+.availabilityDetails-3.available-3 .second,
+.availabilityDetails-3.available-4 .first,
+.availabilityDetails-3.available-4 .second,
+.availabilityDetails-3.available-4 .third,
+.availabilityDetails-3.available-5 .second,
+.availabilityDetails-3.available-5 .third,
+.availabilityDetails-3.available-6 .third {
+  background-color: #fc3;
+}
+
+.availabilityDetails-1.available-9 .first,
+.availabilityDetails-1.available-10 .first,
+.availabilityDetails-2.available-7 .first,
+.availabilityDetails-2.available-8 .first,
+.availabilityDetails-2.available-9 .first,
+.availabilityDetails-2.available-9 .second,
+.availabilityDetails-2.available-10 .first,
+.availabilityDetails-2.available-10 .second,
+.availabilityDetails-3.available-5 .first,
+.availabilityDetails-3.available-6 .first,
+.availabilityDetails-3.available-6 .second,
+.availabilityDetails-3.available-7 .first,
+.availabilityDetails-3.available-7 .second,
+.availabilityDetails-3.available-7 .third,
+.availabilityDetails-3.available-8 .second,
+.availabilityDetails-3.available-8 .third,
+.availabilityDetails-3.available-9 .third {
+  background-color: #f11;
+}
+
+.availabilityDetails-3.available-8 .first,
+.availabilityDetails-3.available-9 .first,
+.availabilityDetails-3.available-9 .second,
+.availabilityDetails-3.available-10 .first,
+.availabilityDetails-3.available-10 .second,
+.availabilityDetails-3.available-10 .third {
+  background-color: #aaa;
+}
+
+/* END availability icon */

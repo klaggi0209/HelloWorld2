@@ -3,154 +3,132 @@
 namespace Showcase\Controllers;
 
 use Plenty\Plugin\Controller;
-use Plenty\Modules\Item\Producer\Models\Producer;
-use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Templates\Twig;
-use Plenty\Plugin\ConfigRepository;
 
-use Plenty\Modules\Item\DataLayer\Contracts\ItemDataLayerRepositoryContract;
 use Plenty\Modules\Category\Contracts\CategoryRepository;
+use Plenty\Modules\Item\DataLayer\Contracts\ItemDataLayerRepositoryContract;
 use Plenty\Modules\Category\Models\Category;
 
-/**
- * Class ContentController
- * @package Showcase\Controllers
- */
 class ContentController extends Controller
 {
-	public function landingPage(Twig $twig, CategoryRepository $categoryRepo):string
-	{
-		$contentpages = $categoryRepo->getByType('content');
+    public function showLandingPage(Twig $twig):string
+    {
+        return $twig->render('PlentyPluginShowcase::content.LandingPage');
+    }
 
-		$templateData = ['contentpages' => $contentpages];
+    public function showBasicExamples( Twig $twig ):string
+    {
+        return $twig->render('PlentyPluginShowcase::content.Basics');
+    }
 
-		return $twig->render('PlentyPluginShowcase::content.LandingPage', $templateData);
-	}
+    public function showCategoryExamples(
+        Twig $twig,
+        CategoryRepository $categoryRepository,
+        ItemDataLayerRepositoryContract $itemRepository,
+        ?string $lvl1 = null,
+        ?string $lvl2 = null,
+        ?string $lvl3 = null,
+        ?string $lvl4 = null,
+        ?string $lvl5 = null,
+        ?string $lvl6 = null
+        ):string
+    {
+        $categoryList = $categoryRepository->getSitemapList('content');
+        $categoryTree = $categoryRepository->getSitemapTree('item');
 
-	public function showItemView(Twig $twig, CategoryRepository $categoryRepo, ItemDataLayerRepositoryContract $itemRepo, string $spacer = "", string $itemId = ""):string
-	{
-		$categoryTree = $categoryRepo->getSitemapTree('item', 'de');
+        $currentCategory = null;
+        $currentCategoryItems = null;
+        if( $lvl1 !== null )
+        {
+            $currentCategory = $categoryRepository->findCategoryByUrl( $lvl1, $lvl2, $lvl3, $lvl4, $lvl5, $lvl6 );
 
-		$columns = [
-			'itemDescription' => [
-				'name1',
-				'itemId',
-				'lang',
-				'urlContent',
-				'description'
-			],
-			'variationRetailPrice' => [
-				'price'
-			],
-			'variationImageList' => [
-				'path'
-			],
-			'variationBase' => [
-				'customNumber',
-			]
-		];
 
-		$filter = [
-			'itemBase.hasId' => [
-				'itemId' => $itemId
-			],
-			'variationBase.isPrimary?' => []
-		];
+            $itemColumns = [
+                'itemDescription' => [
+                    'name1',
+                    'shortDescription'
+                ],
+                'variationRetailPrice' => [
+                    'price'
+                ],
+                'variationImageList' => [
+                    'path'
+                ]
+            ];
 
-		$params = [
-			'language' => 'de'
-		];
 
-		$item = $itemRepo->search($columns, $filter, $params);
+            $itemFilter = [
+                'variationBase.isPrimary?' => []
+            ];
 
-		$templateData = ['item' => $item->current(), 'categoryTree' => $categoryTree];
+            /*
+            $categoryFilter = $this->getCategoryFilter( $categoryRepository, $currentCategory );
+            if( count($categoryFilter) )
+            {
+                $filter['variationCategory']
+            }
+            */
 
-		return $twig->render('PlentyPluginShowcase::content.ItemView', $templateData);
-	}
+            $itemParams = [
+                'language' => 'de'
+            ];
 
-	public function showCategory(Twig $twig, CategoryRepository $categoryRepo, ItemDataLayerRepositoryContract $itemRepo, string $level1, ?string $level2 = null, ?string $level3 = null, ?string $level4 = null, ?string $level5 = null, ?string $level6 = null):string
-	{
-		$categoryTree = $categoryRepo->getSitemapTree('item', 'de');
-		$category = $categoryRepo->findCategoryByUrl($level1, $level2, $level3, $level4, $level5, $level6);
+            $currentCategoryItems = $itemRepository->search( $itemColumns, $itemFilter, $itemParams );
+        }
 
-		$categoryFilter = $this->getCategoryFilter($categoryRepo, $category);
+        $templateData = array(
+            'categoryList' => $categoryList,
+            'categoryTree' => $categoryTree,
+            'currentCategory' => $currentCategory,
+            'categoryItems' => $currentCategoryItems
+        );
 
-		$columns = [
-			'itemDescription' => [
-				'name1',
-				'itemId',
-				'lang',
-				'urlContent'
-			],
-			'variationRetailPrice' => [
-				'price'
-			],
-			'variationImageList' => [
-				'path'
-			],
-		];
+        return $twig->render('PlentyPluginShowcase::content.Categories', $templateData);
+    }
 
-		$filter = [
-			'variationBase.isPrimary?' => []
-		];
+    public function showItemExamples(Twig $twig, ItemDataLayerRepositoryContract $itemRepository, ?string $itemId = null):string
+    {
+        $currentItem = null;
 
-		if(count($categoryFilter))
-		{
-			$filter['variationCategory.hasCategoryBranch'] = $categoryFilter;
-		}
+        if( $itemId !== null )
+        {
+            $itemColumns = [
+                'itemDescription' => [
+                    'name1',
+                    'description'
+                ],
+                'variationBase' => [
+                    'availability'
+                ],
+                'variationRetailPrice' => [
+                    'price'
+                ],
+                'variationImageList' => [
+                    'path'
+                ]
+            ];
 
-		$params = [
-			'language' => 'de'
-		];
 
-		$items = $itemRepo->search($columns, $filter, $params);
+            $itemFilter = [
+                'itemBase.hasId' => [
+                    'itemId' => $itemId
+                ],
+                'variationBase.isPrimary?' => []
+            ];
 
-		$templateData = ['categoryTree' => $categoryTree, 'items' => $items];
 
-		if ($level1 == null)
-		{
-			$templateData['navigationHome'] = 'true';
-		}
+            $itemParams = [
+                'language' => 'de'
+            ];
 
-		return $twig->render('PlentyPluginShowcase::content.CategoryView', $templateData);
-	}
+            $currentItem = $itemRepository->search( $itemColumns, $itemFilter, $itemParams )->current();
 
-	private function getCategoryFilter(CategoryRepository $categoryRepo, ?Category $category):array<string,int>
-	{
-		$categoryId = 0;
+        }
 
-		$categoryFilter = [];
+        $templateData = array(
+            'currentItem' => $currentItem
+        );
 
-		if ($category != null)
-		{
-			$categoryId = $category->id;
-			$categoryLevel = $category->level;
-
-			$categoryFilter = [
-				'category1' => 0,
-				'category2' => 0,
-				'category3' => 0,
-				'category4' => 0,
-				'category5' => 0,
-				'category6' => 0,
-			];
-			
-			$categoryFilter['category'.$categoryLevel] = $category->id;
-			$parentCategoryId = $category->parentCategoryId;
-
-			for($level = $categoryLevel; $level > 1 && $category != null; $level--)
-			{
-				$category = $categoryRepo->get($parentCategoryId, 'de');
-
-				if ($category != null)
-				{
-					$categoryFilter['category'.$category->level] = $category->id;
-					$parentCategoryId = $category->parentCategoryId;
-				}
-			}
-		}
-
-		return $categoryFilter;
-	}
-	 
+        return $twig->render('PlentyPluginShowcase::content.Items', $templateData );
+    }
 }

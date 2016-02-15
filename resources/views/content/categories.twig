@@ -5,9 +5,7 @@
     <h1 id="category-module">Module Category</h1>
 
     <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        This module handles issues on category data e.g. receiving categories of a specified type or resolving category urls.
     </p>
 
     <h2 id="category-repository">Repositories</h2>
@@ -17,4 +15,10 @@
     <h2 id="category-model">Model</h2>
 
     {% include 'PlentyPluginShowcase::content.category.models.Category.twig' %}
+
+    <h1 id="category-examples">Examples</h1>
+
+    {% include 'PlentyPluginShowcase::content.category.examples.CategoryListsExample.twig' %}
+    {% include 'PlentyPluginShowcase::content.category.examples.CategoryNavigationExample.twig' %}
+
 {% endblock %}
