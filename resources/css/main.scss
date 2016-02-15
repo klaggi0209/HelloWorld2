@@ -259,21 +259,22 @@ p.h4 {
   border-left: 4px solid $astral-blue;
 }
 
-pre {
-  background-color: $white;
-  padding: 10px;
-  border-radius: 0;
+.route-container{
+  background-color: #292b36;
+  color: #ffffff;
+  border-radius: 6px;
+  position: relative;
+  overflow: visible;
+  margin: 40px 0 20px 0;
+  padding: 6px 18px;
+  border-color: #bbb;
 
-  &.language-json {
-    overflow: auto;
+  code {
+    background: none;
+    color: $white;
   }
 
-  &.language-html {
-    margin: 40px 0 20px 0;
-    padding: 10px;
-  }
-
-  &.language-html:before {
+  &:before {
     content: attr(data-type);
     position: absolute;
     top: -30px;
@@ -289,7 +290,7 @@ pre {
     color: $white;
   }
 
-  &.language-html[data-middleware="oauth"]:after {
+  &[data-middleware="oauth"]:after {
     content: "\e033  oauth";
     position: absolute;
     top: -30px;
@@ -304,32 +305,47 @@ pre {
     color: $white;
   }
 
-  &.language-html[data-type="get"]:after {
+  &[data-type="get"]:after {
     left: 40px;
   }
-  &.language-html[data-type="get"]:before {
+  &[data-type="get"]:before {
     background-color: green;
   }
 
-  &.language-html[data-type="put"]:after {
+  &[data-type="put"]:after {
     left: 41px;
   }
-  &.language-html[data-type="put"]:before {
+  &[data-type="put"]:before {
     background-color: #e5c500;
   }
 
-  &.language-html[data-type="post"]:after {
+  &[data-type="post"]:after {
     left: 50px;
   }
-  &.language-html[data-type="post"]:before {
+  &[data-type="post"]:before {
     background-color: $astral-blue;
   }
 
-  &.language-html[data-type="delete"]:after {
+  &[data-type="delete"]:after {
     left: 64px;
   }
-  &.language-html[data-type="delete"]:before {
+  &[data-type="delete"]:before {
     background-color: #ed0039;
+  }
+}
+
+pre {
+  background-color: $white;
+  padding: 10px;
+  border-radius: 0;
+
+  &.language-json {
+    overflow: auto;
+  }
+
+  &.language-html {
+    margin: 40px 0 20px 0;
+    padding: 10px;
   }
 
   &.language-api .str {

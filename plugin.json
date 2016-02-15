@@ -7,5 +7,5 @@
   "keywords":["plentymarkets", "showcase", "plugins"],
   "type":"design",
   "require":[],
-  "service_provider": "Showcase\\Providers\\ShowcaseServiceProvider"
+  "serviceProvider": "Showcase\\Providers\\ShowcaseServiceProvider"
 }
