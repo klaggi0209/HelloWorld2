@@ -2,7 +2,7 @@
 
         {% block MainFrame %}
         <div class="plugin-opener row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-right">
+                <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-right">
                     <figure class="plug">
                         <img src="{{ plugin_path('PlentyPluginShowcase') }}/img/plug.png"  />
                     </figure>
@@ -15,26 +15,22 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 
-                </div>
+                </div> -->
             </div>
 
 
-            <div class="row components">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 plug">
-
-                </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                    <p class="lead text-center">
-                        <strong>plentymarkets Plugins</strong> combine elements
-                        of popular tools and frameworks
-                        hence giving you the chance to create your
-                        own powerful plugins.
+            <div class="row claim">
+                <div class="container">
+                    <h1 data-link="ignore">plentymarkets plugins - create your own! </h1>
+                    <hr class="blue" />
+                    <p>
+                        For nearly 10 years, plentymarkets has provided all features from one source.
+                        Our customers' needs have always been our main source of inspiration when developing new
+                        features for the software. We have sought to fulfill these needs by adding automatic processes
+                        and making our system fully customisable. In a one-stop software, however, even the best
+                        solutions can never suit all. There is another way: we are opening plentymarkets for your plugins!
                     </p>
                 </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">&nbsp;</div>
-
             </div>
 
             <div class="row components">
@@ -43,18 +39,21 @@
                    <img class="component-image" src="{{ plugin_path('PlentyPluginShowcase') }}/img/sass.png" />
                </a>
                 <h2 data-link="ignore">Preprocessors</h2>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                <hr />
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                     sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
                     aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
                     duo dolores et ea rebum.
                 </p>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center grey-back">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center ">
                 <a href="http://twig.sensiolabs.org/">
                     <img class="component-image" src="{{ plugin_path('PlentyPluginShowcase') }}/img/twig.png" />
                 </a>
                 <h2 data-link="ignore">Template-Engine</h2>
+                <hr />
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                     sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
                     aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
@@ -68,6 +67,7 @@
                 </a>
 
                 <h2 data-link="ignore">Programming Language</h2>
+                <hr />
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                     sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
                     aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
@@ -79,6 +79,7 @@
                     <img class="component-image" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plentymarkets.png" />
                 </a>
                 <h2 data-link="ignore">plentymarkets</h2>
+                <hr />
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                     sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
                     aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
@@ -89,22 +90,20 @@
 
 
         <div class="row components">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                <a class="btn-plenty">Download Project on GitHub</a>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-
+            <div class="container text-center">
+                <p class="download-text">This plentymarkets plugin is open source. It’s developed and maintained on GitHub.</p>
+                <a class="btn btn-large btn-primary">Download Project on GitHub</a>
             </div>
         </div>
-    </div>
 
 
-    <footer></footer>
-
-
+    <footer class="grey-back">
+        <div class="row">
+            <ul>
+                <li><a>Sass - Syntactically Awesome Style Sheets.</a></li>
+                <li><a>Twig - PHP Template Engine.</a></li>
+                <li><a>Hack- programming language for HHVM.</a></li>
+            </ul>
+        </div>
+    </footer>
         {% endblock %}
