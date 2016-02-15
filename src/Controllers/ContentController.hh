@@ -18,7 +18,7 @@ class ContentController extends Controller
 
     public function showBasicExamples( Twig $twig ):string
     {
-        return $twig->render('PlentyPluginShowcase::content.Basics');
+        return $twig->render('PlentyPluginShowcase::content.basics');
     }
 
     public function showCategoryExamples(
