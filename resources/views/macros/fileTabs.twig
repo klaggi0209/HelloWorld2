@@ -9,7 +9,7 @@
             </li>
         {% endfor %}
     </ul>
-
+<div class="code-container-2">
     <div class="tab-content">
         {% for label, file in tabs %}
             <div id="{{ id | cssSelector }}_{{ loop.index }}" role="tabpanel" class="tab-pane{% if loop.first %} active{% endif %}">
@@ -18,11 +18,10 @@
                 {% if lang == "hh" %}
                     {% set lang = "hack" %}
                 {% endif %}
-                <div class="code-container">
-                    <pre class="prettyprint lang-{{ lang }}">{{ source( file, ignore_missing=true ) | e }}</pre>
-                </div>
+                <pre class="prettyprint lang-{{ lang }}">{{ source( file, ignore_missing=true ) | e }}</pre>
             </div>
         {% endfor %}
     </div>
+</div>
 
 {% endmacro %}
