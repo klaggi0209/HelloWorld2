@@ -2,7 +2,11 @@
 
 {% block Content %}
 
-    <h1 id="category-module">Module Category</h1>
+    <h1 id="category-module">Module Category1</h1>
+    {% for item in categoryItems %}
+        <h2>{{ item.itemBase.addCmsPage }}</h2>
+        Item: {{ item.itemDescription.name1 }}
+    {%  endfor %}
 
     <p>
         This module handles issues on category data e.g. receiving categories of a specified type or resolving category urls.
