@@ -92,7 +92,7 @@ p.component-text  {
   box-shadow: 1px 1px 2px #999;
   background-image: url('../img/header.png');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   min-height: 245px;
   h1 {
     color: $white;
@@ -585,11 +585,15 @@ li.L8 {
 
 .components {
   padding: 40px 0;
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 .components div {
   padding: 0 20px;
+}
+
+.components h2 {
+  margin:0;
 }
 
 .download-text {
@@ -605,7 +609,12 @@ li.L8 {
 
   p {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  h1 {
+    padding:0;
+    margin:0;
   }
 }
 
