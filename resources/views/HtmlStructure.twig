@@ -23,7 +23,7 @@
     {% block BodyStart %}
     <body>
     {% endblock %}
-
+    
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -33,20 +33,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ url('showcase') }}">Showcase</a>
+                    <a class="navbar-brand" href="{{ url() }}">Showcase</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ url('showcase') }}/basics">Getting started</a>
-                            <!--ul class="dropdown-menu">
-                                <li><a href="#">Einleitung</a></li>
-                                <li><a href="#">Entwicklungsumgebung</a></li>
-                                <li><a href="#">Das Plugin</a></li>
-                                <li><a href="#">Coding</a></li>
-                                <li><a href="#">Veröffentlichung</a></li>
-                                <li><a href="#">Wartung &amp; Testing</a></li>
-                            </ul -->
+                            <a href="{{ url() }}/basics">Getting started</a>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
@@ -55,10 +47,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ url('showcase') }}/categories">Category</a>
+                                    <a href="{{ url() }}/categories">Category</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('showcase') }}/items">Item</a>
+                                    <a href="{{ url() }}/items">Item</a>
                                 </li>
                             </ul>
                         </li>
@@ -71,15 +63,6 @@
                                 {% include 'PlentyPluginShowcase::rest.ShowcaseNavigation' %}
                             </ul>
                         </li>
-
-                        <!--li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Front-End <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ url('showcase') }}/navigation">Navigation Beispiel</a></li>
-                                <li><a href="#">ProducerRepository</a></li>
-                                <li><a href="#">DataLayerRepository</a></li>
-                            </ul>
-                        </li -->
                     </ul>
                 </div>
             </div>

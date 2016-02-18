@@ -18,7 +18,7 @@ class ShowcaseRestRouteServiceProvider extends RouteServiceProvider
 	 */
 	public function map(Router $router):void
 	{
-		$router->get('showcase/rest/{moduleName}', 'Showcase\Controllers\RestController@showRestModule')
+		$router->get('rest-doc/{moduleName}', 'Showcase\Controllers\RestController@showRestModule')
 			->where('moduleName', '[a-zA-Z_]+');
 	}
 }
