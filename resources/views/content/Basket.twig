@@ -1,0 +1,22 @@
+{% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
+
+        {% block Content %}
+
+<h1 id="basket-module">Module Basket</h1>
+
+<p>
+This module provides functions to receive and filter basket data from plentymarkets.
+</p>
+
+<h2 id="basket-repository">Repositories</h2>
+
+        {% include 'PlentyPluginShowcase::content.item.ItemRepository.twig' %}
+
+<h2 id="basket-model">Model</h2>
+
+
+
+<h1 id="basket-examples">Examples</h1>
+        {% include 'PlentyPluginShowcase::content.basket.examples.BasketViewExample.twig' %}
+
+        {% endblock %}

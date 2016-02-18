@@ -30,5 +30,7 @@ class ShowcaseRouteServiceProvider extends RouteServiceProvider
 
 		$router->get('items', 'Showcase\Controllers\ContentController@showItemExamples');
         $router->get('items/item-{itemId}', 'Showcase\Controllers\ContentController@showItemExamples');
+
+        $router->get('basket', 'Showcase\Controllers\ContentController@showBasketExamples');
 	}
 }

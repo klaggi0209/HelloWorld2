@@ -131,4 +131,52 @@ class ContentController extends Controller
 
         return $twig->render('PlentyPluginShowcase::content.Items', $templateData );
     }
+
+    public function showBasketExamples(Twig $twig, ItemDataLayerRepositoryContract $itemRepository):string {
+
+
+                    $itemColumns = [
+                        'itemDescription' => [
+                            'name1',
+                            'description'
+                        ],
+                        'variationBase' => [
+                            'availability',
+                            'unitCombinationId'
+                        ],
+                        'variationRetailPrice' => [
+                            'price'
+                        ],
+                        'variationImageList' => [
+                            'path'
+                        ]
+                    ];
+
+
+                    $itemFilter = [
+                        'itemBase.hasId' => [
+                            'itemId' => 133
+                        ],
+                        'variationBase.isPrimary?' => []
+                    ];
+
+
+                    $itemParams = [
+                        'language' => 'de'
+                    ];
+
+
+                    $currentItem = $itemRepository
+                        ->search( $itemColumns, $itemFilter, $itemParams )
+                        ->current();
+
+
+
+                $templateData = array(
+                    'currentItem' => $currentItem
+                );
+
+                return $twig->render('PlentyPluginShowcase::content.Basket', $templateData );
+    }
+
 }
