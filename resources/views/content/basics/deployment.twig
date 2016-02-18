@@ -1,4 +1,5 @@
-<h1 id="workflow-deployment">Workflow and Provisioning</h1>
+<h1 id="structure-provisioning">Plugin structure and provisioning</h1>
+
 
 <h2 id="plugin-structure">Creating a new plugin</h2>
 <div class="api-docs-basics">
@@ -241,15 +242,6 @@ function getTitle(ConfigRepository $config):string
 
 <h2 id="provisioning">Provisioning plugins</h2>
 <div class="api-docs-basics">
-
-    <p>
-        plentymarkets plugins are provisioned from the Inbox to either <i>Stage</i> or <i>Productive</i>. <i>Stage</i> is a test environment that plentymarkets provides for testing and previewing plugins. It allows you to test plugins without affecting any productive version already in use. Provisioning plugins in <i>Productive</i> publishes them in your live plentymarkets system, i.e. makes them visible to end users.
-    </p>
-
-    
-    <p>
-        The provisioning process is also the point at which the syntax of the plugin files is validated, i.e. the plugin syntax is not checked when plugin files are added to the Inbox. Plugins are not provisioned if errors occur during provisioning.
-    </p>
 
 
     <p>
