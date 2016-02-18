@@ -83,7 +83,7 @@ class ContentController extends Controller
             'categoryItems' => $currentCategoryItems
         );
 
-        return $twig->render('PlentyPluginShowcase::content.Categories', $templateData);
+        return $twig->render('PlentyPluginShowcase::content.categories', $templateData);
     }
 
     public function showItemExamples(Twig $twig, ItemDataLayerRepositoryContract $itemRepository, ?string $itemId = null):string
