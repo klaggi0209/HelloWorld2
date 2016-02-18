@@ -7,7 +7,7 @@
     <h2 id="introducing">Introducing plentymarkets plugins</h2>
 
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding0">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0">
             <div class="api-docs-basics">
                 <p>
                     Welcome to the plentymarkets showcase plugin. This site provides an introduction to working with the new plugins. 
@@ -17,6 +17,7 @@
                     UI and content are rendered using the <a href="http://twig.sensiolabs.org/documentation" target="_blank">twig template engine</a>.
                 </p>
              </div>
+        </div>
         </div>
 
 
@@ -39,7 +40,9 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding0">
             <figure>
+                <a data-toggle="modal" data-target="#modal1" href="#">
                     <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-structure.png" />
+                </a>
             </figure>
         </div>
     </div>
@@ -141,7 +144,9 @@
 
 <div class="api-docs-basics">
     <figure>
-        <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-workflow.png" />
+        <a data-toggle="modal" data-target="#modal2" href="#">
+             <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-workflow.png" />
+        </a>
     </figure>
 </div> 
 
@@ -222,3 +227,21 @@
     </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog img-horizontal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Workflow &amp; Deployment</h4>
+            </div>
+            <div class="modal-body">
+                <figure>
+                    <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-workflow.png" />
+                </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>

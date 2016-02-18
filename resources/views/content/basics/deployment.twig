@@ -253,14 +253,13 @@ function getTitle(ConfigRepository $config):string
 
 
     <p>
-        The provisioning process is started from the <b>Start » Plugins » Tab: Plugins</b> menu of the plentymarkets backend. Before provisioning, select the clients (stores) that you want to provision the plugins for.
-
+        The provisioning process is started from the <b>Start » Plugins » Tab: Plugins</b> menu of the plentymarkets backend. Before provisioning, select the clients (stores) that you want to provision the plugins for.</p>
     <ul>
         <li>Clicking the <b>Paper airplane</b> icon will start the provisioning process for all plugins with a check mark in the <b>Stage</b> column of the plugin list.</li>
         <li>Clicking on the <b>Globe</b> icon will start the provisioning process for all plugins with a check mark in the <b>Productive</b> column.<br />
         &rarr; You can not start the provisioning process for individual plugins.<br />
         &rarr; By default, the check mark is identical to the current state of the plugin in the environment. The check boxes of newly added plugins are activated by default.</li>
-    </p>
+    </ul>
 
     <p>
     You need to provision the plugins if since the last provisioning process:
@@ -276,22 +275,4 @@ function getTitle(ConfigRepository $config):string
     </ul>
 
 </div>
-
-        <!-- Modal -->
-<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-<div class="modal-dialog img-horizontal" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Workflow &amp; Deployment</h4>
-        </div>
-        <div class="modal-body">
-            <figure>
-                <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/img/plugin-workflow.png" />
-            </figure>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        </div>
-    </div>
 
