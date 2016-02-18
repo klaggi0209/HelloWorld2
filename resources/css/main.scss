@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1000px;
 }
 
 .row {
@@ -34,10 +34,35 @@ body {
   text-align:center;
 }
 
+.img-horizontal {
+  width: 80%;
+}
+
+.img-vertical {
+  width: 40%;
+}
+/* MAIN-MENU ---------------------------------------------------------- */
+a {
+  &:hover{
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
 .navbar-default {
   background-color: $white;
   box-shadow: 1px 1px 2px #999;
 }
+
+
+/* /MAIN-MENU ---------------------------------------------------------- */
+
+
 
 /* HEADLINES  ---------------------------------------------------------- */
 
@@ -446,7 +471,7 @@ pre {
     border: 1px solid $mercury-grey;
     border-left: none;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
   }
 
   .str {
@@ -657,6 +682,7 @@ code {
 /* -- */
 .panel-footer {
   background-color: $alabaster-grey;
+  border: 1px solid $cararra-grey;
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
