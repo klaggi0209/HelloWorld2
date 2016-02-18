@@ -21,13 +21,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="{{ url('showcase/categories') }}#category-example-navigation" class="navbar-brand">
+                <a href="{{ url('categories') }}#category-example-navigation" class="navbar-brand">
                     <span class="glyphicon glyphicon-home"></span>
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="showcase-categories-example-nav">
                 <ul class="nav navbar-nav">
-                    {{ nav.output( categoryTree, url('showcase/categories')~'/', 2, '#category-example-navigation') }}
+                    {{ nav.output( categoryTree, url('categories')~'/', 2, '#category-example-navigation') }}
                 </ul>
             </div>
         </div>
