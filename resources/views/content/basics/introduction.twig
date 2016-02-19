@@ -8,30 +8,56 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0">
             <div class="api-docs-basics">
                 <p>
-                    Welcome to the plentymarkets showcase plugin. plentymarkets offers you the possibility to develop and modify plentymarkets plugins. plentymarkets plugins are currently hosted on GitHub. We are also working on a designated plugin store from which you will be able to download plugins developed by plentymarkets and third party providers and also offer plugins you created.
+                    Welcome to the plentymarkets showcase plugin. plentymarkets offers you the possibility to develop and modify plentymarkets plugins. plentymarkets currently hosts free plugins on GitHub. We are also working on a designated plugin store from which you will be able to download plugins developed by plentymarkets and third party providers and also offer plugins you created. We recommend that you maintain plugins you create in a Git repository to ensure version control and allow error tracking.
                 </p>
 
                 <p>
-                    To get you started, the documentation on this site provides an introduction to developing, managing and provisioning plentymarkets plugins. It also documents the plugin modules and the new REST API.
+                    To get you started, the documentation on this site provides an introduction to developing, managing and provisioning plentymarkets plugins. It also documents the public plentymarkets modules and the new REST API.
                 </p>
              </div>
         </div>
-        </div>
+    </div>
 
 
         <h2 id="plugin-workflow">Plugin workflow</h2>
 <div class="api-docs-basics">
 
+        <h3 id="creating-plugins">Creating plugins</h3>
+
     <p>
-        We recommend the following basic workflow when working with plentymarkets plugins.
+        There are several ways to create plugins. We recommend the following basic workflow when creating plentymarkets plugins.
     </p>
 
     <ol>
-        <li>Clone a new plugin file structure from the plentymarkets Git repository.</li>
-        <li>Create a new remote repository on GitHub or Bitbucket and link this repository to your local IDE to ensure full version control.</li>
-        <li>To test the plugin, pull the remote repository files into your plentymarkets Inbox.</li> 
+        <li>Create a new plugin file structure in your local IDE.</li>
+        <li>Create a new Git repository and link this repository to your local IDE to ensure full version control.</li>
+    </ol>
+
+
+        <h3 id="modifying-plugins">Modifying existing plugins</h3>
+
+    <p>
+        You can also modify or extend existing plugins. This can either have been created by youself or by third parties. We recommend the following basic workflow when modifying plentymarkets plugins.
+    </p>
+
+    <ol>
+        <li>Link to an existing Git repository to clone the files to your local harddrive.</li>
+        <li>Modify the files in your lokal IDE.</li>
+        <li>Update the Git repository by pushing your changes.</li>
+    </ol>
+
+        <h3 id="testing-provisioning">Testing and provisioning</h3>
+
+    <p>
+        When you are ready to test your plugin, provision it to Stage from the plentymarkets backend.
+    </p>
+
+    <ol>
+        <li>Push your changes to the Git repository.</li>
+        <li>To test the plugin, pull the Git repository files into your plentymarkets Inbox.</li>
+        <li>Go to <b>Start » Plugins » Tab: Plugins</b>.</li>
         <li>Provision the plugin in <i>Stage</i> to test functionality. During provisioning, the plugin syntax is checked and any errors are flagged.</li>
-        <li>Correct errors if necessary.</li>
+        <li>Correct any errors if necessary.</li>
         <li>When you are ready to publish the plugin to your live environment, provision the plugin in <i>Productive</i>.</li>
     </ol>
 </div>   
@@ -122,7 +148,7 @@
                 <p>
                     For security reasons and to optimize performace, all plugins are based on recent technologies. The source code can be
                     developed using the <a href="http://hacklang.org/" target="_blank">Hack</a>  programming language, which will be executed in a HHVM environment
-                    to support JIT-compilation and further benefits.
+                    to support JIT compilation and further benefits.
                 </p>
 
                 <p>
