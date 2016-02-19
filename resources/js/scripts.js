@@ -157,35 +157,3 @@
     }
 
 }(jQuery));
-
-
-
-function addBasketItem() {
-    $.ajax({
-        type: "POST",
-        url: "/rest/checkout/basketitemslist/",
-        data:  {BasketItemItemID: 133, BasketItemPriceID: 1, BasketItemQuantity: 1},
-        success: function ( data ){ alert(data); }
-    });
-
-}
-
-/*
-
- $.ajax({
- type: "POST",
- url: "/rest/checkout/basketitemslist/",
- data:  {BasketItemItemID: 133, BasketItemPriceID: 1, BasketItemQuantity: 1},
- success: function ( data ){ alert(data); }
- });
-
- $.get("/rest/checkout/container_checkoutorderparamslist/?itemID=133&quantity=1").done(function() {
- alert('yeah');
- });
- {
- url: "/rest/checkout/container_checkoutorderparamslist/?itemID=133&quantity=1",
- itemID : 133,
- quantity : 1
- }
- */
-
