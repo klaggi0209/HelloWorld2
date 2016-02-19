@@ -164,7 +164,9 @@ function addBasketItem() {
     $.ajax({
         type: "POST",
         url: "/rest/checkout/basketitemslist/",
-        data:  {BasketItemItemID: 133, BasketItemPriceID: 1, BasketItemQuantity: 1},
+        data: JSON.stringify([{BasketItemItemID: 133, BasketItemPriceID: 1, BasketItemQuantity: 1}]),
+        dataType: 'json',
+        contentType: 'application/json',
         success: function ( data ){ alert(data); }
     });
 
