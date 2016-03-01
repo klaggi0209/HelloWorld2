@@ -5,7 +5,7 @@
     {% for category in categories %}
         {# print each item #}
         <li class="list-group-item">
-            {{ category.name }}
+            {{ category.details.first.name }}
         </li>
     {% endfor %}
     </ul>
