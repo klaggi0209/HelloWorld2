@@ -2,7 +2,7 @@
 {# @param array<Category> categories    The category list #}
 {% macro output(categories) %}
     <ul class="list-group">
-    {% for category in categories %}
+    {% for category in categories if category.details.first.lang == 'de' %}
         {# print each item #}
         <li class="list-group-item">
             {{ category.details.first.name }}
