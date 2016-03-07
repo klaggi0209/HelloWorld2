@@ -89,16 +89,20 @@ p.component-text  {
   font-size:16px;
 }
 
+
+
+/* HEADER ---------------------------------------------------------- */
+
 .plugin-opener {
   color: $white;
   padding: 40px 0;
-  background: $blue-prim;
-  background: linear-gradient(lighten($blue-prim, 4%), $blue-prim);
+  background-color: $blue-prim;
   box-shadow: 1px 1px 2px #999;
   background-image: url('../img/header.png');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 245px;
+  background-position:center;
   h1 {
     color: $white;
     border: none;
@@ -117,6 +121,7 @@ p.component-text  {
     padding: 0;
   }
 }
+/* /HEADER ---------------------------------------------------------- */
 
 h1 {
   border-bottom: 1px solid $mercury-grey;
