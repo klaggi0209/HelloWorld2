@@ -887,3 +887,16 @@ footer a {
 }
 
 /* END availability icon */
+
+
+/* RESPONSIVE IMAGES */
+
+@media (max-width:1000px) {
+  .img-horizontal {
+    width:98%;
+  }
+
+  .img-vertical {
+    width: 98%;
+  }
+}
