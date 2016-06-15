@@ -521,6 +521,53 @@ pre {
   }
 }
 
+#plentyhackapidokumentation {
+  .page-header {
+    border-bottom: none;
+    .h1 {
+      text-align: center;
+      border: none;
+      padding: 0;
+    }
+  }
+  h3 {
+    border-top: 3px solid $bondi-blue;
+    border-left: 3px solid $bondi-blue;
+    padding: 5px 0 0 5px;
+  }
+  h4{
+    font-size: 20px;
+  }
+  .name-container {
+    h4 {
+      border-left: 3px solid #5cb85c;
+      padding-left: 5px;
+    }
+    p {
+      background: #292b36;
+      color: $white;
+      border-radius: 6px;
+      position: relative;
+      overflow: visible;
+      margin: 20px 0;
+      padding: 6px 18px;
+      border-color: #bbb;
+      width: 100%;
+    }
+  }
+  .prop-container {
+    h4 {
+      border-left: 3px solid #5bc0de;
+      padding-left: 5px;
+    }
+  }
+  .meth-container {
+    h4 {
+      border-left: 3px solid #e5c500;
+      padding-left: 5px;
+    }
+  }
+}
 /* decimal - blue */
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
@@ -637,6 +684,7 @@ hr.blue {
   border-top: 2px solid $blue-prim;
   width: 80%;
 }
+
 
 /* BUTTONS --------------------------------------------- */
 .btn {
@@ -900,3 +948,4 @@ footer a {
     width: 98%;
   }
 }
+
