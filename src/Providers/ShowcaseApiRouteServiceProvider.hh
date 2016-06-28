@@ -18,6 +18,6 @@ class ShowcaseApiRouteServiceProvider extends RouteServiceProvider
 	 */
 	public function map(Router $router):void
 	{
-		$router->get('api-doc', 'Showcase\Controllers\ApiDocController@showApiDoc');
-}
+		$router->get('api-doc/{module}', 'Showcase\Controllers\ApiDocController@showApiModule');
+	}
 }

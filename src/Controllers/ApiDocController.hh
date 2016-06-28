@@ -14,4 +14,10 @@ class ApiDocController extends Controller
 
 		return $twig->render('PlentyPluginShowcase::api.classes');
 }
+
+	public function showApiModule(Twig $twig, string $module):string
+	{
+		return $twig->render('PlentyPluginShowcase::api.Modules.' . $module . '.classes');
+	}
+
 }
