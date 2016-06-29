@@ -18,7 +18,7 @@
                 {% if lang == "hh" %}
                     {% set lang = "hack" %}
                 {% endif %}
-                <pre class="prettyprint lang-{{ lang }}">{{ source( file, ignore_missing=true ) | e }}</pre>
+                <pre class="prettyprint grey-back lang-{{ lang }}">{{ source( file, ignore_missing=true ) | e }}</pre>
             </div>
         {% endfor %}
     </div>
