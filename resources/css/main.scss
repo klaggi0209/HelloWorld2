@@ -566,19 +566,17 @@ pre {
       color: $plered;
     }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
-      color: $white;
-      background-color: lighten($plered, 30%);
-      border-bottom: 1px solid lighten($plered, 30%);
+      color: $plered;
     }
     .nav-tabs > li > a, .nav-tabs > li > a:focus, .nav-tabs > li > a:hover {
       color: #333;
       background-color: #f8f8f8;
-      border: 1px solid #e4747a;
+      border: 1px solid $plered;
     }
     .code-container-2 {
       color: #333;
       border-radius: 0;
-      border-left: 1px solid #e4747a;
+      border-left: 1px solid $plered;
     }
   }
 }
