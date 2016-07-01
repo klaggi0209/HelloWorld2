@@ -565,6 +565,10 @@ pre {
       padding-left: 5px;
       color: $plered;
     }
+    .nav-tabs {
+      border-left: 2px solid $plered;
+      border-radius: 5px 0 0 0;
+    }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
       color: $plered;
     }
@@ -576,10 +580,11 @@ pre {
     .code-container-2 {
       color: #333;
       border-radius: 0;
-      border-left: 1px solid $plered;
+      border-left: 3px solid $plered;
     }
   }
 }
+
 /* decimal - blue */
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
