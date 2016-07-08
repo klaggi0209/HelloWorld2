@@ -1,0 +1,441 @@
+
+    <h1 id="introduction">My first plugin</h1>
+
+    <div class="api-docs-basics">
+        <p>
+            This tutorial is aimed at plentymarkets users who are getting started with plugin development.
+            Only little knowledge of creating and editing files in an IDE as well as using plentymarkets is required.<br /><br />
+            In six simple steps, we will walk you through creating your first plugin that displays <b>Hello World!</b> in your browser when adding <code><span>/</span>hello</code> to your domain.
+        </p>
+    </div>
+
+    <h2 id="setup-ide">Step 1: Setting up an IDE</h2>
+        <div class="api-docs-basics">
+            <p>
+                We recommend using an IDE which supports the Hack language and Twig syntax. To get you started, install <b>Atom with Nuclide</b>.
+                Facebook provides this IDE for Hack development. It can be extended to support Twig syntax.
+            </p>
+        </div>
+
+    <h3 id="install-atom">Installing Atom</h3>
+    <div class="api-docs-basics">
+        <ol>
+            <li>
+                <a href="https://github.com/atom/atom/releases/latest" target="_blank">Download</a>
+                and <a href="http://flight-manual.atom.io/getting-started/sections/installing-atom/" target="_blank">install</a>
+                the Atom IDE.
+            </li>
+            <li>
+                <a href="http://nuclide.io/docs/editor/setup" target="_blank">Install the Nuclide plugin</a><sup>*</sup> for Hack language support.
+            </li>
+            <li>
+                <a href="https://atom.io/packages/php-twig" target="_blank">Install the Twig plugin</a><sup>*</sup> for Twig syntax highlighting.
+            </li>
+        </ol>
+        <p>
+            *) All required Atom packages can be found in the embedded package control pane of the Atom IDE.
+            To access this pane, open the <b>Atom » Preferences</b> menu and click on <b>Install</b>.
+        </p>
+    </div>
+
+    <h2 id="setup-git">Step 2: Setting up Git </h2>
+        <div class="api-docs-basics">
+            <p>
+                Sign up for a hosting provider for your plugin, e.g. <a href="https://github.com" target="_blank">GitHub</a>.
+                You will need the login details when cloning your plugin to your plentymarkets inbox in step 5.
+            </p>
+        </div>
+
+        <h3 id="create-repository">Creating a repository</h3>
+            <div class="api-docs-basics">
+              <ol>
+                <li>
+                  Log in to your GitHub account.
+                </li>
+                <li>
+                    Click on <b>Create new... » New repository</b>.
+                </li>
+                <li>
+                  Enter a repository name.<br />
+                  &rarr; We name our repository <code>HelloWorld</code>.
+                </li>
+                <li>
+                  Click on <b>Create repository</b>.<br />
+                  &rarr; Now, we have set the basis for our plugin.
+                </li>
+              </ol>
+            </div>
+
+            <h3 id="install-githubdesktop">Installing GitHub Desktop</h3>
+                <div class="api-docs-basics">
+                  <p>
+                    In order to clone the repository to your local computer, install a desktop client for GitHub.
+                  </p>
+                  <ol>
+                    <li>
+                      Install <a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a>.
+                    </li>
+                    <li>
+                      Open your <b>HelloWorld</b> repository on GitHub.
+                    </li>
+                    <li>
+                      In the <b>Code</b> tab of your repository, click on <b>Set up in Desktop</b>.
+                    </li>
+                    <li>
+                        Select GitHub Desktop and clone the repository to a location on your hard drive.<br />
+                        &rarr; We set up the repository clone in our desktop. The folder is still empty, so let's start filling it.
+                    </li>
+                  </ol>
+                </div>
+
+
+    <h2 id="create-components">Step 3: Creating the plugin structure and components</h2>
+    <div class="api-docs-basics">
+        <p>The components of your plugin are the foundation for the communication between the plugin and plentymarkets.
+          A <b>ServiceProvider</b> is needed for registering the plugin in plentymarkets.
+          A <b>RouteServiceProvider</b> creates and registers the output route.
+          And with a <b>ContentController</b>, your content is rendered and displayed in your template.</p>
+    </div>
+    <h3 id="create-serviceprovider">Creating the folders</h3>
+    <div class="api-docs-basics">
+      <p>
+        All plugins need to be organised in a specific structure. For our plugin, we need only the following folders.
+      </p>
+    </div>
+
+    <div class="code-container">
+    <pre class="prettyprint lang-plain grey-back">
+    PluginDirectory/
+        +-- resources/
+        |   +-- views/
+        |       +-- // twig templates (can be organised in subdirectories)
+        |
+        +-- src/
+        |   +-- // plugin source code
+        |
+        +-- plugin.json // plugin information
+    </pre>
+    </div>
+
+    <h3 id="create-pluginjson">Creating the plugin.json</h3>
+    <div class="api-docs-basics">
+      <p>
+          All information about your plugin is defined in a <code>plugin.json</code> file. This file defines the service
+          provider of your plugin, which will be called by plentymarkets to register and run your plugin.
+      </p>
+
+      <ol>
+        <li>
+          Open Atom and click on <b>Add Project Folder</b>.
+        </li>
+        <li>
+        Select your plugin folder and click on <b>Open</b>.
+        </li>
+        <li>
+          Create a new json file in the plugin folder.<br />
+          &rarr; We name or file <code>plugin.json</code>.
+        </li>
+        <li>
+          Copy the code sample below into the file.
+        </li>
+        <li>
+          Enter your name under <b>author</b> and save the file.
+        </li>
+      </ol>
+    </div>
+
+    <div class="code-container grey-back">
+      <pre class="prettyprint lang-js grey-back">
+          {
+            "name":"HelloWorld",
+            "description":"My first plugin",
+            "namespace":"HelloWorld",
+            "author":"Your name",
+            "type":"template",
+            "serviceProvider":null
+          }
+      </pre>
+    </div>
+
+<h4>Explanation of the code</h4>
+    <div class="alert alert-info" role="alert">
+      Hier kommt die Erklärung zum Code-Beispiel
+    </div>
+
+    <h3 id="create-serviceprovider">Creating the ServiceProvider</h3>
+    <div class="api-docs-basics">
+
+      <ol>
+        <li>
+          Create a new <b>Providers</b> folder in the <b>src</b> folder.
+        </li>
+        <li>
+          Create a new file in the <b>Providers</b> folder.<br />
+          &rarr; We name our file <code>HelloWorldServiceProvider.hh</code>.
+        </li>
+        <li>
+          Copy the code sample below into the file and save it.
+        </li>
+      </ol>
+    </div>
+
+    <div class="code-container">
+    <pre class="prettyprint lang-hack grey-back">
+
+<span><</span>?hh //strict
+
+      namespace HelloWorld\Providers;
+
+      use Plenty\Plugin\ServiceProvider;
+
+      class HelloWorldServiceProvider extends ServiceProvider
+      {
+
+        /**
+         * Register the service provider.
+         */
+        public function register():void
+        {
+          $this->getApplication()->register(HelloWorldRouteServiceProvider::class);
+          // == "HelloWorld\Providers\HelloWordRouteServiceProvider"
+        }
+      }
+    </pre>
+    </div>
+
+<h4>Explanation of the code</h4>
+    <div class="alert alert-info" role="alert">
+      Hier kommt die Erklärung zum Code-Beispiel
+    </div>
+
+
+    <h3 id="create-routeserviceprovider">Creating the RouteServiceProvider</h3>
+    <div class="api-docs-basics">
+
+      <ol>
+        <li>
+          Create a new file in the <b>Providers</b> folder.<br />
+          &rarr; We name our file <code>HelloWorldRouteServiceProvider.hh</code>.
+        </li>
+        <li>
+          Copy the code sample below into the file and save it.
+        </li>
+      </ol>
+    </div>
+
+    <div class="code-container">
+    <pre class="prettyprint lang-hack grey-back">
+
+<span><</span>?hh //strict
+
+namespace HelloWorld\Providers;
+
+
+use Plenty\Plugin\RouteServiceProvider;
+use Plenty\Plugin\Routing\Router;
+
+class HelloWorldRouteServiceProvider extends RouteServiceProvider
+{
+public function map(Router $router):void
+{
+$router->get('hello', 'HelloWorld\Controllers\ContentController@sayHello');
+}
+}
+    </pre>
+    </div>
+
+    <h4>Explanation of the code</h4>
+        <div class="alert alert-info" role="alert">
+          Hier kommt die Erklärung zum Code-Beispiel
+        </div>
+
+    <h3 id="create-contentcontroller">Creating the ContentController</h3>
+    <div class="api-docs-basics">
+
+      <ol>
+        <li>
+          Create a new <b>Controllers</b> folder in the <b>src</b> folder.
+        </li>
+        <li>
+          Create a new file in the <b>Controllers</b> folder.<br />
+          &rarr; We name our file <code>ContentController.hh</code>.
+        </li>
+        <li>
+          Copy the code sample below into the file and save it.
+        </li>
+      </ol>
+    </div>
+
+    <div class="code-container">
+    <pre class="prettyprint lang-hack grey-back">
+
+    <span><</span>?hh //strict
+
+    namespace HelloWorld\Controllers;
+
+
+    use Plenty\Plugin\Controller;
+    use Plenty\Plugin\Templates\Twig;
+
+    class ContentController extends Controller
+    {
+    	public function sayHello(Twig $twig):string
+    	{
+    		return $twig->render('HelloWorld::content.hello');
+    	}
+    }
+  </pre>
+  </div>
+
+  <h4>Explanation of the code</h4>
+      <div class="alert alert-info" role="alert">
+        Hier kommt die Erklärung zum Code-Beispiel
+      </div>
+
+<h3 id="create-template">Creating the twig template</h3>
+<div class="api-docs-basics">
+
+  <ol>
+    <li>
+      Create a new <b>content</b> folder in the <b>ressources » views</b> folder.
+    </li>
+    <li>
+      Create a new file in the <b>content</b> folder.<br />
+      &rarr; We name our file <code>hello.twig</code>.
+    </li>
+    <li>
+      Enter the content that you want to display in your browser into this file and save the file.<br />
+      &rarr; We simply enter <code><span><</span>h1>Hello World!<span><</span>/h1></code>.
+    </li>
+  </ol>
+</div>
+
+<h3 id="update-pluginjson">Updating the plugin.json</h3>
+<div class="api-docs-basics">
+
+  <ol>
+    <li>
+      Open the <code>plugin.json</code> file.
+    </li>
+    <li>
+      Enter the value for <b>serviceProvider</b> and save the file.<br />
+      &rarr; We enter the namespace of our ServiceProvider. In our case, the namespace is <code>"HelloWorld\\Providers\\HelloWorldServiceProvider"</code>.
+    </li>
+  </ol>
+</div>
+
+<h2 id="update-repository">Step 4: Updating the Git repository</h2>
+<div class="api-docs-basics">
+  <p>
+    Next, the files in your local <b>HelloWorld</b> folder must be pushed into your Git repository.
+  </p>
+  <ol>
+    <li>
+      Open GitHub Desktop.<br />
+      &rarr; The plugin files are now visible in GitHub Desktop.
+    </li>
+    <li>
+      Enter a commit message into the <b>Description</b> field.
+    </li>
+    <li>
+      Click on <b>Commit to master</b>.<br />
+      &rarr; The changes made to the repository are displayed in the overview.
+    </li>
+    <li>
+Click on <b>Publish</b>.<br />
+&rarr; Our plugin content is now pushed into the repository on GitHub.
+    </li>
+    <li>
+      Reload the GitHub website to see the changes.
+    </li>
+  </ol>
+</div>
+
+  <h2 id="update-plugin">Step 5: Cloning the plugin into plentymarkets</h2>
+  <div class="api-docs-basics">
+    <p>
+      In this step, you have to clone the Git repository into your plentymarkets inbox. The remote URL from GitHub as well as your login details are required for this purpose.
+    </p>
+
+  <ol>
+    <li>
+      Go to <b>Start » Plugins</b>.
+    </li>
+    <li>Click on <b>Add plugin</b>.<br />
+    → The <b>New plugin</b> window will open.</li>
+    <li>Click on <b>Git</b>.<br />
+    → The <b>Settings</b> window will open.</li>
+    <li>
+      Enter the remote URL.<br />
+      &rarr; You can copy the URL by clicking on <b>Clone or download</b> in the repository on GitHub.
+    </li>
+    <li>Enter your user name and password.</li>
+    <li>Click on <b>Test connection</b>.<br />
+    &rarr; Connectivity to the Git repository is checked and established and the drop-down menu <b>Branch</b> can be selected.</li>
+    <li>Select the branch of the repository that you want to clone and edit.<br />
+    &rarr; In our case, <b>Master</b> is set by default.</li>
+    <li><b>Save</b> the settings.<br />
+    → The plugin repository is cloned to the plentymarkets inbox and the plugin is added to the plugin list.
+    </li>
+    </ol>
+  </div>
+
+<h2 id="provision-plugin">Step 6: Provisioning the plugin</h2>
+<div class="api-docs-basics">
+  <p>
+    To integrate the plugin with plentymarkets, provision the plugin.
+  </p>
+  <ol>
+    <li>
+      Go to <b>Start » Plugins</b>.
+    </li>
+    <li>
+      In the row of your plugin, click on <b>Select client</b>.
+    </li>
+    <li>
+      Select your client and save it.
+    </li>
+    <li>
+      Activate the plugin in the <b>Productive</b> column.
+    </li>
+    <li>
+      In the toolbar, click on <b>Provision plugins in Productive</b>.<br />
+      &rarr; After a short while, a success message will be displayed and we are ready to check the output.
+    </li>
+  </ol>
+</div>
+
+<h1 id="open-plugin">Reaping the rewards</h1>
+<div class="api-docs-basics">
+  <p>
+    Finally, open a new browser tab and type in your domain adding <code><span>/</span>hello</code> at the end. And there it is, your first plugin.
+  </p>
+  <figure>
+      <a data-toggle="modal" data-target="#modal2" href="#">
+           <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/helloworld.png" />
+      </a>
+  </figure>
+</div>
+<div class="alert alert-info" role="alert">
+  Note that, after changing the files in your local <code>HelloWorld</code> folder, the changes must be pushed to GitHub. You also have to update the plugin in your plentymarkets inbox by pulling the changes from GitHub. Finally, you have to provision the plugin again, to display the changes in your browser.
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog img-horizontal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">My first plugin</h4>
+            </div>
+            <div class="modal-body">
+                <figure>
+                    <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/images/helloworld.png" />
+                </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
