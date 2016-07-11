@@ -394,7 +394,9 @@ p.h4 {
     background: none;
     color: $white;
   }
-
+  &.disable-data-type:before {
+    display: none;
+  }
   &:before {
     content: attr(data-type);
     position: absolute;
