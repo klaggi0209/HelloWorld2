@@ -2,14 +2,14 @@
 <div class="api-docs-basics">
     <p>
         This tutorial is aimed at plentymarkets users who are getting started with plugin development.
-        Only little knowledge of creating and editing files in an IDE as well as using plentymarkets is required.<br /><br />
+        You will only need basic knowledge of creating and editing files in an integrated development environment (IDE) as well as using plentymarkets.<br /><br />
         In six simple steps, we will walk you through creating your first plugin that displays <b>Hello World!</b> in your browser when adding <code><span>/</span>hello</code> to your domain.
     </p>
 </div>
 <h2 id="setup-ide">Step 1: Setting up an IDE</h2>
 <div class="api-docs-basics">
     <p>
-        We recommend using an IDE which supports the Hack language and Twig syntax. To get you started, install <b>Atom with Nuclide</b>.
+        We recommend using an IDE which supports the Hack language and Twig syntax. To get started, install <b>Atom with Nuclide</b>.
         Facebook provides this IDE for Hack development. It can be extended to support Twig syntax.
     </p>
 </div>
@@ -51,18 +51,18 @@
         </li>
         <li>
             Enter a repository name.<br />
-            &rarr; We name our repository <code>HelloWorld</code>.
+            &rarr; Name the repository, e.g. <code>HelloWorld</code>.
         </li>
         <li>
             Click on <b>Create repository</b>.<br />
-            &rarr; Now, we have set the basis for our plugin.
+            &rarr; We have now set the basis for our plugin.
         </li>
     </ol>
 </div>
 <h3 id="install-githubdesktop">Installing GitHub Desktop</h3>
 <div class="api-docs-basics">
     <p>
-        In order to clone the repository to your local computer, install a desktop client for GitHub.
+        Install a desktop client for GitHub in order to clone the repository to your local computer.
     </p>
     <ol>
         <li>
@@ -80,18 +80,18 @@
         </li>
     </ol>
 </div>
-<h2 id="create-components">Step 3: Creating the plugin structure and components</h2>
+<h2 id="create-components">Step 3: Creating the plugin components</h2>
 <div class="api-docs-basics">
     <p>The components of your plugin are the foundation for the communication between the plugin and plentymarkets.
         A <b>ServiceProvider</b> is needed for registering the plugin in plentymarkets.
         A <b>RouteServiceProvider</b> creates and registers the output route.
-        And with a <b>ContentController</b>, your content is rendered and displayed in your template.
+        And a <b>ContentController</b> renders and displays your content in your template.
     </p>
 </div>
 <h3 id="create-folders">Creating the folders</h3>
 <div class="api-docs-basics">
     <p>
-        All plugins need to be organised in a specific structure. For our plugin, we need only the following folders.
+        All plugins need to be organised in a specific structure. We only need the following folders for our plugin.
     </p>
 </div>
 <div class="code-container">
@@ -123,10 +123,10 @@
         </li>
         <li>
             Create a new json file in the plugin folder.<br />
-            &rarr; We name or file <code>plugin.json</code>.
+            &rarr; Name the file, e.g. <code>plugin.json</code>.
         </li>
         <li>
-            Copy the code sample below into the file.
+            Insert the code sample below into the file.
         </li>
         <li>
             Enter your name under <b>author</b> and save the file.
@@ -157,10 +157,10 @@
         </li>
         <li>
             Create a new file in the <b>Providers</b> folder.<br />
-            &rarr; We name our file <code>HelloWorldServiceProvider.hh</code>.
+            &rarr; Name the file, e.g. <code>HelloWorldServiceProvider.hh</code>.
         </li>
         <li>
-            Copy the code sample below into the file and save it.
+            Insert the code sample below into the file and save it.
         </li>
     </ol>
 </div>
@@ -191,9 +191,8 @@
       }
     </pre>
 </div>
-<h4>Explanation of the code</h4>
 <div class="alert alert-info" role="alert">
-    We recommend that you use the name of the plugin folder as the namespace root.
+    <b>Explanation</b>: We recommend that you use the name of the plugin folder as the namespace root.
     This service provider is the central location to register services in the plugin.
 </div>
 <h3 id="create-routeserviceprovider">Creating the RouteServiceProvider</h3>
@@ -201,10 +200,10 @@
     <ol>
         <li>
             Create a new file in the <b>Providers</b> folder.<br />
-            &rarr; We name our file <code>HelloWorldRouteServiceProvider.hh</code>.
+            &rarr; Name the file, e.g. <code>HelloWorldRouteServiceProvider.hh</code>.
         </li>
         <li>
-            Copy the code sample below into the file and save it.
+            Insert the code sample below into the file and save it.
         </li>
     </ol>
 </div>
@@ -234,7 +233,7 @@
 <h3 id="register-routeserviceprovider">Registering the RouteServiceProvider</h3>
 <div class="api-docs-basics">
     <p>
-        Now, we have to register the <b>RouteServiceProvider</b> in the <b>ServiceProvider</b>.
+        Now we have to register the <b>RouteServiceProvider</b> in the <b>ServiceProvider</b>.
         To do so, add a line in the code of <code>HelloWorldServiceProvider.hh</code>.
     </p>
 </div>
@@ -260,10 +259,10 @@
         </li>
         <li>
             Create a new file in the <b>Controllers</b> folder.<br />
-            &rarr; We name our file <code>ContentController.hh</code>.
+            &rarr; Name the file, e.g. <code>ContentController.hh</code>.
         </li>
         <li>
-            Copy the code sample below into the file and save it.
+            Insert the code sample below into the file and save it.
         </li>
     </ol>
 </div>
@@ -290,15 +289,13 @@
       }
   </pre>
 </div>
-
-<h4>Explanation of the code</h4>
 <div class="alert alert-info" role="alert">
-    In this code example, we define the <code>sayHello</code> function that renders a twig template. The <code>render</code> method specifies the template location: <code>'PLUGINNAME::TEMPLATE'</code>. Since templates are always saved in the <b>ressources\views</b> folder in your plugin, we only have to specify part of the template path.
+    <b>Explanation</b>: In this code example, we define the <code>sayHello</code> function that renders a twig template. The <code>render</code> method specifies the template location: <code>'PLUGINNAME::TEMPLATE'</code>. Since templates are always saved in the <b>resources\views</b> folder in your plugin, we only have to specify part of the template path.
 </div>
 <h3 id="map-contentcontroller">Mapping the ContentController</h3>
 <div class="api-docs-basics">
     <p>
-        Now, we have to map the route for the <b>ContentController</b> in the <b>RouteServiceProvider</b>. To do so, add a line in the code.
+        Now we have to map the route for the <b>ContentController</b> in the <b>RouteServiceProvider</b>. To do so, add a line in the code.
     </p>
 </div>
 <div class="route-container">
@@ -317,19 +314,18 @@
     }
     </pre>
 </div>
-<h4>Explanation of the code</h4>
 <div class="alert alert-info" role="alert">
-    We use the <code>get</code> method to pass two parameters. The first parameter <code>'hello'</code> defines the route. The second parameter consists of the Fully-Qualified Class Name and the <code>@</code> controller method that is called, when the route is called.
+    <b>Explanation</b>: We use the <code>get</code> method to pass two parameters. The first parameter <code>'hello'</code> defines the route. The second parameter consists of the Fully-Qualified Class Name and the <code>@</code> controller method that is called when the route is called.
 </div>
 <h3 id="create-template">Creating the twig template</h3>
 <div class="api-docs-basics">
     <ol>
         <li>
-            Create a new <b>content</b> folder in the <b>ressources\views</b> folder.
+            Create a new <b>content</b> folder in the <b>resources\views</b> folder.
         </li>
         <li>
             Create a new file in the <b>content</b> folder.<br />
-            &rarr; We name our file <code>hello.twig</code>.
+            &rarr; Name the file, e.g. <code>hello.twig</code>.
         </li>
         <li>
             Enter the content that you want to display in your browser into this file and save the file.<br />
@@ -337,7 +333,7 @@
         </li>
     </ol>
 </div>
-<h3 id="specify-template">Specifying the twig template in the ContentController</h3>
+<h3 id="specify-template">Specifying the template path</h3>
 <div class="api-docs-basics">
   <p>
       Here, we have to specify the template path in the <b>ContentController</b>. Simply replace <code>TEMPLATE</code> with the correct path.
@@ -371,7 +367,7 @@
         </li>
     </ol>
 </div>
-<h2 id="update-repository">Step 4: Updating the Git repository</h2>
+<h2 id="update-repository">Step 4: Updating the repository</h2>
 <div class="api-docs-basics">
     <p>
         Next, the files in your local <b>HelloWorld</b> folder must be pushed into your Git repository.
@@ -397,10 +393,10 @@
         </li>
     </ol>
 </div>
-<h2 id="update-plugin">Step 5: Cloning the plugin into plentymarkets</h2>
+<h2 id="update-plugin">Step 5: Cloning the plugin</h2>
 <div class="api-docs-basics">
     <p>
-        In this step, you have to clone the Git repository into your plentymarkets inbox. The remote URL from GitHub as well as your login details are required for this purpose.
+        In this step, you have to clone the Git repository into your plentymarkets inbox. You will need the remote URL from GitHub as well as your login details.
     </p>
     <ol>
         <li>
@@ -431,7 +427,7 @@
 <h2 id="provision-plugin">Step 6: Provisioning the plugin</h2>
 <div class="api-docs-basics">
     <p>
-        To integrate the plugin with plentymarkets, provision the plugin.
+        Provision the plugin to integrate it with plentymarkets.
     </p>
     <ol>
         <li>
@@ -448,7 +444,7 @@
         </li>
         <li>
             In the toolbar, click on <b>Provision plugins in Productive</b>.<br />
-            &rarr; After a short while, a success message will be displayed and we are ready to check the output.
+            &rarr; Once a success message is displayed, we are ready to check the output.
         </li>
     </ol>
 </div>
@@ -464,7 +460,7 @@
     </figure>
 </div>
 <div class="alert alert-info" role="alert">
-    Note that, after changing the files in your local <code>HelloWorld</code> folder, the changes must be pushed to GitHub. You also have to update the plugin in your plentymarkets inbox by pulling the changes from GitHub. Finally, you have to provision the plugin again, to display the changes in your browser.
+    <b>Info</b>: Once you have changed the files in your local <code>HelloWorld</code> folder, the changes must be pushed to GitHub. You also have to update the plugin in your plentymarkets inbox by pulling the changes from GitHub. Finally, you have to provision the plugin again to display the changes in your browser.
 </div>
 <!-- Modal -->
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
