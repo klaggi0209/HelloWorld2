@@ -3,7 +3,7 @@
     <p>
         This tutorial is aimed at plentymarkets users who are getting started with plugin development.
         You will only need basic knowledge of creating and editing files in an integrated development environment (IDE) as well as using plentymarkets.<br /><br />
-        In six simple steps, we will walk you through creating your first plugin that displays <b>Hello World!</b> in your browser when adding <code><span>/</span>hello</code> to your domain.
+        In six simple steps, we will walk you through creating your first plugin that displays <b>Hello World!</b> in your browser when adding <code>/hello</code> to your domain.
     </p>
 </div>
 <h2 id="setup-ide">Step 1: Setting up an IDE</h2>
@@ -290,7 +290,7 @@
   </pre>
 </div>
 <div class="alert alert-info" role="alert">
-    <b>Explanation</b>: In this code example, we define the <code>sayHello</code> function that renders a twig template. The <code>render</code> method specifies the template location: <code>'PLUGINNAME::TEMPLATE'</code>. Since templates are always saved in the <b>resources\views</b> folder in your plugin, we only have to specify part of the template path.
+    <b>Explanation</b>: In this code example, we define the <code>sayHello</code> function that renders a twig template. The <code>render</code> method specifies the template location: <code>'PLUGINNAME::TEMPLATE'</code>. Since templates are always saved in the <b>resources/views</b> folder in your plugin, we only have to specify part of the template path.
 </div>
 <h3 id="map-contentcontroller">Mapping the ContentController</h3>
 <div class="api-docs-basics">
@@ -321,7 +321,7 @@
 <div class="api-docs-basics">
     <ol>
         <li>
-            Create a new <b>content</b> folder in the <b>resources\views</b> folder.
+            Create a new <b>content</b> folder in the <b>resources/views</b> folder.
         </li>
         <li>
             Create a new file in the <b>content</b> folder.<br />
@@ -451,7 +451,7 @@
 <h1 id="open-plugin">Reaping the rewards</h1>
 <div class="api-docs-basics">
     <p>
-        Finally, open a new browser tab and type in your domain adding <code><span>/</span>hello</code> at the end. And there it is, your first plugin.
+        Finally, open a new browser tab and type in your domain adding <code>/hello</code> at the end. And there it is, your first plugin.
     </p>
     <figure>
         <a data-toggle="modal" data-target="#modal2" href="#">
