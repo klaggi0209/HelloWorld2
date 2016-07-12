@@ -394,8 +394,7 @@ p.h4 {
     background: none;
     color: $white;
   }
-
-  &:before {
+  &[data-type]:before {
     content: attr(data-type);
     position: absolute;
     top: -30px;
@@ -965,4 +964,3 @@ footer a {
     width: 98%;
   }
 }
-

@@ -22,7 +22,7 @@ class ShowcaseRouteServiceProvider extends RouteServiceProvider
 	{
 		$router->get('', 'Showcase\Controllers\ContentController@showLandingPage');
 
-
+		$router->get('tutorials', 'Showcase\Controllers\ContentController@showTutorials');
 		$router->get('basics', 'Showcase\Controllers\ContentController@showBasicExamples');
 
 		$router->get('categories', 'Showcase\Controllers\ContentController@showCategoryExamples');

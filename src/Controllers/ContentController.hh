@@ -21,6 +21,11 @@ class ContentController extends Controller
         return $twig->render('PlentyPluginShowcase::content.basics');
     }
 
+    public function showTutorials( Twig $twig ):string
+    {
+        return $twig->render('PlentyPluginShowcase::content.tutorials');
+    }
+
     public function showCategoryExamples(
         Twig $twig,
         CategoryRepository $categoryRepository,
