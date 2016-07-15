@@ -95,18 +95,17 @@
     </p>
 </div>
 <div class="code-container">
-    <pre class="prettyprint lang-plain grey-back">
-
-    HelloWorld/
-        +-- resources/
-        |   +-- views/
-        |       +-- // twig templates (can be organised in subdirectories)
-        |
-        +-- src/
-        |   +-- // plugin source code
-        |
-        +-- plugin.json // plugin information
-    </pre>
+<pre class="prettyprint lang-plain grey-back">
+HelloWorld/
+    +-- resources/
+    |   +-- views/
+    |       +-- // twig templates (can be organised in subdirectories)
+    |
+    +-- src/
+    |   +-- // plugin source code
+    |
+    +-- plugin.json // plugin information
+</pre>
 </div>
 <h3 id="create-pluginjson">Creating the plugin.json</h3>
 <div class="api-docs-basics">
@@ -136,18 +135,17 @@
 <div class="route-container">
 <code>HelloWorld/plugin.json</code>
 </div>
-<div class="code-container grey-back">
-    <pre class="prettyprint lang-js grey-back">
-
-    {
-      "name":"HelloWorld",
-      "description":"My first plugin",
-      "namespace":"HelloWorld",
-      "author":"Your name",
-      "type":"template",
-      "serviceProvider":null
-    }
-      </pre>
+<div class="code-container">
+<pre class="prettyprint lang-json grey-back">
+{
+    "name":"HelloWorld",
+    "description":"My first plugin",
+    "namespace":"HelloWorld",
+    "author":"Your name",
+    "type":"template",
+    "serviceProvider":null
+}
+</pre>
 </div>
 <h3 id="create-serviceprovider">Creating the ServiceProvider</h3>
 <div class="api-docs-basics">
@@ -168,17 +166,16 @@
   <code>HelloWorld/src/Providers/HelloWorldServiceProvider.hh</code>
 </div>
 <div class="code-container">
-    <pre class="prettyprint lang-hack grey-back">
+<pre class="prettyprint lang-hh grey-back">
+&lt;?hh //strict
 
-<span><</span>?hh //strict
-
-      namespace HelloWorld\Providers;
+    namespace HelloWorld\Providers;
 
 
-      use Plenty\Plugin\ServiceProvider;
+    use Plenty\Plugin\ServiceProvider;
 
-      class HelloWorldServiceProvider extends ServiceProvider
-      {
+    class HelloWorldServiceProvider extends ServiceProvider
+    {
 
         /**
          * Register the service provider.
@@ -188,8 +185,8 @@
         {
 
         }
-      }
-    </pre>
+    }
+</pre>
 </div>
 <div class="alert alert-info" role="alert">
     <b>Explanation</b>: We recommend that you use the name of the plugin folder as the namespace root.
@@ -211,24 +208,23 @@
   <code>HelloWorld/src/Providers/HelloWorldRouteServiceProvider.hh</code>
 </div>
 <div class="code-container">
-    <pre class="prettyprint lang-hack grey-back">
+<pre class="prettyprint lang-hack grey-back">
+&lt;?hh //strict
 
-<span><</span>?hh //strict
-
-      namespace HelloWorld\Providers;
+    namespace HelloWorld\Providers;
 
 
-      use Plenty\Plugin\RouteServiceProvider;
-      use Plenty\Plugin\Routing\Router;
+    use Plenty\Plugin\RouteServiceProvider;
+    use Plenty\Plugin\Routing\Router;
 
-      class HelloWorldRouteServiceProvider extends RouteServiceProvider
-      {
+    class HelloWorldRouteServiceProvider extends RouteServiceProvider
+    {
         public function map(Router $router):void
         {
 
         }
-      }
-    </pre>
+    }
+</pre>
 </div>
 <h3 id="register-routeserviceprovider">Registering the RouteServiceProvider</h3>
 <div class="api-docs-basics">
@@ -241,15 +237,14 @@
   <code>HelloWorld/src/Providers/HelloWorldServiceProvider.hh</code>
 </div>
 <div class="code-container">
-    <pre class="prettyprint lang-hack grey-back">
-
-    ...
+<pre class="prettyprint lang-hack grey-back">
+...
 
         public function register():void
         {
-          $this->getApplication()->register(HelloWorldRouteServiceProvider::class);
+            $this->getApplication()->register(HelloWorldRouteServiceProvider::class);
         }
-    </pre>
+</pre>
 </div>
 <h3 id="create-contentcontroller">Creating the ContentController</h3>
 <div class="api-docs-basics">
@@ -270,24 +265,23 @@
   <code>HelloWorld/src/Controllers/ContentController.hh</code>
 </div>
 <div class="code-container">
-    <pre class="prettyprint lang-hack grey-back">
+<pre class="prettyprint lang-hack grey-back">
+&lt;?hh //strict
 
-<span><</span>?hh //strict
-
-      namespace HelloWorld\Controllers;
+    namespace HelloWorld\Controllers;
 
 
-      use Plenty\Plugin\Controller;
-      use Plenty\Plugin\Templates\Twig;
+    use Plenty\Plugin\Controller;
+    use Plenty\Plugin\Templates\Twig;
 
-      class ContentController extends Controller
-      {
-    	    public function sayHello(Twig $twig):string
-    	    {
-        		  return $twig->render('HelloWorld::TEMPLATE');
-    	    }
-      }
-  </pre>
+    class ContentController extends Controller
+    {
+        public function sayHello(Twig $twig):string
+        {
+            return $twig->render('HelloWorld::TEMPLATE');
+        }
+    }
+</pre>
 </div>
 <div class="alert alert-info" role="alert">
     <b>Explanation</b>: In this code example, we define the <code>sayHello</code> function that renders a twig template. The <code>render</code> method specifies the template location: <code>'PLUGINNAME::TEMPLATE'</code>. Since templates are always saved in the <b>resources/views</b> folder in your plugin, we only have to specify part of the template path.
@@ -302,17 +296,14 @@
   <code>HelloWorld/src/Providers/HelloWorldRouteServiceProvider.hh</code>
 </div>
 <div class="code-container">
-    <pre class="prettyprint lang-hack grey-back">
+<pre class="prettyprint lang-hack grey-back">
+...
 
-    ...
-
-    {
-      public function map(Router $router):void
-      {
-        $router->get('hello', 'HelloWorld\Controllers\ContentController@sayHello');
-      }
-    }
-    </pre>
+        public function map(Router $router):void
+        {
+            $router->get('hello','HelloWorld\Controllers\ContentController@sayHello');
+        }
+</pre>
 </div>
 <div class="alert alert-info" role="alert">
     <b>Explanation</b>: We use the <code>get</code> method to pass two parameters. The first parameter <code>'hello'</code> defines the route. The second parameter consists of the Fully-Qualified Class Name and the <code>@</code> controller method that is called when the route is called.
@@ -329,7 +320,7 @@
         </li>
         <li>
             Enter the content that you want to display in your browser into this file and save the file.<br />
-            &rarr; We simply enter <code><span><</span>h1>Hello World!<span><</span>/h1></code>.
+            &rarr; We simply enter <code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code>.
         </li>
     </ol>
 </div>
@@ -343,17 +334,14 @@
   <code>HelloWorld/src/Controller/ContentController.hh</code>
 </div>
 <div class="code-container">
-    <pre class="prettyprint lang-hack grey-back">
+<pre class="prettyprint lang-hack grey-back">
+...
 
-    ...
-
-    {
-      public function sayHello(Twig $twig):string
-      {
-        return $twig->render('HelloWorld::content.hello');
-      }
-    }
-    </pre>
+        public function sayHello(Twig $twig):string
+        {
+            return $twig->render('HelloWorld::content.hello');
+        }
+</pre>
 </div>
 <h3 id="update-pluginjson">Updating the plugin.json</h3>
 <div class="api-docs-basics">
@@ -448,7 +436,7 @@
         </li>
     </ol>
 </div>
-<h1 id="open-plugin">Reaping the rewards</h1>
+<h2 id="open-plugin">Reaping the rewards</h2>
 <div class="api-docs-basics">
     <p>
         Finally, open a new browser tab and type in your domain adding <code>/hello</code> at the end. And there it is, your first plugin.
