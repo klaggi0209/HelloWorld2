@@ -1,0 +1,215 @@
+{% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
+
+{% block Content %}
+
+    <h1 id="Introduction">Introducing plentymarkets plugins</h1>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0">
+            <div class="api-docs-basics">
+                <p>
+                    Welcome to the plentymarkets showcase plugin. plentymarkets offers you the possibility to develop and modify plentymarkets plugins. plentymarkets currently hosts free plugins on GitHub. We are also working on a designated plugin store from which you will be able to download plugins developed by plentymarkets and third party providers and also offer plugins you created. We recommend that you maintain plugins you create in a Git repository to ensure version control and allow error tracking.
+                </p>
+
+                <p>
+                    To get you started, the documentation on this site provides an introduction to developing, managing and provisioning plentymarkets plugins. It also documents the public plentymarkets modules and the new REST API.
+                </p>
+             </div>
+        </div>
+    </div>
+
+    <h2 id="technology">Technology and requirements</h2>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding0">
+            <div class="api-docs-basics">
+                <p>
+                    For security reasons and to optimise performance, all plugins are based on recent technologies. The source code can be developed using the <a href="http://hacklang.org/" target="_blank">Hack</a>  programming language, which will be executed in a HHVM environment to support JIT compilation and further benefits.
+                </p>
+                <p>
+                    For maintaining stylesheets, the preprocessor <a href="http://sass-lang.com/" target="_blank">SASS</a> is used. SASS provides you with a large variety of features and abilities, making it the premier CSS extension language of the industry.
+                </p>
+                <p>
+                    UI and content are rendered using the <a href="http://twig.sensiolabs.org/documentation" target="_blank">twig template engine</a>.
+                </p>
+             </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding0">
+            <figure>
+                <a data-toggle="modal" data-target="#modal1" href="#">
+                    <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/pluginstructure.png" />
+                </a>
+            </figure>
+        </div>
+    </div>
+
+    <h2 id="plugin-workflow">Plugin workflow</h2>
+    <div class="api-docs-basics">
+      <p>
+        In this section, we will describe the general plugin workflow for developers, starting with creating a new plugin, modifying the plugin, as well as testing and provisioning the plugin.
+      </p>
+      <div class="api-docs-basics">
+        <figure>
+            <a data-toggle="modal" data-target="#modal2" href="#">
+                <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/pluginworkflow.png" />
+              </a>
+        </figure>
+      </div>
+
+    <h3 id="creating-plugins">Creating plugins</h3>
+
+    <p>
+        There are several ways to create plugins. We recommend the following basic workflow when creating plentymarkets plugins.
+    </p>
+
+    <ol>
+        <li>Create a new plugin file structure in your local IDE.</li>
+        <li>Create a new Git repository and link this repository to your local IDE to ensure full version control.</li>
+    </ol>
+
+
+        <h3 id="modifying-plugins">Modifying existing plugins</h3>
+
+    <p>
+        You can also modify or extend existing plugins. The plugins can either have been created by youself or by third parties. We recommend the following basic workflow when modifying plentymarkets plugins.
+    </p>
+
+    <ol>
+        <li>Link to an existing Git repository to clone the files to your local harddrive.</li>
+        <li>Modify the files in your local IDE.</li>
+        <li>Update the Git repository by pushing your changes.</li>
+    </ol>
+
+        <h3 id="testing-provisioning">Testing and provisioning</h3>
+
+    <p>
+        When you are ready to test your plugin, provision it to Stage from the plentymarkets backend.
+    </p>
+
+    <ol>
+        <li>Push your changes to the Git repository.</li>
+        <li>To test the plugin, pull the Git repository files into your plentymarkets Inbox.</li>
+        <li>Go to <b>Start » Plugins » Tab: Plugins</b>.</li>
+        <li>Provision the plugin in <i>Stage</i> to test functionality. During provisioning, the plugin syntax is checked and any errors are flagged.</li>
+        <li>Correct any errors if necessary.</li>
+        <li>When you are ready to publish the plugin to your live environment, provision the plugin in <i>Productive</i>.</li>
+    </ol>
+</div>
+
+
+
+
+
+<h2 id="git">Git version control</h2>
+<div class="api-docs-basics">
+
+
+<p>plentymarkets plugins are made available as Git repositories. The <b>Start » Plugins » Tab: Git</b> menu provides a simple Git client interface that allows you to clone plentymarkets plugin repositories to your plentymarkets inbox. It offers all the benefits of full version control for plentymarkets plugin files hosted on Git based version control solutions such as GitHub or Bitbucket. We strongly recommend developing plugins using a Git based version control solution. Version control provides you with the means to track and revert errors at an early stage of development.</p>
+
+<p>Use the <b>Start » Plugins » Tab: Git</b> menu to:</p>
+
+<ul>
+<li>clone an existing plugin repository to your plentymarkets Inbox</li>
+<li>fetch the latest changes from a Git repository to the Inbox without merging them</li>
+<li>pull the latest changes from a Git repository to the Inbox (fetch and merge)</li>
+<li>pull the latest changes from a Git repository to the Inbox and from there to <i>Stage</i> (fetch and merge)</li>
+<li>pull the latest changes from a Git repository to the Inbox and from there to <i>Productive</i> (fetch and merge)</li>
+<li>push your changes to a Git repository</li>
+<li>switch the Inbox files to any commit of a repository</li>
+</ul>
+
+<p>The GitHub Bootcamp (https://help.github.com/categories/bootcamp/) provides a good starting point for users not familiar with the basic concepts of distributed version control.</p>
+
+    <p>
+        We strongly recommend that you upload your plugin project files to a Git based version control solution. Distributed version control offers the following advantages:
+    </p>
+
+    <ul>
+    <li>Document: All changes are documented in individual commits.</li>
+    <li>Restore: Files can be reverted to any of these commits. This means that all changes can be reverted.</li>
+    <li>Archive: Changes are documented and can be traced later.</li>
+    <li>Co-operate: More than one developer/designer can work on a single repository.</li>
+    </ul>
+</div>
+
+<h2 id="provisioning-concept">Provisioning process</h2>
+<div class="api-docs-basics">
+  <p>
+        plentymarkets plugins are provisioned from the Inbox to either <i>Stage</i> or <i>Productive</i>. <i>Stage</i> is a test environment that plentymarkets provides for testing and previewing plugins. It allows you to test plugins without affecting any productive version already in use. Provisioning plugins in <i>Productive</i> publishes them in your live plentymarkets system, i.e. makes them visible to end users.
+    </p>
+
+
+    <p>
+        The provisioning process is also the point at which the syntax of the plugin files is validated. This means that the plugin syntax is not checked when plugin files are added to the Inbox. Plugins are not provisioned if errors occur during provisioning.
+    </p>
+</div>
+
+
+<h2 id="inbox">plentymarkets Inbox</h2>
+<div class="api-docs-basics">
+<p>You need access to the <b>Start » Plugins</b> menu of the plentymarkets back end to manage and provision plentymarkets plugins.</p>
+
+<p>The <b>Start » Plugins » Tab: Git</b> menu provides a user interface for managing the plugin files in your plentymarkets Inbox and provisioning them in Stage and/or Productive.</p>
+
+<p>Use the <b>Start » Plugins » Tab: Plugins</b> menu to:</p>
+
+<ul>
+<li>create plugins</li>
+<li>accept the services of individual plugins</li>
+<li>select the plentymarkets clients (stores) plugins are to be provisioned for</li>
+<li>show any errors that occurred during provisioning</li>
+<li>activate/deactivate plugins for <i>Stage</i></li>
+<li>activate/deactivate plugins for <i>Productive</i></li>
+<li>provision plugins in <i>Stage</i></li>
+<li>provision plugins in <i>Productive</i></li>
+<li>create and edit plugin settings</li>
+<li>delete plugins</li>
+</ul>
+</div>
+
+
+
+
+            <!-- Modal -->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog img-vertical" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Technology and requirements</h4>
+                </div>
+                <div class="modal-body">
+                    <figure>
+                        <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/images/pluginstructure.png" />
+                    </figure>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog img-horizontal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Workflow &amp; Deployment</h4>
+            </div>
+            <div class="modal-body">
+                <figure>
+                    <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/images/pluginworkflow.png" />
+                </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div
+
+
+{% endblock %}
