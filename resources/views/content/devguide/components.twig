@@ -16,24 +16,24 @@
     <p>
         Interfaces define the core services for plentymarkets plugins. Interfaces contain all necessary methods <!-- properties, events etc. --> for your plugin to communicate with plentymarkets. For each module of plentymarkets, individual interfaces are available:
     </p>
-    <!--table>
-      <caption>
-        Overview of plugin interfaces
-      </caption>
-      <tr>
+    <table class="table table-striped table-responsive table-bordered table-hover">
+      <thead>
+        <tr>
         <th>
           Interface
         </th>
         <th>
           Description
         </th>
-      </tr>
+        </tr>
+      </thead>
+      <tbody>
       <tr>
         <td>
           <a href="{{ url() }}/api-doc/Accounting">Accounting</a>
         </td>
         <td>
-          Contains all information about the Accounting interface.
+          Contains a sub module for <strong>VAT</strong> and classes for determining the VAT.
         </td>
       </tr>
       <tr>
@@ -41,7 +41,7 @@
         <a href="{{ url() }}/api-doc/Basket">Basket</a>
       </td>
       <td>
-
+        Contains sub modules for determining the basket and the items within the basket.
       </td>
       </tr>
       <tr>
@@ -49,7 +49,7 @@
         <a href="{{ url() }}/api-doc/Category">Category</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
       <tr>
@@ -57,7 +57,7 @@
         <a href="{{ url() }}/api-doc/DataExchange">DataExchange</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
       <tr>
@@ -65,7 +65,7 @@
       <a href="{{ url() }}/api-doc/Document">Document</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
       <tr>
@@ -73,7 +73,7 @@
       <a href="{{ url() }}/api-doc/Frontend">Frontend</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
       <tr>
@@ -81,7 +81,7 @@
       <a href="{{ url() }}/api-doc/Helper">Helper</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
       <tr>
@@ -89,7 +89,7 @@
       <a href="{{ url() }}/api-doc/Item">Item</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
       <tr>
@@ -97,7 +97,7 @@
       <a href="{{ url() }}/api-doc/Order">Order</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
       <tr>
@@ -105,7 +105,7 @@
       <a href="{{ url() }}/api-doc/System">System</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
       <tr>
@@ -113,45 +113,11 @@
       <a href="{{ url() }}/api-doc/Template">Template</a>
       </td>
       <td>
-
+        ##
       </td>
       </tr>
-    </table-->
-    <ul>
-      <li>
-        <a href="{{ url() }}/api-doc/Accounting">Accounting</a>: Contains a sub module for <strong>VAT</strong> and classes for determining the VAT.
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/Basket">Basket</a>: Contains sub modules for determining the basket and the items within the basket.
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/Category">Category</a>
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/DataExchange">DataExchange</a>
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/Document">Document</a>
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/Frontend">Frontend</a>
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/Helper">Helper</a>
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/Item">Item</a>
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/Order">Order</a>
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/System">System</a>
-      </li>
-      <li>
-        <a href="{{ url() }}/api-doc/Template">Template</a>
-      </li>
-    </ul>
+    </tbody>
+    </table>
 </div>
 
 <h2 id="guide-model">Models</h2>
