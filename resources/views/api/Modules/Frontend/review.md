@@ -14,7 +14,23 @@ Für die Methode `getAgent` fehlt die Beschreibung.
 
 Für die Methode `getSystem` fehlt die Beschreibung.
 
-Für die Methode `getCustomer` fehlt die Beschreibung.
+Für die Methode `getAccount` fehlt die Beschreibung.
+
+##Plenty\Modules\Frontend\Services\AccountService
+Beschreibung ist zu kurz oder nicht vorhanden:
+
+    Created by ptopczewski, 02.05.16 11:58
+Class CustomerService
+
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Für die Methode `getIsAccountLoggedIn` fehlt die Beschreibung.
+
+Für die Methode `getAccountContactId` fehlt die Beschreibung.
 
 ##Plenty\Modules\Frontend\Services\AgentService
 Beschreibung ist zu kurz oder nicht vorhanden:
@@ -47,22 +63,6 @@ Für die Methode `getHttpHeaders` fehlt die Beschreibung.
 Für die Methode `getIsMobile` fehlt die Beschreibung.
 
 Für die Methode `getIsTablet` fehlt die Beschreibung.
-
-##Plenty\Modules\Frontend\Services\CustomerService
-Beschreibung ist zu kurz oder nicht vorhanden:
-
-    Created by ptopczewski, 02.05.16 11:58
-Class CustomerService
-
-###Properties
-
-Alles gut. :)
-
-###Methoden
-
-Für die Methode `getIsCustomerLogedIn` fehlt die Beschreibung.
-
-Für die Methode `getCustomerId` fehlt die Beschreibung.
 
 ##Plenty\Modules\Frontend\Services\SystemService
 Beschreibung ist zu kurz oder nicht vorhanden:

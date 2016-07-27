@@ -7,6 +7,10 @@ Alles gut. :)
 
 Für die Methode `getStandardCountryVat` fehlt die Beschreibung.
 
+Für die Methode `getVatId` fehlt die Beschreibung.
+
+Für die Methode `determineCountryVat` fehlt die Beschreibung.
+
 ##Plenty\Modules\Accounting\Vat\Models\Vat
 Beschreibung ist zu kurz oder nicht vorhanden:
 

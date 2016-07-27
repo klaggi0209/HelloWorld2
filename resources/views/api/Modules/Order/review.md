@@ -72,9 +72,9 @@ Für die Methode `webstores` fehlt die Beschreibung.
 
 Für die Methode `countries` fehlt die Beschreibung.
 
-Für die Methode `informations` fehlt die Beschreibung.
-
 Für die Methode `information` fehlt die Beschreibung.
+
+Für die Methode `informationByLang` fehlt die Beschreibung.
 
 ##Plenty\Modules\Order\Payment\Method\Models\PaymentMethodInformation
 ###Properties

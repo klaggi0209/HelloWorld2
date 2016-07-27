@@ -1,1 +1,1 @@
-C:19:"Sami\Renderer\Index":53:{a:3:{i:0;a:0:{}i:1;a:1:{i:0;s:6:"master";}i:2;a:0:{}}}
+C:19:"Sami\Renderer\Index":397:{a:3:{i:0;a:2:{s:49:"Plenty\Modules\Authorization\Models\AccessControl";s:40:"3afb3dfad25c722b09debca7401678d3b1c264fa";s:53:"Plenty\Modules\Authorization\Models\RoleAccessControl";s:40:"8ad8902a1a69a25213d70507e623f26109c0d912";}i:1;a:1:{i:0;s:6:"master";}i:2;a:4:{i:0;s:6:"Plenty";i:1;s:14:"Plenty\Modules";i:2;s:28:"Plenty\Modules\Authorization";i:3;s:35:"Plenty\Modules\Authorization\Models";}}}
