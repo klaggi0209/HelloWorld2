@@ -10,6 +10,8 @@ Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `
 
 Für das Property `appends` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
+Für das Property `timestamps` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
 Für das Property `hidden` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).

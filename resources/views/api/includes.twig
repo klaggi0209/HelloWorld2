@@ -1,51 +1,13 @@
+
 {% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
-{% set exampleFiles = {
-	Accounting		 : {
-	},
-	Authentication		 : {
-	},
-	Authorization		 : {
-	},
-	Basket		 : {
-	},
-	Cache		 : {
-	},
-	Category		 : {
-		CategoryRepository: {
-			'categories.twig'		:	'PlentyPluginShowcase::api.Examples.Category.CategoryRepository.categories_twig',
-			'CategoryNavMacro.twig'		:	'PlentyPluginShowcase::api.Examples.Category.CategoryRepository.CategoryNavMacro_twig',
-			'Controller.hh'		:	'PlentyPluginShowcase::api.Examples.Category.CategoryRepository.Controller_hh',
-		},
-	},
-	Customers		 : {
-	},
-	DataExchange		 : {
-	},
-	Document		 : {
-	},
-	Error		 : {
-	},
-	Frontend		 : {
-	},
-	Helper		 : {
-	},
-	Item		 : {
-	},
-	Market		 : {
-	},
-	Order		 : {
-	},
-	Plugin		 : {
-	},
-	RestDocumentation		 : {
-	},
-	Session		 : {
-	},
-	Shipping		 : {
-	},
-	System		 : {
-	},
-	Template		 : {
-	},
+{% set exampleFiles = { 
+        Category : {
+                CategoryRepository : {
+                          'categories.twig'     :       'PlentyPluginShowcase::api.Examples.Category.CategoryRepository.categories_twig',
+                          'CategoryNavMacro.twig'     :       'PlentyPluginShowcase::api.Examples.Category.CategoryRepository.CategoryNavMacro_twig',
+                          'Controller.hh'     :       'PlentyPluginShowcase::api.Examples.Category.CategoryRepository.Controller_hh',
+                             },
+            },
+    
 } %}

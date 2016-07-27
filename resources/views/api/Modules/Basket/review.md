@@ -9,7 +9,13 @@ Alles gut. :)
 
 ###Methoden
 
-Alles gut. :)
+Für die Methode `findExistingOneByData` fehlt die Beschreibung.
+
+Für die Methode `addBasketItem` fehlt die Beschreibung.
+
+Für die Methode `updateBasketItem` fehlt die Beschreibung.
+
+Für die Methode `removeBasketItem` fehlt die Beschreibung.
 
 ##Plenty\Modules\Basket\Contracts\BasketRepositoryContract
 Beschreibung ist zu kurz oder nicht vorhanden:
@@ -32,6 +38,8 @@ Beschreibung ist zu kurz oder nicht vorhanden:
 ###Properties
 
 Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `maps` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
@@ -83,6 +91,8 @@ Für das Property `shippingDeleteByCoupon` fehlt die Beschreibung (Evtl. `@inher
 
 Für das Property `basketRebate` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
+Für das Property `basketRebateType` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
 Für das Property `maxFsk` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `orderTimestamp` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
@@ -90,6 +100,8 @@ Für das Property `orderTimestamp` fehlt die Beschreibung (Evtl. `@inheritdoc` u
 Für das Property `createdAt` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `updatedAt` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `basketItems` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 ###Methoden
 
@@ -181,4 +193,6 @@ Für das Property `updatedAt` fehlt die Beschreibung (Evtl. `@inheritdoc` und/od
 ###Methoden
 
 Für die Methode `basket` fehlt die Beschreibung.
+
+Für die Methode `basketItemOrderParams` fehlt die Beschreibung.
 
