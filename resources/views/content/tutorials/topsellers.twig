@@ -46,7 +46,7 @@ TopItems/
     |   |
     |   +-- Providers
     |       +-- TopItemsServiceProvider.hh
-    |       +-- TopItemsRouteSericeProvider.hh
+    |       +-- TopItemsRouteServiceProvider.hh
     |
     +-- plugin.json // plugin information
 </pre>
@@ -198,7 +198,7 @@ namespace TopItems\Controllers;
     As stated in the introduction, we want to display specific item information. The name and description are contained in the <a href="/api-doc/Item#itemdescription_datalayer_item">itemDescription</a> column. The <a href="/api-doc/Item#variationbase_datalayer_item">variationBase</a> contains the ID. The price is saved in the <a href="/api-doc/Item#variationretailprice_datalayer_item">variationRetailPrice</a> column. We need the image path and name from the <a href="/api-doc/Item#variationimage_datalayer_item">variationImageList</a> for the images.<br /><br />
     We use the <a href="/api-doc/Item#itembase_datalayer_item">filter</a> <code>itemBase.isStoreSpecial</code> to filter for store specials and only display the top items (<code>'shopAction' => [3]</code>).<br /><br />
     We use <code>$itemParams</code> to specify that our item texts are saved in English. Make sure to enter the item's name and description in the respective language in the plentymarkets back end. If the text fields are empty, no text will be displayed in the top item card.<br /><br />
-    In the next section of the code, we implement the <code>search</code> method from our repository. The search is carried out and it returns a list of items. The items in the list are counted and rendered in the linked template file.
+    In the next section of the code, we use the <code>search</code> method from our repository. The search is carried out and it returns a list of items. The items in the list are counted and rendered in the linked template file.
 </div>
 
 
@@ -295,8 +295,9 @@ namespace TopItems\Controllers;
 <h1 id="open-plugin">Playing your cards right</h1>
 <div class="api-docs-basics">
     <p>
-        Provided that you have already set up some top items in your plentymarkets backend, the plugin will be filled with the requested data. To display the top item cards, open a new browser tab and type in your domain adding <code>/topitems</code> at the end. Good job!
+        Provided that you have already set up some top items in your plentymarkets backend, the plugin will be filled with the requested data. To display the top item cards, open a new browser tab and type in your domain adding <code>/topitems</code> at the end. Don't forget to push your changes to GitHub. You also have to update the plugin in your plentymarkets inbox by pulling the changes from GitHub. Finally, you have to provision the plugin again to display your top items in your browser. Good job!
     </p>
+
     <figure>
         <a data-toggle="modal" data-target="#modal2" href="#">
         <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/topitems.png" />
