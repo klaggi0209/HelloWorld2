@@ -16,14 +16,18 @@ class ContentController extends Controller
         return $twig->render('PlentyPluginShowcase::content.LandingPage');
     }
 
-    public function showBasicExamples( Twig $twig ):string
+    public function showTutorialsHello( Twig $twig):string
     {
-        return $twig->render('PlentyPluginShowcase::content.basics');
+        return $twig->render('PlentyPluginShowcase::content.tutorials.helloworld');
+    }
+    public function showTutorialsTopsellers( Twig $twig):string
+    {
+        return $twig->render('PlentyPluginShowcase::content.tutorials.topsellers');
     }
 
-    public function showTutorials( Twig $twig ):string
+    public function showDevGuidePage(Twig $twig, string $pageName):string
     {
-        return $twig->render('PlentyPluginShowcase::content.tutorials');
+        return $twig->render('PlentyPluginShowcase::content.devguide.' . $pageName);
     }
 
     public function showCategoryExamples(

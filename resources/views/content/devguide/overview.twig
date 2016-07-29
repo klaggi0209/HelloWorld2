@@ -1,8 +1,8 @@
+{% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
 
-    <h1 id="introduction">Getting started</h1>
+{% block Content %}
 
-
-    <h2 id="introducing">Introducing plentymarkets plugins</h2>
+    <h1 id="Introduction">Introducing plentymarkets plugins</h1>
 
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0">
@@ -18,11 +18,45 @@
         </div>
     </div>
 
+    <h2 id="technology">Technology and requirements</h2>
 
-        <h2 id="plugin-workflow">Plugin workflow</h2>
-<div class="api-docs-basics">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding0">
+            <div class="api-docs-basics">
+                <p>
+                    For security reasons and to optimise performance, all plugins are based on recent technologies. The source code can be developed using the <a href="http://hacklang.org/" target="_blank">Hack</a>  programming language, which will be executed in a HHVM environment to support JIT compilation and further benefits.
+                </p>
+                <p>
+                    For maintaining stylesheets, the preprocessor <a href="http://sass-lang.com/" target="_blank">SASS</a> is used. SASS provides you with a large variety of features and abilities, making it the premier CSS extension language of the industry.
+                </p>
+                <p>
+                    UI and content are rendered using the <a href="http://twig.sensiolabs.org/documentation" target="_blank">twig template engine</a>.
+                </p>
+             </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding0">
+            <figure>
+                <a data-toggle="modal" data-target="#modal1" href="#">
+                    <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/pluginstructure.png" />
+                </a>
+            </figure>
+        </div>
+    </div>
 
-        <h3 id="creating-plugins">Creating plugins</h3>
+    <h2 id="plugin-workflow">Plugin workflow</h2>
+    <div class="api-docs-basics">
+      <p>
+        In this section, we will describe the general plugin workflow for developers, starting with creating a new plugin, modifying the plugin, as well as testing and provisioning the plugin.
+      </p>
+      <div class="api-docs-basics">
+        <figure>
+            <a data-toggle="modal" data-target="#modal2" href="#">
+                <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/pluginworkflow.png" />
+              </a>
+        </figure>
+      </div>
+
+    <h3 id="creating-plugins">Creating plugins</h3>
 
     <p>
         There are several ways to create plugins. We recommend the following basic workflow when creating plentymarkets plugins.
@@ -60,16 +94,10 @@
         <li>Correct any errors if necessary.</li>
         <li>When you are ready to publish the plugin to your live environment, provision the plugin in <i>Productive</i>.</li>
     </ol>
-</div>   
+</div>
 
 
-<div class="api-docs-basics">
-    <figure>
-        <a data-toggle="modal" data-target="#modal2" href="#">
-             <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/pluginworkflow.png" />
-        </a>
-    </figure>
-</div> 
+
 
 
 <h2 id="git">Git version control</h2>
@@ -78,7 +106,7 @@
 
 <p>plentymarkets plugins are made available as Git repositories. The <b>Start » Plugins » Tab: Git</b> menu provides a simple Git client interface that allows you to clone plentymarkets plugin repositories to your plentymarkets inbox. It offers all the benefits of full version control for plentymarkets plugin files hosted on Git based version control solutions such as GitHub or Bitbucket. We strongly recommend developing plugins using a Git based version control solution. Version control provides you with the means to track and revert errors at an early stage of development.</p>
 
-<p>Use the <b>Start » Plugins » Tab: Git</b> menu to:</p> 
+<p>Use the <b>Start » Plugins » Tab: Git</b> menu to:</p>
 
 <ul>
 <li>clone an existing plugin repository to your plentymarkets Inbox</li>
@@ -94,7 +122,7 @@
 
     <p>
         We strongly recommend that you upload your plugin project files to a Git based version control solution. Distributed version control offers the following advantages:
-    </p> 
+    </p>
 
     <ul>
     <li>Document: All changes are documented in individual commits.</li>
@@ -102,7 +130,7 @@
     <li>Archive: Changes are documented and can be traced later.</li>
     <li>Co-operate: More than one developer/designer can work on a single repository.</li>
     </ul>
-</div>   
+</div>
 
 <h2 id="provisioning-concept">Provisioning process</h2>
 <div class="api-docs-basics">
@@ -110,7 +138,7 @@
         plentymarkets plugins are provisioned from the Inbox to either <i>Stage</i> or <i>Productive</i>. <i>Stage</i> is a test environment that plentymarkets provides for testing and previewing plugins. It allows you to test plugins without affecting any productive version already in use. Provisioning plugins in <i>Productive</i> publishes them in your live plentymarkets system, i.e. makes them visible to end users.
     </p>
 
-    
+
     <p>
         The provisioning process is also the point at which the syntax of the plugin files is validated. This means that the plugin syntax is not checked when plugin files are added to the Inbox. Plugins are not provisioned if errors occur during provisioning.
     </p>
@@ -123,7 +151,7 @@
 
 <p>The <b>Start » Plugins » Tab: Git</b> menu provides a user interface for managing the plugin files in your plentymarkets Inbox and provisioning them in Stage and/or Productive.</p>
 
-<p>Use the <b>Start » Plugins » Tab: Plugins</b> menu to:</p> 
+<p>Use the <b>Start » Plugins » Tab: Plugins</b> menu to:</p>
 
 <ul>
 <li>create plugins</li>
@@ -132,87 +160,12 @@
 <li>show any errors that occurred during provisioning</li>
 <li>activate/deactivate plugins for <i>Stage</i></li>
 <li>activate/deactivate plugins for <i>Productive</i></li>
-<li>provision plugins in Stage</li>
-<li>provision plugins in Productive</li>
+<li>provision plugins in <i>Stage</i></li>
+<li>provision plugins in <i>Productive</i></li>
 <li>create and edit plugin settings</li>
 <li>delete plugins</li>
 </ul>
 </div>
-
-
-    <h2 id="technology">Technology and requirements</h2>
-
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding0">
-            <div class="api-docs-basics">
-                <p>
-                    For security reasons and to optimize performance, all plugins are based on recent technologies. The source code can be
-                    developed using the <a href="http://hacklang.org/" target="_blank">Hack</a>  programming language, which will be executed in a HHVM environment
-                    to support JIT compilation and further benefits.
-                </p>
-
-                <p>
-                    UI and content are rendered using the <a href="http://twig.sensiolabs.org/documentation" target="_blank">twig template engine</a>.
-                </p>
-             </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 padding0">
-            <figure>
-                <a data-toggle="modal" data-target="#modal1" href="#">
-                    <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/pluginstructure.png" />
-                </a>
-            </figure>
-        </div>
-    </div>
-
-
-
-    <h2 id="ide-support">Recommended IDEs</h2>
-        <div class="api-docs-basics">
-            <p>
-                We recommend using an IDE which supports the Hack language and Twig syntax.
-                For this purpose, we suggest using one of the following IDEs. For improved language support and easier development,
-                it is recommended that you <a href="https://docs.hhvm.com/hhvm/installation/introduction" target="_blank">install HHVM</a>
-                (including a Hack compiler) locally.
-            </p>
-        </div>
-
-    <h3 id="atom-nuclide">Atom with Nuclide</h3>
-    <div class="api-docs-basics">
-        <p>Facebook provides this IDE for Hack development. It can be extended to also support Twig syntax.</p>
-    </div>
-    <h4>Installation</h4>
-    <div class="api-docs-basics">
-        <ol>
-            <li>
-                <a href="https://github.com/atom/atom/releases/latest" target="_blank">Download</a>
-                and <a href="https://atom.io/docs/latest/getting-started-installing-atom" target="_blank">install</a>
-                Atom IDE
-            </li>
-            <li>
-                <a href="http://nuclide.io/docs/editor/setup" target="_blank">Install Nuclide Plugin</a><sup>*</sup> for Hack language support
-            </li>
-            <li>
-                <a href="https://atom.io/packages/php-twig" target="_blank">Install Twig Plugin</a><sup>*</sup> for Twig syntax highlighting
-            </li>
-        </ol>
-        <p>
-            *) All required Atom packages can be found using the embedded package control pane of the Atom IDE. This pane can be found in Atom: <i>Settings</i> > <i>Install</i>.
-        </p>
-    </div>
-    <h3 id="sublime-text">Sublime Text</h3>
-
-
-    <h4>Installation</h4>
-    <div class="api-docs-basics">
-        <ol>
-            <li><a href="https://www.sublimetext.com/2" target="_blank">Install Sublime Text</a></li>
-            <li>Install Sublime Text's <a href="https://packagecontrol.io/installation" target="_blank">Package-Control</a></li>
-            <li>Install <a href="https://packagecontrol.io/packages/Hacklang%20Typechecker%20and%20Autocompletion" target="_blank">Hack Plugin</a></li>
-            <li>Install <a href="https://packagecontrol.io/packages/PHP-Twig" target="_blank">Twig Plugin</a></li>
-        </ol>
-    </div>
-
 
 
 
@@ -256,4 +209,7 @@
             </div>
         </div>
     </div>
-</div>
+</div
+
+
+{% endblock %}

@@ -21,10 +21,10 @@ class ShowcaseRouteServiceProvider extends RouteServiceProvider
 	public function map(Router $router):void
 	{
 		$router->get('', 'Showcase\Controllers\ContentController@showLandingPage');
+		$router->get('helloworld', 'Showcase\Controllers\ContentController@showTutorialsHello');
+		$router->get('topsellers', 'Showcase\Controllers\ContentController@showTutorialsTopsellers');
 
-		$router->get('tutorials', 'Showcase\Controllers\ContentController@showTutorials');
-		$router->get('basics', 'Showcase\Controllers\ContentController@showBasicExamples');
-
+		$router->get('dev-doc/{devGuidePage}', 'Showcase\Controllers\ContentController@showDevGuidePage');
 		$router->get('categories', 'Showcase\Controllers\ContentController@showCategoryExamples');
 		$router->get('categories/{level1}/{level2?}/{level3?}/{level4?}/{level5?}/{level6?}','Showcase\Controllers\ContentController@showCategoryExamples');
 

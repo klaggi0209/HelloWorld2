@@ -1,0 +1,189 @@
+{% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
+
+{% block Content %}
+
+<h1 id="chapter-1">Plugin components</h1>
+
+<div class="api-docs-basics">
+    <p>
+        On this page, you will find a short description for each plugin component that you can use to create your own plugins.
+    </p>
+</div>
+
+<h2 id="guide-interface">Interfaces</h2>
+
+<div class="api-docs-basics">
+    <p>
+        Interfaces define the core services for plentymarkets plugins. Interfaces contain all necessary methods <!-- properties, events etc. --> for your plugin to communicate with plentymarkets. For each module of plentymarkets, individual interfaces are available:
+    </p>
+    <table class="table table-striped table-responsive table-bordered table-hover">
+      <thead>
+        <tr>
+        <th>
+          Interface
+        </th>
+        <th>
+          Description
+        </th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <a href="{{ url() }}/api-doc/Accounting">Accounting</a>
+        </td>
+        <td>
+          Contains a sub module for <strong>VAT</strong> and classes for determining the VAT.
+        </td>
+      </tr>
+      <tr>
+      <td>
+        <a href="{{ url() }}/api-doc/Basket">Basket</a>
+      </td>
+      <td>
+        Contains sub modules for determining the basket and the items within the basket.
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <a href="{{ url() }}/api-doc/Category">Category</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <a href="{{ url() }}/api-doc/DataExchange">DataExchange</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <a href="{{ url() }}/api-doc/Document">Document</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <a href="{{ url() }}/api-doc/Frontend">Frontend</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <a href="{{ url() }}/api-doc/Helper">Helper</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <a href="{{ url() }}/api-doc/Item">Item</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <a href="{{ url() }}/api-doc/Order">Order</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <a href="{{ url() }}/api-doc/System">System</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <a href="{{ url() }}/api-doc/Template">Template</a>
+      </td>
+      <td>
+        ##
+      </td>
+      </tr>
+    </tbody>
+    </table>
+</div>
+
+<h2 id="guide-model">Models</h2>
+
+<div class="api-docs-basics">
+    <p>
+        Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in your tables, as well as insert new records into the table.
+    </p>
+</div>
+
+<h2 id="guide-service">Services</h2>
+
+<div class="api-docs-basics">
+    <p>
+
+    </p>
+</div>
+
+<h2 id="guide-factory">Factories</h2>
+
+<div class="api-docs-basics">
+    <p>
+
+    </p>
+</div>
+
+<h2 id="guide-serviceprovider">Service Providers</h2>
+
+<div class="api-docs-basics">
+    <p>
+
+    </p>
+</div>
+
+<h2 id="guide-routeserviceprovider">Route Service Providers</h2>
+
+<div class="api-docs-basics">
+    <p>
+        Routes are used to point URLs to controllers or anonymous functions that should be executed when a user accesses a given page.
+    </p>
+</div>
+
+
+
+<h2 id="guide-controller">Controllers</h2>
+
+<div class="api-docs-basics">
+    <p>
+
+    </p>
+</div>
+
+<h2 id="guide-validator">Validators</h2>
+
+<div class="api-docs-basics">
+    <p>
+
+    </p>
+</div>
+
+<h2 id="guide-policy">Policies</h2>
+
+<div class="api-docs-basics">
+    <p>
+
+    </p>
+</div>
+
+{% endblock %}

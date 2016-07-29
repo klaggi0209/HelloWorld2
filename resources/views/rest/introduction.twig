@@ -1,0 +1,86 @@
+{% extends 'PlentyPluginShowcase::templates.ExamplePage' %}
+
+{% block Content %}
+
+<h1 id="rest-introduction">Introducing the plentymarkets REST API</h1>
+
+<div class="api-docs-basics">
+    <p>
+        The plentymarkets REST API expands the functionality of the plentymarkets CMS and allows access to resources, i.e. data records, via unique URI paths. To use the REST API, you need to run an HTTP request and analyse the result. The REST API uses JSON as the communication format combined with the default HTTP methods GET, PUT, POST and DELETE:
+    </p>
+    <ul>
+      <li>
+        <b>GET</b> returns data. This method does not modify data saved on the server.
+      </li>
+      <li>
+        <b>PUT</b> modifies an existing data record.
+      </li>
+      <li>
+        <b>POST</b> creates a new data record.
+      </li>
+      <li>
+        <b>DELETE</b> deletes an existing data record.
+      </li>
+    </ul>
+</div>
+
+<h2 id="rest-authentication">Authentication</h2>
+
+<div class="api-docs-basics">
+    <p>
+        Most REST API calls do not require any specific authentication. There are a few exceptions, as some calls are only permitted for logged in front end or in some cases back end users. Calls that require authentication are flagged in the documentation:
+    </p>
+    <br />
+    <div class="route-container" data-type="post" data-middleware="oauth">
+			<code>/rest/logout</code>
+		</div>
+    <br />
+    <p>
+      plentymarkets REST API uses <b>OAuth 2.0</b>. The API uses the "Bearer" authentication scheme to transmit the access token. To get the token for authentication, the call <a href="/rest-doc/authentication#login">Login</a> can be used. The token must then be entered in the HTTP header:
+    </p>
+    <ul>
+      <li>
+        <code>Authorization: Bearer <b>TOKEN</b></code>
+      </li>
+    </ul>
+</div>
+
+<h2 id="rest-versioning">Versioning</h2>
+
+<div class="api-docs-basics">
+    <p>
+        When using the plentymarkets REST API, versioning is optional. If no version is specified in the HTTP header, then the newest version of the API is used. Alternatively, you can enter the following line in the HTTP header and swap out the version:
+    </p>
+    <ul>
+      <li>
+        <code>Accept: application/x.plentymarkets.<b>v1</b>+json</code>
+      </li>
+    </ul>
+</div>
+
+<h2 id="rest-handling-json">Handling of JSON</h2>
+
+<div class="api-docs-basics">
+    <p>As a rule, a JSON document is returned when a REST resource of the HTTP method <code>GET</code> is called. This JSON document can be parsed to a JSON object.<br /><br />If PUT, POST or DELETE methods are also available for the resource, it accepts the JSON document received via GET. In many cases, this allows for a very efficient work flow based on the following principle:
+    </p>
+    <ol>
+      <li>
+        JSON document is retrieved via GET
+      </li>
+      <li>
+        JSON object is manipulated
+      </li>
+      <li>
+        Manipulated JSON object is transfered via PUT, POST or DELETE
+      </li>
+    </ol>
+</div>
+
+<h2 id="rest-resources">Resources</h2>
+
+<div class="api-docs-basics">
+    <p>Click on the <b>REST</b> dropdown list, to access the pages that provide information on all resources currently available. Listed are the possible HTTP methods, the required parameters and the server response for each resource.
+    </p>
+</div>
+
+{% endblock %}

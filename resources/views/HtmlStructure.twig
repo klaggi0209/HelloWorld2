@@ -37,18 +37,30 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                      <li>
-                        <a href="{{ url() }}/tutorials">Tutorials</a>
-                      </li>
-                        <li>
-                            <a href="{{ url() }}/basics">Getting started</a>
-                        </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
-                                Interface
+                                Tutorials
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
+                                {% include 'PlentyPluginShowcase::content.tutorials.navigation' ignore missing %}
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+                                Developer's Guide
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% include 'PlentyPluginShowcase::content.devguide.navigation' ignore missing %}
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+                                Interfaces
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu scrollable-menu">
                                 {% include 'PlentyPluginShowcase::api.navigation' ignore missing %}
                             </ul>
                         </li>
@@ -57,7 +69,7 @@
                                 REST
                                 <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu scrollable-menu">
                                 {% include 'PlentyPluginShowcase::rest.ShowcaseNavigation' %}
                             </ul>
                         </li>
