@@ -38,7 +38,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url() }}"><i class="icon-referrer_backend"></i></a>
+            <a class="navbar-brand" href="{{ url() }}"><span class="icon-referrer_backend"></span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -65,7 +65,7 @@
                         Interfaces
                         <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu scrollable-menu">
                         {% include 'PlentyPluginShowcase::api.navigation' ignore missing %}
                     </ul>
                 </li>
@@ -74,7 +74,7 @@
                         REST
                         <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu scrollable-menu">
                         {% include 'PlentyPluginShowcase::rest.ShowcaseNavigation' %}
                     </ul>
                 </li>

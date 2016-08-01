@@ -139,6 +139,15 @@ a {
   background-color: #333;
   border-color: $bondi-blue;
 }
+
+@media (min-width:767px) {
+  .scrollable-menu {
+    height: auto;
+    max-height: 80vh;
+    overflow-x: hidden;
+  }
+}
+
 /* /MAIN-MENU ---------------------------------------------------------- */
 
 

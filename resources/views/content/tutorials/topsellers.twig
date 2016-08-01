@@ -5,20 +5,324 @@
 <h1 id="topsellers">List of top items</h1>
 <div class="api-docs-basics">
     <p>
-        In the second tutorial, we will dive deeper into developping plugins. Before continuing, we recommend finishing the <a href="helloworld#introduction">My first plugin</a> tutorial first. In this tutorial, you will learn the necessary tools to develop a plugin which renders a list of your top-selling items in the browser.
+        In this second tutorial, we will dive deeper into developing plugins. Before you continue, we recommend finishing the <a href="helloworld#introduction">My first plugin</a> tutorial.<br /><br />In this tutorial, you will learn how to develop a plugin which renders your top-selling items in the browser. The top items will be displayed as <a href="http://v4-alpha.getbootstrap.com/components/card/" target="_blank">bootstrap cards</a> with the following item information:
     </p>
+    <ul>
+      <li>
+        Name
+      </li>
+      <li>
+        ID
+      </li>
+      <li>
+        First linked image
+      </li>
+      <li>
+        Item description
+      </li>
+      <li>
+        Price
+      </li>
+    </ul>
 </div>
-<h2 id="chapter-1">Step 1: Lorem ipsum</h2>
+<h2 id="create-plugin-files">Step 1: Creating the plugin files</h2>
 <div class="api-docs-basics">
     <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br /><br /> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        In the first tutorial, you learned how to set up the folder structure with a minimum of required files to create a working plugin. Our new plugin has a similar structure, but it also has additional content in the <b>resources</b> folder. Create the following basis for your plugin.
     </p>
 </div>
-<h2 id="chapter-2">Step 2: Lorem ipsum</h2>
+<div class="code-container">
+<pre class="prettyprint lang-plain grey-back">
+TopItems/
+    +-- resources/
+    |   +-- views/
+    |       +-- content/
+    |       |   +-- TopItems.twig // actual content
+    |       |
+    |       +-- PageDesign.twig // frame for the content
+    +-- src/
+    |   +-- Controllers
+    |   |   +-- ContentController.hh
+    |   |
+    |   +-- Providers
+    |       +-- TopItemsServiceProvider.hh
+    |       +-- TopItemsRouteServiceProvider.hh
+    |
+    +-- plugin.json // plugin information
+</pre>
+</div>
+<h2 id="fill-source-files">Step 2: Filling the source files</h2>
 <div class="api-docs-basics">
     <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br /><br /> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        We start by creating the <code>plugin.json</code> file. We will also need a ServiceProvider, a RouteServiceProvider and a ContentController in the <b>src</b> folder of our plugin. Create these files and copy the code examples.
     </p>
+</div>
+
+<h3 id="code-pluginjson">Code for the plugin.json</h3>
+
+<div class="route-container">
+<code>TopItems/plugin.json</code>
+</div>
+<div class="code-container">
+<pre class="prettyprint lang-json grey-back">
+{
+    "name":"TopItems",
+    "description":"Plugin to render a list of top items",
+    "namespace":"TopItems",
+    "author":"Your name",
+    "type":"template",
+    "serviceProvider":"TopItems\\Providers\\TopItemsServiceProvider"
+}
+</pre>
+</div>
+
+<h3 id="code-serviceprovider">Code for the ServiceProvider</h3>
+
+<div class="route-container">
+  <code>TopItems/src/Providers/TopItemsServiceProvider.hh</code>
+</div>
+<div class="code-container">
+<pre class="prettyprint lang-hack grey-back">
+&lt;?hh //strict
+
+    namespace TopItems\Providers;
+
+
+    use Plenty\Plugin\ServiceProvider;
+
+    class TopItemsServiceProvider extends ServiceProvider
+    {
+        public function register():void
+        {
+            $this->getApplication()->register(TopItemsRouteServiceProvider::class);
+        }
+    }
+</pre>
+</div>
+
+<h3 id="code-routeserviceprovider">Code for the RouteServiceProvider</h3>
+
+<div class="route-container">
+  <code>TopItems/src/Providers/TopItemsRouteServiceProvider.hh</code>
+</div>
+<div class="code-container">
+<pre class="prettyprint lang-hack grey-back">
+&lt;?hh //strict
+
+    namespace TopItems\Providers;
+
+
+    use Plenty\Plugin\RouteServiceProvider;
+    use Plenty\Plugin\Routing\Router;
+
+    class TopItemsRouteServiceProvider extends RouteServiceProvider
+    {
+        public function map(Router $router):void
+        {
+            $router->get('/topitems', 'TopItems\Controllers\ContentController@showTopItems');
+        }
+    }
+</pre>
+</div>
+
+<h3 id="code-contentcontroller">Code for the ContentController</h3>
+
+<div class="route-container">
+  <code>TopItems/src/Controllers/ContentController.hh</code>
+</div>
+<div class="code-container">
+<pre class="prettyprint lang-hack grey-back">
+&lt;?hh //strict
+
+namespace TopItems\Controllers;
+
+
+    use Plenty\Plugin\Controller;
+    use Plenty\Plugin\Templates\Twig;
+    use Plenty\Modules\Item\DataLayer\Contracts\ItemDataLayerRepositoryContract;
+
+    class ContentController extends Controller
+    {
+        public function showTopItems(Twig $twig, ItemDataLayerRepositoryContract $itemRepository):string
+        {
+            $itemColumns = [
+                'itemDescription' => [
+                    'name1',
+                    'description'
+                ],
+                'variationBase' => [
+                    'id'
+                ],
+                'variationRetailPrice' => [
+                    'price'
+                ],
+                'variationImageList' => [
+                    'path',
+                    'cleanImageName'
+                ]
+            ];
+
+            $itemFilter = [
+                'itemBase.isStoreSpecial' => [
+                    'shopAction' => [3]
+                ]
+            ];
+
+            $itemParams = [
+                'language' => 'en'
+            ];
+
+            $resultItems = $itemRepository
+                ->search( $itemColumns, $itemFilter, $itemParams );
+
+            $items = array();
+            foreach ($resultItems as $item)
+            {
+                $items[] = $item;
+            }
+            $templateData = array(
+                'resultCount' => $resultItems->count(),
+                'currentItems' => $items
+            );
+
+            return $twig->render('TopItems::content.TopItems', $templateData );
+        }
+    }
+</pre>
+</div>
+
+<div class="alert alert-info" role="alert">
+    <b>Explanation</b>: This <b>ContentController</b> is more complex than anything we saw in the previous tutorial. So let's break down the code.<br /><br />
+    In line 8 we use the <a href="/api-doc/Item#datalayer_item">ItemDataLayerRepositoryContract</a> that contains a <code>search</code> method. We need this method later.<br /><br />
+    The <code>showTopItems</code> function uses the <code>$itemRepository</code> variable to access our repository. In the <code>showTopItems</code> function we define the database columns (<code>$itemColumns</code>) to be searched. Then we set the filters (<code>$itemFilter</code>) and the parameters (<code>$itemParams</code>) to be used for the search.<br /><br />
+    As stated in the introduction, we want to display specific item information. The name and description are contained in the <a href="/api-doc/Item#itemdescription_datalayer_item">itemDescription</a> column. The <a href="/api-doc/Item#variationbase_datalayer_item">variationBase</a> contains the ID. The price is saved in the <a href="/api-doc/Item#variationretailprice_datalayer_item">variationRetailPrice</a> column. We need the image path and name from the <a href="/api-doc/Item#variationimage_datalayer_item">variationImageList</a> for the images.<br /><br />
+    We use the <a href="/api-doc/Item#itembase_datalayer_item">filter</a> <code>itemBase.isStoreSpecial</code> to filter for store specials and only display the top items (<code>'shopAction' => [3]</code>).<br /><br />
+    We use <code>$itemParams</code> to specify that our item texts are saved in English. Make sure to enter the item's name and description in the respective language in the plentymarkets back end. If the text fields are empty, no text will be displayed in the top item card.<br /><br />
+    In the next section of the code, we use the <code>search</code> method from our repository. The search is carried out and it returns a list of items. The items in the list are counted and rendered in the linked template file.
+</div>
+
+
+<h2 id="code-pagedesign">Step 3: Creating the page design</h2>
+<div class="api-docs-basics">
+    <p>
+        In this step, we create the template file that contains the page design. This file is the HTML frame for our content retrieved from the database. The content itself and its layout will be discussed in step 4. Add a new twig file in the <b>resources/views</b> folder and name the file <code>PageDesign.twig</code>. Insert the code example below.
+    </p>
+</div>
+
+<div class="route-container">
+  <code>TopItems/resources/views/PageDesign.twig</code>
+</div>
+<div class="code-container">
+{% raw %}
+<pre class="prettyprint lang-twig grey-back">
+<span><</span>!DOCTYPE html>
+<span><</span>html lang="en">
+    <span><</span>head>
+        <span><</span>!-- Required meta tags always come first -->
+
+        <span><</span>title>Top items<span><</span>/title>
+
+        <span><</span>!-- CSS -->
+        <span><</span>link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <span><</span>/head>
+    <span><</span>body>
+        <span><</span>div id="page-body">
+            {% block PageBody %}
+                <span><</span>!-- inserts content of TopItems.twig here -->
+            {% endblock %}
+        <span><</span>/div>
+    <span><</span>/body>
+<span><</span>/html>
+</pre>
+{% endraw %}
+</div>
+<div class="alert alert-info" role="alert">
+    <b>Explanation</b>: The code is a simple HTML structure. We link the <b>Bootstrap 4</b> stylesheet. Bootstrap 4 is also used for our Callisto 4 design. If you plan on creating new template plugins based on Callisto 4, the <a href="http://v4-alpha.getbootstrap.com/" target="_blank">Bootstrap 4 documentation</a> is an important source to get started.<br /><br />In the <code><span><</span>body></code>, we use a <code><span><</span>div></code> and the twig <code><span>{</span>% block %}</code> tag, which allows us to insert content from another file. This way, you can use the <code>PageDesign.twig</code> for other content files, too.
+</div>
+
+<h2 id="code-topitems">Step 4: Creating the output file</h2>
+<div class="api-docs-basics">
+    <p>
+        Last but not least, we need a file for the item information retrieved from the database. Create a new <b>content</b> subfolder in the <b>resources/views</b> folder and add a <code>TopItems.twig</code> file.
+    </p>
+</div>
+
+<div class="route-container">
+  <code>TopItems/resources/views/content/TopItems.twig</code>
+</div>
+<div class="code-container">
+{% raw %}
+<pre class="prettyprint lang-twig grey-back">
+{% extends "TopItems::PageDesign" %}
+
+{% block PageBody %}
+    <span><</span>h1 style="text-align: center">{{ resultCount }} top items found!<span><</span>/h1>
+    <span><</span>div class="col-xs-12 card-deck-wrapper" style="overflow: auto">
+    <span><</span>ul class="list-unstyled card-deck" style="height: 380px">
+        {% if currentItems is not null %}
+            {% for item in currentItems %}
+                <span><</span>li class="card" style="width: 280px">
+                    <span><</span>div class="card-block">
+                        <span><</span>h4 class="card-title">{{ item.itemDescription.name1 }}<span><</span>/h4>
+                        <span><</span>h6 class="card-subtitle text-muted">ID: {{ item.variationBase.id }}<span><</span>/h6>
+                    <span><</span>/div>
+                    {% set image = item.variationImageList | first %}
+                    <span><</span>img class="col-lg-12" src="{{ image.path }}" alt="{{ image.cleanImageName }}">
+                    <span><</span>div class="card-block">
+                        <span><</span>p class="card-text">{{ item.itemDescription.description }}<span><</span>/p>
+                    <span><</span>/div>
+                    <span><</span>div class="card-footer bg-primary">
+                        <span><</span>h4 style="text-align: center">Price: {{ item.variationRetailPrice.price }}&thinsp;€<span><</span>/h4>
+                    <span><</span>/div>
+                <span><</span>/li>
+            {% endfor %}
+
+            {% else %}
+                <span><</span>li>No items found!<span><</span>/li>
+        {% endif %}
+    <span><</span>/ul>
+{% endblock %}
+</pre>
+{% endraw %}
+</div>
+<div class="alert alert-info" role="alert">
+    <b>Explanation</b>: We want to insert the content of this twig file into the page design. To do so, we use the twig <code><span>{</span>% extends %}</code> tag. Within this tag, the <code><span>{</span>% block %}</code> tag defines our content with a header and a <code><span><</span>div></code> container wrapping our card deck.<br /><br />
+    Inside the container, we use a list representing our card deck. An <code>if-else</code> statement defines the output for a search with and without results. If the search was successful, then list items are generated in the form of cards. These list items represent our top items.<br /><br />
+    A card contains a <code>card-block</code> with the item name and the variation ID. The <code><span>{</span>% set %}</code> tag selects the first image from the image list. Next we use another <code>card-block</code> to display the item description. The price will be displayed in the <code>card-footer</code>.<br /><br />If there are no results, the message <b>No items found!</b> will be displayed.
+</div>
+
+<h1 id="open-plugin">Playing your cards right</h1>
+<div class="api-docs-basics">
+    <p>
+        Provided that you have already set up some top items in your plentymarkets backend, the plugin will be filled with the requested data. To display the top item cards, open a new browser tab and type in your domain adding <code>/topitems</code> at the end. Don't forget to push your changes to GitHub. You also have to update the plugin in your plentymarkets inbox by pulling the changes from GitHub. Finally, you have to provision the plugin again to display your top items in your browser. Good job!
+    </p>
+
+    <figure>
+        <a data-toggle="modal" data-target="#modal2" href="#">
+        <img class="img-responsive img-pretty" src="{{ plugin_path('PlentyPluginShowcase') }}/images/topitems.png" />
+        </a>
+    </figure>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog img-horizontal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">My top items</h4>
+            </div>
+            <div class="modal-body">
+                <figure>
+                    <img class="img-responsive" src="{{ plugin_path('PlentyPluginShowcase') }}/images/topitems.png" />
+                </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
