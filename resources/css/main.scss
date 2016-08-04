@@ -5,6 +5,8 @@ $cararra-grey: #ECECEC;
 $smoke-white: #F5F5F5;
 $stormdust-grey: #666666;
 $abbey-black: #4D4E53;
+$gray-dark: #333333;
+$gray-light: #777777;
 $bondi-blue: #008EBE; //plentymarkets blue
 $plered: #d4021d;
 $plegreen:#4cad33;
@@ -13,8 +15,66 @@ $pledbl:#354763;
 
 $blue-prim: $bondi-blue;
 $text-grey: $stormdust-grey;
+@font-face {
+  font-family: 'PlentyWeb-Light';
+  src: url('../fonts/PlentyWeb-Light.eot');
+  src: url('../fonts/PlentyWeb-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/PlentyWeb-Light.woff2') format('woff2'),
+  url('../fonts/PlentyWeb-Light.woff') format('woff'),
+  url('../fonts/PlentyWeb-Light.ttf') format('truetype'),
+  url('../fonts/PlentyWeb-Light.svg#PlentyWeb-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:'plentyicons';
+  src:url("http://janmense.github.io/backend-ui/public/fonts/plentyicons.eot?h4qsqv");
+  src:url("http://janmense.github.io/backend-ui/public/fonts/plentyicons.eot?h4qsqv#iefix") format("embedded-opentype"),
+  url("http://janmense.github.io/backend-ui/public/fonts/plentyicons.ttf?h4qsqv") format("truetype"),
+  url("http://janmense.github.io/backend-ui/public/fonts/plentyicons.woff?h4qsqv") format("woff"),
+  url("http://janmense.github.io/backend-ui/public/fonts/plentyicons.svg?h4qsqv#plentyicons") format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+*[class^="icon-"],
+*[class*=" icon-"]{
+  line-height:1;
+  padding:2px;
+}
+*[class^="icon-"],
+*[class*=" icon-"]{
+  font-family:'plentyicons'!important;
+  speak:none;
+  font-style:normal;
+  font-size:32px;
+  font-weight:normal;
+  font-variant:normal;
+  text-transform:none;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+
+}
+.icon-plugin_linked_to_git:before{content:"\ea10"}
+.icon-customer:before{content:"\e923"}
+.icon-forum:before {content: "\eaa7";}
+.icon-referrer_backend:before {content: "\ea50";}
+.icon-placeholder_show_list:before {content: "\ea0d";}
+.icon-download:before {content: "\e93c";}
+
+.icon-placeholder_show_list,
+.icon-download,{
+  font-size: 48px;}
+
+/* todo: remove this if add a new plentyicon */
+.glyphicon-facetime-video,
+.glyphicon-book{
+  font-size: 48px;
+  padding:2px;
+}
 
 body {
+  font-family: PlentyWeb-Light, sans-serif;
   padding-top: 50px;
   color: $abbey-black;
 }
@@ -23,18 +83,8 @@ body {
   margin-bottom: 30px;
 }
 
-.container {
-  max-width: 1000px;
-}
-
 .row {
   margin: 0;
-}
-
-.component-image {
-  max-width: 100%;
-  height: auto;
-  text-align:center;
 }
 
 .img-horizontal {
@@ -49,8 +99,31 @@ body {
   padding: 0;
 }
 
+/* MARGIN ---------------------------------------------------------- */
+.mt-0 { margin-top: 0; }
+.mt-0_25 { margin-top: 3px; }
+.mt-0_5 { margin-top: 6px; }
+.mt-0_75 { margin-top: 9px; }
+.mt-1 { margin-top: 12px; }
+.mt-1_5 { margin-top: 18px; }
+.mt-2 { margin-top: 24px; }
+.mt-3 { margin-top: 36px; }
+.mt-4 { margin-top: 48px; }
+.mb-0 { margin-bottom: 0; }
+.mb-0_25 { margin-bottom: 3px; }
+.mb-0_5 { margin-bottom: 6px; }
+.mb-0_75 { margin-bottom: 9px; }
+.mb-1 { margin-bottom: 12px; }
+.mb-1_5 { margin-bottom: 18px; }
+.mb-2 { margin-bottom: 24px; }
+.mb-3 { margin-bottom: 36px; }
+.mb-4 { margin-bottom: 48px; }
+
+
+/* / MARGIN ---------------------------------------------------------- */
 /* MAIN-MENU ---------------------------------------------------------- */
 a {
+
   &:hover{
     outline: none;
   }
@@ -62,9 +135,9 @@ a {
   }
 }
 
-.navbar-default {
-  background-color: $white;
-  box-shadow: 1px 1px 2px #999;
+.navbar-inverse {
+  background-color: #333;
+  border-color: $bondi-blue;
 }
 
 @media (min-width:767px) {
@@ -95,53 +168,9 @@ p {
   font-size: 14px;
 }
 
-p.component-text  {
-  font-size:16px;
-}
-
-
-
-/* HEADER ---------------------------------------------------------- */
-
-.plugin-opener {
-  color: $white;
-  padding: 40px 0;
-  background-color: $blue-prim;
-  box-shadow: 1px 1px 2px #999;
-  background-image: url('../images/header.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 245px;
-  background-position:center;
-  h1 {
-    color: $white;
-    border: none;
-    font-size: 62px;
-    padding-bottom: 0;
-    letter-spacing: 2px;
-    font-weight: 400;
-  }
-  h2 {
-    color: $white;
-    font-weight: 100;
-    letter-spacing: 2px;
-    margin: 0;
-  }
-  div {
-    padding: 0;
-  }
-}
-/* /HEADER ---------------------------------------------------------- */
-
 h1 {
   border-bottom: 1px solid $mercury-grey;
   padding-bottom: 12px;
-}
-
-.claim h1 {
-  text-align: center;
-  border: none;
-  padding: 0;
 }
 
 h3 small {
@@ -160,15 +189,11 @@ h4 code {
 p.h4 {
   color: $abbey-black;
 }
-
 .api-doc-method h4 {
-  background-color: $white;
   border: 1px solid $mercury-grey;
   padding: 12px 20px;
   margin-bottom: -4px;
 }
-
-/* -- */
 
 /* HELPER CLASSES ---------------------------------------------------------- */
 
@@ -188,6 +213,11 @@ p.h4 {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.text-jst{
+  text-align: justify;
+  padding: 0 5px;
+}
+
 /* -- */
 
 .has-hover .hover-visible,
@@ -199,6 +229,67 @@ p.h4 {
 .has-hover .hover-hidden {
   display: inline-block;
 }
+
+/* HEADER ---------------------------------------------------------- */
+
+.plugin-opener {
+  color: $white;
+  padding: 20px 0;
+  background-color: $blue-prim;
+
+  background-image: url('../images/plugin_grafik.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  h1 {
+    color: $white;
+    border: none;
+    text-align: center;
+    font-size: 36px;
+    padding-bottom: 0;
+    letter-spacing: 2px;
+    font-weight: 400;
+    margin: 0;
+  }
+  h2 {
+    color: $white;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  div {
+    padding: 0;
+  }
+  p{
+    color: $white;
+  }
+  .connect{
+    overflow: hidden;
+    a,
+    a:hover,
+    a:focus {
+      text-decoration: none;
+      color: $white;;
+    }
+  }
+}
+/* /HEADER ---------------------------------------------------------- */
+
+
+/* CAROUSEL ----------------------------------------------------------------- */
+.carousel{
+  background-color: $gray-dark;
+  background-image: url('../images/structure-transparent.png');
+  .carousel-caption{
+    color: $white;
+  }
+  .item{
+    height:200px;
+    p, h2 {
+      color: $gray-light;
+    }
+  }
+}
+/* END CAROUSEL ----------------------------------------------------------------- */
 
 /* SIDEBAR ---------------------------------------------------------- */
 .nav.nav-list {
@@ -287,7 +378,168 @@ p.h4 {
   border-color: $blue-prim;
 }
 
-/* -- */
+/* END SIDEBAR-- */
+
+/* FEATURES */
+
+.hoverbox {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  height: 250px;
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+  }
+    img {
+      display: initial;
+      position: relative;
+      -webkit-transition: all 0.4s ease-in;
+      transition: all 0.4s ease-in;
+      padding-top: 50px;
+    }
+
+   &:hover img {
+      filter: grayscale(1) blur(3px);
+      -webkit-filter: grayscale(1) blur(3px);
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+   }
+
+   .more {
+      display: inline-block;
+      text-decoration: none;
+      padding: 7px 14px;
+      background: rgba(0, 0, 0, 0.6);
+      -webkit-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+      transform: scale(0.7);
+      -webkit-transition: all 0.4s ease-in;
+      transition: all 0.4s ease-in;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      color: #fff;
+      width: 100%;
+      height: 100%;
+
+     h3{
+       color: $white;
+       font-size: 20px;
+       margin-top: 10px;
+     }
+     p{
+       color: $white;
+     }
+     .btn{
+       background: transparent;
+       border: 1px solid #fff;
+       color: #fff;
+     }
+     hr{
+       margin-top: 10px;
+       margin-bottom: 10px;
+     }
+    }
+
+    &:hover .more {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    }
+}
+@media (max-width: 1199px) {
+  .hoverbox{
+    height: 210px;
+  }
+}
+@media (max-width: 767px) {
+  .hoverbox{
+    height: auto;
+    .overlay {
+      position: relative;
+    }
+    .more{
+      opacity: 1;
+      -webkit-transform: none;
+      -ms-transform: none;
+      transform: none;
+      background: transparent;
+      h3, p, .btn{
+        color: $gray-dark;
+      }
+      .btn{
+        border: 1px solid $gray-dark;
+      }
+    }
+    img{
+      padding-top: 0;
+    }
+    &:hover img {
+      filter: none;
+      -webkit-filter: none;
+      -webkit-transform: none;
+      -ms-transform: none;
+      transform: none; }
+    }
+}
+/* END HOVERBOX */
+ /* RTS ------------------------------------- */
+#rts {
+  background-color:#b0daf2;
+  a {
+    color: $abbey-black;
+    &:hover,
+    &:focus {
+      color: $abbey-black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+/* END RTS ---------------------------------- */
+
+/* FOOTER ---------------------------------------- */
+footer {
+  border-top:2px solid #b0daf2;
+  background: #f2f2f2;
+  p{
+    font-size:12px;
+    margin-bottom: 0;
+  }
+  li {
+    list-style: none;
+    margin: 10px 0;
+  }
+  a {
+    color: $abbey-black;
+    &:hover,
+    &:focus {
+      color: $abbey-black;
+      text-decoration: none;
+    }
+    .icon-referrer_backend{
+      font-size: 16px;
+    }
+  }
+  hr{
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+}
+/* /FOOTER ---------------------------------------- */
+
 
 /* examples */
 .example-container {
@@ -663,41 +915,6 @@ li.L8 {
   color: $mercury-grey;
 }
 
-.components {
-  padding: 40px 0;
-  margin:  0;
-}
-
-.components div {
-  padding: 0 20px;
-}
-
-.components h2 {
-  margin:0;
-}
-
-.download-text {
-  color: $text-grey;
-  font-size: 18px;
-  padding: 20px 0;
-}
-
-.claim {
-  padding: 40px 0;
-  background-color: $alabaster-grey;
-  border-bottom: 1px solid $cararra-grey;
-
-  p {
-    text-align: center;
-    font-size: 18px;
-  }
-
-  h1 {
-    padding:0;
-    margin:0;
-  }
-}
-
 hr {
   border-top: 1px solid #ccc;
   width: 20%;
@@ -711,46 +928,48 @@ hr.blue {
 
 /* BUTTONS --------------------------------------------- */
 .btn {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
-  background-repeat: repeat-x;
-  border-radius: 3px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
   display: inline-block;
-  line-height: 22px;
-  margin-bottom: 0;
+  background: #ccc;
+  color: #333333;
+  font-weight: normal;
   text-align: center;
-  transition: all 0.3s ease 0s;
+  white-space: nowrap;
   vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 1rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
 
-  &:hover {
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.15), 0 -100px 0 200px rgba(255, 255, 255, 0.2) inset;
-    text-decoration: none;
-    outline: 0 none;
-    background-color: #008ebd;
+  &.btn-secondary {
+    background: $plered;
+    color: white;
+
+    &:hover,
+    &:active {
+      background: #fd0c2b;
+      color: white;
+    }
   }
-
-  &:active {
-    outline: 0 none;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+  &.btn-primary {
+    background: #008ebd;
+    color: white;
+    &:hover,
+    &:active {
+      background: #00b4f0;
+      color: white;
+    }
   }
 }
 
 .btn-large {
-  min-width: 180px;
-  font-size: 18px;
-  height: auto;
-  padding: 9px 20px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.5rem;
+  line-height: 1.3333333333;
+  border-radius: 0.3rem;
 }
-
-.btn-primary {
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #008ebd;
-}
-
 /* /BUTTONS --------------------------------------------- */
 
 .label {
@@ -770,10 +989,6 @@ code {
 }
 
 /* -- */
-.panel-footer {
-  background-color: $alabaster-grey;
-  border: 1px solid $cararra-grey;
-}
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
   border-bottom-color: $mercury-grey;
@@ -785,7 +1000,7 @@ code {
 
 .nav > li > a:focus, .nav > li > a:hover {
   text-decoration: none;
-  background-color: $white;
+  background-color: transparent;
 }
 
 .panel {
@@ -813,23 +1028,6 @@ code {
 }
 
 /* -- */
-
-/* FOOTER ---------------------------------------- */
-footer {
-  padding: 40px;
-  border-top: 1px solid #e7e7e7;
-}
-
-footer li {
-  list-style: none;
-  margin: 10px 0;
-}
-
-footer a {
-  font-size: 16px;
-}
-
-/* /FOOTER ---------------------------------------- */
 
 /* Callisto availability icon */
 
