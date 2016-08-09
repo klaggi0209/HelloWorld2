@@ -1,3 +1,215 @@
+##Plenty\Modules\Order\Contracts\OrderItemRepositoryContract
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Contracts\OrderRepositoryContract
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\Order
+Beschreibung ist zu kurz oder nicht vorhanden:
+
+    The order model.
+
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Für die Methode `options` fehlt die Beschreibung.
+
+##Plenty\Modules\Order\Models\OrderAmount
+Beschreibung ist zu kurz oder nicht vorhanden:
+
+    Class OrderAmount
+
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Für die Methode `order` fehlt die Beschreibung.
+
+Für die Methode `vats` fehlt die Beschreibung.
+
+##Plenty\Modules\Order\Models\OrderAmountVat
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Für die Methode `orderAmount` fehlt die Beschreibung.
+
+##Plenty\Modules\Order\Models\OrderItem
+###Properties
+
+Für das Property `attributes` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `dates` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderItemAmount
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderItemOption
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderItemType
+Beschreibung ist zu kurz oder nicht vorhanden:
+
+    Class OrderItemType
+
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderItemTypeName
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderOption
+Beschreibung ist zu kurz oder nicht vorhanden:
+
+    Class OrderOption
+
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderOptionSubType
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderOptionSubTypeName
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderOptionType
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderOptionTypeName
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderRelationReference
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderStatus
+Beschreibung ist zu kurz oder nicht vorhanden:
+
+    Class OrderStatus
+
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderStatusName
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderType
+Beschreibung ist zu kurz oder nicht vorhanden:
+
+    Class OrderType
+
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
+##Plenty\Modules\Order\Models\OrderTypeName
+Beschreibung ist zu kurz oder nicht vorhanden:
+
+    Class OrderTypeName
+
+###Properties
+
+Alles gut. :)
+
+###Methoden
+
+Alles gut. :)
+
 ##Plenty\Modules\Order\Payment\Method\Contracts\PaymentMethodRepositoryContract
 ###Properties
 

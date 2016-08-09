@@ -1,3 +1,1 @@
-
 C:19:"Sami\Renderer\Index":713:{a:3:{i:0;a:4:{s:60:"Plenty\Modules\Basket\Contracts\BasketItemRepositoryContract";s:40:"5d8bbd73444600a9eccda5738a5bf6ae6c62d0b1";s:56:"Plenty\Modules\Basket\Contracts\BasketRepositoryContract";s:40:"0b555916dd880c16ddddb8c283bc3dde70dc4866";s:35:"Plenty\Modules\Basket\Models\Basket";s:40:"7a6fc1f161c67180ae8b0528a6498aea0a832fd9";s:39:"Plenty\Modules\Basket\Models\BasketItem";s:40:"a09dc2ad4d03936cd91eab04991d783b3c2d9913";}i:1;a:1:{i:0;s:6:"master";}i:2;a:7:{i:0;s:6:"Plenty";i:1;s:14:"Plenty\Modules";i:2;s:28:"Plenty\Modules\Authorization";i:3;s:35:"Plenty\Modules\Authorization\Models";i:4;s:21:"Plenty\Modules\Basket";i:5;s:31:"Plenty\Modules\Basket\Contracts";i:6;s:28:"Plenty\Modules\Basket\Models";}}}
-
