@@ -17,12 +17,12 @@ $blue-prim: $bondi-blue;
 $text-grey: $stormdust-grey;
 @font-face {
   font-family: 'PlentyWeb-Light';
-  src: url('../fonts/PlentyWeb-Light.eot');
-  src: url('../fonts/PlentyWeb-Light.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/PlentyWeb-Light.woff2') format('woff2'),
-  url('../fonts/PlentyWeb-Light.woff') format('woff'),
-  url('../fonts/PlentyWeb-Light.ttf') format('truetype'),
-  url('../fonts/PlentyWeb-Light.svg#PlentyWeb-Light') format('svg');
+  src: url('../documents/fonts/PlentyWeb-Light.eot');
+  src: url('../documents/fonts/PlentyWeb-Light.eot?#iefix') format('embedded-opentype'),
+  url('../documents/fonts/PlentyWeb-Light.woff2') format('woff2'),
+  url('../documents/fonts/PlentyWeb-Light.woff') format('woff'),
+  url('../documents/fonts/PlentyWeb-Light.ttf') format('truetype'),
+  url('../documents/fonts/PlentyWeb-Light.svg#PlentyWeb-Light') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -75,6 +75,7 @@ $text-grey: $stormdust-grey;
 
 body {
   font-family: PlentyWeb-Light, sans-serif;
+  font-size: 16px;
   padding-top: 50px;
   color: $abbey-black;
 }
@@ -102,7 +103,7 @@ body {
 /* MARGIN ---------------------------------------------------------- */
 .mt-0 { margin-top: 0; }
 .mt-0_25 { margin-top: 3px; }
-.mt-0_5 { margin-top: 6px; }
+.mt-0_5 { margin-top: 5px; }
 .mt-0_75 { margin-top: 9px; }
 .mt-1 { margin-top: 12px; }
 .mt-1_5 { margin-top: 18px; }
@@ -111,14 +112,14 @@ body {
 .mt-4 { margin-top: 48px; }
 .mb-0 { margin-bottom: 0; }
 .mb-0_25 { margin-bottom: 3px; }
-.mb-0_5 { margin-bottom: 6px; }
+.mb-0_5 { margin-bottom: 5px; }
 .mb-0_75 { margin-bottom: 9px; }
 .mb-1 { margin-bottom: 12px; }
 .mb-1_5 { margin-bottom: 18px; }
 .mb-2 { margin-bottom: 24px; }
 .mb-3 { margin-bottom: 36px; }
 .mb-4 { margin-bottom: 48px; }
-
+.pb-0_5 {padding-bottom: 5px; }
 
 /* / MARGIN ---------------------------------------------------------- */
 /* MAIN-MENU ---------------------------------------------------------- */
@@ -139,7 +140,9 @@ a {
   background-color: #333;
   border-color: $bondi-blue;
 }
-
+.navbar-brand{
+  padding: 10px 15px;
+}
 @media (min-width:767px) {
   .scrollable-menu {
     height: auto;
@@ -165,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 h1 {
@@ -216,6 +219,7 @@ p.h4 {
 .text-jst{
   text-align: justify;
   padding: 0 5px;
+  font-size: 14px;
 }
 
 /* -- */

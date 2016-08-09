@@ -1,12 +1,3 @@
-##Plenty\Modules\Item\Attribute\Contracts\AttributeValueLangRepositoryContract
-###Properties
-
-Alles gut. :)
-
-###Methoden
-
-Für die Methode `findAttributeValue` fehlt die Beschreibung.
-
 ##Plenty\Modules\Item\Attribute\Models\Attribute
 Beschreibung ist zu kurz oder nicht vorhanden:
 
@@ -17,6 +8,10 @@ Beschreibung ist zu kurz oder nicht vorhanden:
 Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `maps` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `casts` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `hidden` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
@@ -68,35 +63,16 @@ Für das Property `attribute` fehlt die Beschreibung (Evtl. `@inheritdoc` und/od
 
 Alles gut. :)
 
-##Plenty\Modules\Item\Attribute\Models\AttributeLang
-Beschreibung ist zu kurz oder nicht vorhanden:
-
-    Class AttributeLang
-
-###Properties
-
-Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `attribute_id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `lang` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `name` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `attributeLang` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-###Methoden
-
-Alles gut. :)
-
 ##Plenty\Modules\Item\Attribute\Models\AttributeValue
 ###Properties
 
 Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `maps` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `casts` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `hidden` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
@@ -144,25 +120,6 @@ Für das Property `attribute` fehlt die Beschreibung (Evtl. `@inheritdoc` und/od
 
 Alles gut. :)
 
-##Plenty\Modules\Item\Attribute\Models\AttributeValueLang
-###Properties
-
-Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `value_id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `lang` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `name` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `attributeValue` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-###Methoden
-
-Alles gut. :)
-
 ##Plenty\Modules\Item\Availability\Contracts\AvailabilityRepositoryContract
 ###Properties
 
@@ -189,159 +146,6 @@ Alles gut. :)
 ###Properties
 
 Alles gut. :)
-
-###Methoden
-
-Alles gut. :)
-
-##Plenty\Modules\Item\Character\Contracts\CharacterItemNameRepositoryContract
-###Properties
-
-Alles gut. :)
-
-###Methoden
-
-Für die Methode `findCharacterItem` fehlt die Beschreibung.
-
-Für die Methode `all` fehlt die Beschreibung.
-
-##Plenty\Modules\Item\Character\Contracts\CharacterMarketComponentRepositoryContract
-###Properties
-
-Alles gut. :)
-
-###Methoden
-
-Für die Methode `getCharacterMarketComponents` fehlt die Beschreibung.
-
-##Plenty\Modules\Item\Character\Contracts\CharacterSelectionRepositoryContract
-###Properties
-
-Alles gut. :)
-
-###Methoden
-
-Für die Methode `findCharacterSelection` fehlt die Beschreibung.
-
-##Plenty\Modules\Item\Character\Models\CharacterItem
-Beschreibung ist zu kurz oder nicht vorhanden:
-
-    Class CharacterItem
-
-###Properties
-
-Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `hidden` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `primaryKey` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `position` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `unit` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `character_group_id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `image_name` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `backend_name` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `value_type` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `searchable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `order_param` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `display_article` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `display_article_list` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `display_checkout` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `display_pdf` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `backend_notice` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `markup` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `view_as_fee` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `plenty_character_item_last_update_timestamp` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `names` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `marketComponents` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-###Methoden
-
-Alles gut. :)
-
-##Plenty\Modules\Item\Character\Models\CharacterItemName
-###Properties
-
-Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `hidden` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `character_item_id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `lang` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `name` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `description` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `character` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-###Methoden
-
-Alles gut. :)
-
-##Plenty\Modules\Item\Character\Models\CharacterMarketComponent
-###Properties
-
-Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `character_item_id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `component_id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `market_reference` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `external_component` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `character` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-###Methoden
-
-Alles gut. :)
-
-##Plenty\Modules\Item\Character\Models\CharacterSelection
-###Properties
-
-Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `primaryKey` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `character_item_id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `lang` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `name` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `description` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `character` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 ###Methoden
 
@@ -721,6 +525,10 @@ Alles gut. :)
 ###Methoden
 
 Für die Methode `__construct` fehlt die Beschreibung.
+
+Für die Methode `getCurrentIds` fehlt die Beschreibung.
+
+Für die Methode `getNumberOfCalculatedRows` fehlt die Beschreibung.
 
 ##Plenty\Modules\Item\DataLayer\Models\VariationAttributeValue
 Beschreibung ist zu kurz oder nicht vorhanden:
@@ -1339,9 +1147,9 @@ Für das Property `plenty_producer_last_update_timestamp` fehlt die Beschreibung
 
 ###Methoden
 
-Für die Methode `scopeProducerName` fehlt die Beschreibung.
+Für die Methode `findOrFail` fehlt die Beschreibung.
 
-Für die Methode `producerName` fehlt die Beschreibung.
+Für die Methode `findOrNew` fehlt die Beschreibung.
 
 ##Plenty\Modules\Item\ShippingSupport\Contracts\ShippingSupportRepositoryContract
 ###Properties
@@ -1356,6 +1164,8 @@ Für die Methode `findByItemId` fehlt die Beschreibung.
 ###Properties
 
 Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `timestamps` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `maps` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
@@ -1375,17 +1185,6 @@ Für das Property `profileId` fehlt die Beschreibung (Evtl. `@inheritdoc` und/od
 
 Alles gut. :)
 
-##Plenty\Modules\Item\Unit\Contracts\UnitLangRepositoryContract
-###Properties
-
-Alles gut. :)
-
-###Methoden
-
-Für die Methode `findUnit` fehlt die Beschreibung.
-
-Für die Methode `all` fehlt die Beschreibung.
-
 ##Plenty\Modules\Item\Unit\Models\Unit
 Beschreibung ist zu kurz oder nicht vorhanden:
 
@@ -1396,6 +1195,8 @@ Beschreibung ist zu kurz oder nicht vorhanden:
 Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `maps` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+
+Für das Property `casts` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
@@ -1409,38 +1210,13 @@ Für das Property `position` fehlt die Beschreibung (Evtl. `@inheritdoc` und/ode
 
 Für das Property `unitOfMeasurement` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
-Für das Property `areDecimalPlacesAllowed` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+Für das Property `DecimalPlacesAllowed` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `updatedAt` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 Für das Property `createdAt` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
-Für das Property `unitLanguages` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-###Methoden
-
-Alles gut. :)
-
-##Plenty\Modules\Item\Unit\Models\UnitLang
-Beschreibung ist zu kurz oder nicht vorhanden:
-
-    Class UnitLang
-
-###Properties
-
-Für das Property `table` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `maps` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `fillable` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `id` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `lang` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `name` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
-
-Für das Property `unit` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
+Für das Property `langs` fehlt die Beschreibung (Evtl. `@inheritdoc` und/oder `@internal`?).
 
 ###Methoden
 
