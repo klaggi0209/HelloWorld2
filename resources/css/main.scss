@@ -139,6 +139,9 @@ a {
 .navbar-inverse {
   background-color: #333;
   border-color: $bondi-blue;
+  .navbar-nav>li>a {
+    color: #d0d0d0;
+  }
 }
 .navbar-brand{
   padding: 10px 15px;
@@ -151,9 +154,74 @@ a {
   }
 }
 
+/* BIG MENU ---------------------------------------------------------- */
+.dropdown-big-menu {
+  position: static !important;
+}
+
+.big-menu {
+  max-width: 1000px;
+  width: 90%;
+  margin-left: 5%;
+  padding: 20px 0;
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #333333;
+    white-space: normal;
+    &:hover,
+    &:focus,
+    &:active{
+      background-color: #f5f5f5;
+      text-decoration: none;
+    }
+  }
+
+  .disabled > a:hover,
+  .disabled > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    cursor: not-allowed;
+  }
+  .big-header {
+    border-bottom: 1px solid $bondi-blue;
+    color: $bondi-blue;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+@media (max-width: 767px) {
+  .big-menu {
+    margin-left: 0 ;
+    margin-right: 0 ;
+    padding: 0 0 20px 0;
+    width: 100%;
+
+  li > ul > li > a {
+        color: #d0d0d0;
+    &:hover{
+      background-color: transparent;
+    }
+      }
+  .big-header {
+    padding: 3px 15px !important;
+    }
+  }
+}
+
 /* /MAIN-MENU ---------------------------------------------------------- */
-
-
 
 /* HEADLINES  ---------------------------------------------------------- */
 
@@ -403,6 +471,14 @@ p.h4 {
     overflow: hidden;
     top: 0;
     left: 0;
+
+    &:hover .more {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+    }
   }
     img {
       display: initial;
@@ -453,14 +529,6 @@ p.h4 {
        margin-top: 10px;
        margin-bottom: 10px;
      }
-    }
-
-    &:hover .more {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
     }
 }
 @media (max-width: 1199px) {
