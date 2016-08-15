@@ -119,7 +119,7 @@ TopItems/
     {
         public function map(Router $router):void
         {
-            $router->get('/topitems', 'TopItems\Controllers\ContentController@showTopItems');
+            $router->get('topitems', 'TopItems\Controllers\ContentController@showTopItems');
         }
     }
 </pre>
@@ -282,6 +282,7 @@ namespace TopItems\Controllers;
                 <span><</span>li>No items found!<span><</span>/li>
         {% endif %}
     <span><</span>/ul>
+    <span><</span>/div>
 {% endblock %}
 </pre>
 {% endraw %}
