@@ -209,8 +209,8 @@ a {
     padding: 0 0 20px 0;
     width: 100%;
 
-  li > ul > li > a {
-        color: #d0d0d0;
+  a {
+    color: #d0d0d0;
     &:hover{
       background-color: transparent;
     }
@@ -404,7 +404,6 @@ p.h4 {
 
     li {
       padding: 4px 0;
-      font-size: 12px;
     }
 
   }
@@ -586,6 +585,7 @@ p.h4 {
 footer {
   border-top:2px solid #b0daf2;
   background: #f2f2f2;
+
   p{
     font-size:12px;
     margin-bottom: 0;
