@@ -13,7 +13,17 @@ class ContentController extends Controller
 {
     public function showLandingPage(Twig $twig):string
     {
-        return $twig->render('PlentyPluginShowcase::content.LandingPage');
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch,CURLOPT_USERAGENT,'plenty-plugin-showcase-fork-count');
+      curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/plentymarkets/plenty-plugin-showcase');
+      $result = curl_exec($ch);
+      curl_close($ch);
+      $payload = json_decode($result, true);
+      $templateData = array(
+          'curlResult' => $payload,
+      );
+      return $twig->render('PlentyPluginShowcase::content.LandingPage', $templateData);
     }
 
     public function showTutorialsHello( Twig $twig):string
