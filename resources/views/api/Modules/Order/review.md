@@ -14,7 +14,7 @@ Alles gut. :)
 
 ###Methoden
 
-Für die Methode `getLatestOrderByContactId` fehlt die Beschreibung.
+Alles gut. :)
 
 ##Plenty\Modules\Order\Models\Order
 Beschreibung ist zu kurz oder nicht vorhanden:
