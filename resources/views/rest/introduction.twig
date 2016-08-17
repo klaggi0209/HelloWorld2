@@ -71,9 +71,34 @@
         JSON object is manipulated
       </li>
       <li>
-        Manipulated JSON object is transfered via PUT, POST or DELETE
+        Manipulated JSON object is transferred via PUT, POST or DELETE
       </li>
     </ol>
+</div>
+
+<h2 id="rest-pagination">Pagination</h2>
+
+<div class="api-docs-basics">
+    <p>For designated GET requests, you can use the request parameters <code>page</code> and <code>itemsPerPage</code> to limit your request to the specified values. Both parameters are optional. With <code>itemsPerPage</code>, the call returns the numbers of entries specified with this parameter and <code>page</code> will return the respective page. In the example below, the plugins 1 to 10 (if there are 10+ plugins) from the first page of the plugin inbox will be returned in the response JSON:
+    </p>
+    <br />
+    <div class="route-container" data-type="get" data-middleware="oauth">
+      <code>/rest/plugins/search?page=1&itemsPerPage=10</code>
+    </div>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active">
+<a href="#search-plugins_response_example" role="tab" data-toggle="tab">
+  Response (example)
+</a>
+</li>
+</ul>
+
+<div class="tab-content">
+<div id="search-plugins_response_example" role="tabpanel" class="tab-pane active">
+<div class="editor-container" ace-mode="json">{"page":"1","totalsCount":1,"isLastPage":true,"entries":[{"name":"PlentyPluginShowcase","type":"template","activeStage":false,"activeProductive":false,"id":1,"position":"0","created_at":"2016-06-21 09:16:10","updated_at":"2016-06-21 09:16:10","inProductive":false,"inStage":false,"version":0.1,"description":"showcase of plentymarkets plugins","namespace":"Showcase","author":"plentymarkets GmbH","keywords":["plentymarkets","showcase","plugins"],"require":[],"authorIcon":null,"pluginIcon":null,"webstores":[],"permissions":[]}]}</div>
+</div>
 </div>
 
 <h2 id="rest-resources">Resources</h2>
